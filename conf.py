@@ -88,6 +88,9 @@ exclude_patterns = ['_build']
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
 
+# Use bash by default
+highlight_language = 'bash'
+
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
 
