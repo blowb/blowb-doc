@@ -6,3 +6,4 @@ Install Software on The Host
 
    basic-setup
    install-docker
+   enable-selinux
