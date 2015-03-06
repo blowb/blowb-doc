@@ -27,8 +27,8 @@ to add a function to enter a container easily:
 ::
 
    cat >>~/.bashrc << 'EOF'
-   ne (name) {
-    pid=$(docker inspect --format {{.State.Pid}} $name)
+   ne () {
+    pid=$(docker inspect --format {{.State.Pid}} $1)
     nsenter --target $pid --mount --uts --ipc --net --pid
    }
    EOF
