@@ -22,4 +22,16 @@ To use docker as a non-root user:
 It will let you run docker without root access. Remember you need to relogin to make the group
 change take effect.
 
+Since we may need to use `nsenter`_ to enter the container, for convenience, run the command below
+to add a function to enter a container easily:
+::
+
+   cat >>~/.bashrc << 'EOF'
+   ne (name) {
+    pid=$(docker inspect --format {{.State.Pid}} $name)
+    nsenter --target $pid --mount --uts --ipc --net --pid
+   }
+   EOF
+
 .. _Docker: http://docker.com
+.. _nsenter: http://blog.docker.com/tag/nsenter/
