@@ -12,6 +12,7 @@ Contents:
    :maxdepth: 2
 
    setup-host/index
+   install-essential-docker/index
 
 
 

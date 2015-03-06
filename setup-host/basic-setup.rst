@@ -22,3 +22,8 @@ system packages:
    sudo yum update
 
 If this command fails, you should go back and check whether the admin account is set up correctly.
+
+You may want to install some helpful utilities:
+::
+
+   sudo yum install telnet bash-completion
