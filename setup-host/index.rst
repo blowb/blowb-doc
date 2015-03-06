@@ -1,5 +1,5 @@
-Install Software on The Host
-============================
+Set up the Host System
+======================
 
 .. toctree::
    :maxdepth: 2

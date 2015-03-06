@@ -11,7 +11,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   install-host/index
+   setup-host/index
 
 
 
