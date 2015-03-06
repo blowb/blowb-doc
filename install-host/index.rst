@@ -1,8 +1,8 @@
-Install Software Needed on The Host
-===================================
+Install Software on The Host
+============================
 
 .. toctree::
    :maxdepth: 2
 
+   basic-setup
    install-docker
-   install-nginx
