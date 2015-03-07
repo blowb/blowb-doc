@@ -33,5 +33,36 @@ to add a function to enter a container easily:
    }
    EOF
 
+Also run the following command:
+::
+
+   ifconfig docker0
+
+The output should be similar to the following:
+
+.. highlight:: none
+
+    docker0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+            inet 172.17.42.1  netmask 255.255.0.0  broadcast 0.0.0.0
+            inet6 fe80::5484:7aff:fefe:9799  prefixlen 64  scopeid 0x20<link>
+            ether 56:84:7a:fe:97:99  txqueuelen 0  (Ethernet)
+            RX packets 39  bytes 1828 (1.7 KiB)
+            RX errors 0  dropped 0  overruns 0  frame 0
+            TX packets 45  bytes 4050 (3.9 KiB)
+            TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+You may have a different IP address after ``inet``. Export the ``inet`` entry to a variable, we will
+use it later. In this example it should be:
+::
+
+   echo 'export DOCKER_INET=172.17.42.1' >> ~/.bashrc
+
+Remember to replace ``172.17.42.1`` with the output on your system!
+
+Reload ``~/.bashrc``:
+::
+
+   source ~/.bashrc
+
 .. _Docker: http://docker.com
 .. _nsenter: http://blog.docker.com/tag/nsenter/
