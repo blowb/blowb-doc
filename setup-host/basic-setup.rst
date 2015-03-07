@@ -28,8 +28,4 @@ You may want to install some helpful utilities:
 
    sudo yum install telnet bash-completion
 
-If you don't need to run an smtp on the host (we will install an smtp server in a docker container
-later), disable the postfix service, which is often enabled by default on CentOS:
-::
-
-   sudo systemctl disable postfix
+To safely assure everything set up in this section to be applied, reboot the system.

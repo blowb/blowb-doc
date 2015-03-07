@@ -6,4 +6,5 @@ Set up the Host System
 
    basic-setup
    install-docker
+   configure-postfix
    enable-selinux
