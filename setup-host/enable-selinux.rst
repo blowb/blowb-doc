@@ -1,4 +1,4 @@
-Enable SELinux (Recommended but Optional)
+Enable SELinux (Optional but Recommended)
 =========================================
 
 `SELinux`_ is a Linux kernel security module which provides `mandatory access controls`_. It is
