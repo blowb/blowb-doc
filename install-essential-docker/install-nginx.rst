@@ -20,4 +20,4 @@ Create the nginx container and run:
 ::
 
    docker run --restart always -d -p 0.0.0.0:80:80 -p 0.0.0.0:443:443 \
-    -v /etc/nginx/conf.d:/var/docker/nginx --name nginx nginx
+    -v /var/docker/nginx:/etc/nginx/conf.d --name nginx nginx
