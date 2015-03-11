@@ -7,14 +7,14 @@ containers.
 Create the directory to serve the configuration files and certificates on the host:
 ::
 
-   sudo mkdir -p /var/docker/nginx/ssl
+   sudo mkdir -p /var/docker/nginx/tls
 
 If needed create a dummy SSL/TLS key pair for nginx:
 ::
 
     sudo openssl req -x509 -nodes -days 3000 -newkey rsa:2048 \
-     -keyout /var/docker/nginx/ssl/dummy.key -out /var/docker/nginx/ssl/dummy.crt
-    sudo chmod 600 /var/docker/nginx/ssl/dummy.key
+     -keyout /var/docker/nginx/tls/dummy.key -out /var/docker/nginx/tls/dummy.crt
+    sudo chmod 600 /var/docker/nginx/tls/dummy.key
 
 Create the nginx container and run:
 ::
