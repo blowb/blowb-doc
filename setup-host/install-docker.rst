@@ -7,12 +7,13 @@ container for better isolation.
 Run the following command to install docker:
 ::
 
-   yum install docker
+   sudo yum install docker
 
-Make docker start at boot:
+Start docker and make docker start at boot:
 ::
 
-    sudo systemctl enable docker
+   sudo systemctl start docker
+   sudo systemctl enable docker
 
 To use docker as a non-root user:
 ::
@@ -51,8 +52,8 @@ The output should be similar to the following:
             TX packets 45  bytes 4050 (3.9 KiB)
             TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
-You may have a different IP address after ``inet``. Export the ``inet`` entry to a variable, we will
-use it later. In this example it should be:
+You may have a different IP address after ``inet``. Export the ``inet`` entry to a variable, which
+we will use it later. In this example it should be:
 ::
 
    echo 'export DOCKER_INET=172.17.42.1' >> ~/.bashrc

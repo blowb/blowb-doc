@@ -79,14 +79,14 @@ with:
 where ``<echo $DOCKER_INET>`` should be replaced with your output of ``echo $DOCKER_INET`` when run
 on bash.
 
-To achieve point 2, search this file for ``my_networks``. The whole docker network as well as
-localhost should be added to ``my_networks``. If your ``ifconfig docker0`` has a netmask of
+To achieve point 2, search this file for ``mynetworks``. The whole docker network as well as
+localhost should be added to ``mynetworks``. If your ``ifconfig docker0`` has a netmask of
 ``255.255.0.0`` (which is the default case), add this following line below the commented
-``my_networks`` lines:
+``mynetworks`` lines:
 
 .. code-block:: none
 
-   my_networks = localhost, <echo $DOCKER_INET | awk -F. '{print $1 "." $2 ".0.0/16"}'>
+   mynetworks = localhost, <echo $DOCKER_INET | awk -F. '{print $1 "." $2 ".0.0/16"}'>
 
 Where ``<echo $DOCKER_INET | awk -F. '{print $1 "." $2 ".0.0/16"}'>`` is the corresponding output on
 bash.
@@ -100,7 +100,7 @@ To test whether it works within a docker container, run the following command to
 container:
 ::
 
-   docker run -t -i debian /bin/bash
+   docker run -t -i --rm debian /bin/bash
 
 You should be running bash in the docker container now. Run the commands below after replacing
 ``you@example.com`` with your email address:
@@ -131,11 +131,10 @@ to the postfix server:
 
 If successful, you should be able to receive an email in your inbox from ``test@example.com``. Also
 check your spam folder if you didn't receive the email. Now exit the bash in the container and
-delete the testing container:
+the testing container should automatically be deleted:
 ::
 
    exit # quit the bash in the docker container
-   docker rm test
 
 One More Test
 -------------

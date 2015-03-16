@@ -18,7 +18,7 @@ To check the status of SELinux on your system, you can run the command below:
 
 You may have the following 3 possible output:
 
-- **Diabled**. Your SELinux module is disabled. You can edit ``/etc/selinux/config`` to change to
+- **Disabled**. Your SELinux module is disabled. You can edit ``/etc/selinux/config`` to change to
   permissive mode:
 
   ::

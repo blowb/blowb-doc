@@ -10,7 +10,7 @@ avoid using root to maintain. You can run the following command, after replacing
    passwd <admin_user_name>   # set up the password
 
 We put the account to wheel group, so this account can use ``sudo`` to run some high privilege
-commands. Now you can switch to the admin user by run:
+commands. Now you can switch to the admin user by running:
 ::
 
    su <admin_user_name>
