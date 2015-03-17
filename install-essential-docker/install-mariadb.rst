@@ -6,7 +6,7 @@ We will use `MariaDB`_ as the main database.
 Run the following command to create a data container:
 ::
 
-   docker create -v /var/lib/mysql --name dbdata scratch /bin/true
+   docker run -v /var/lib/mysql --name dbdata busybox /bin/true
 
 Start the MariaDB container with the following command, after replacing ``'PASSWORD'`` with your own
 password:
