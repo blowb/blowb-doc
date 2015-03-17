@@ -32,3 +32,11 @@ this container frequently, for convenience, we create a script to do this:
     --name nginx nginx
    EOF
    chmod +x ~/util/start-nginx.sh
+
+Also download the :download:`template Nginx configuration files <install-nginx/nginx-conf.tar.gz>`
+and extract them to :file:`/var/docker/nginx/`:
+::
+
+   wget -O - http://link.to.the.above.download.link | sudo tar xvf - -C /var/docker/nginx
+
+The contents of the files can be viewed in :doc:`install-nginx/index`.
