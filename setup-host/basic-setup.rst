@@ -23,9 +23,9 @@ system packages:
 
 If this command fails, you should go back and check whether the admin account is set up correctly.
 
-You may want to install some helpful utilities (Optional):
+We probably also need to install some utilities:
 ::
 
-   sudo yum install bash-completion nc telnet vim-enhanced
+   sudo yum install bash-completion ed nc telnet vim-enhanced
 
 To safely assure everything set up in this section to be applied, reboot the system.
