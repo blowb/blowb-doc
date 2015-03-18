@@ -7,6 +7,7 @@ you, your family and/or your organization to preserve privacy.
 Contents:
 
 .. toctree::
+   :numbered:
    :maxdepth: 2
 
    setup-host/index
