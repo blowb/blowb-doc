@@ -12,3 +12,4 @@ Contents:
    setup-host/index
    install-essential-docker/index
    install-internet-service-docker/index
+   bug-and-contribution
