@@ -33,10 +33,9 @@ this container frequently, for convenience, we create a script to do this:
    EOF
    chmod +x ~/util/start-nginx.sh
 
-Also download the :download:`template Nginx configuration files <install-nginx/nginx-conf.tar.gz>`
-and extract them to :file:`/var/docker/nginx/`:
+Also download the :doc:`template Nginx configuration files <install-nginx/index>`:
 ::
 
-   wget -O - http://link.to.the.above.download.link | sudo tar xvf - -C /var/docker/nginx
-
-The contents of the files can be viewed in :doc:`install-nginx/index`.
+   for f in uwsgi.conf.tmpl uwsgi.tls.conf.tmpl; do
+     sudo wget -O /var/docker/nginx/$f http://blowb.topbug.net/_downloads/$f
+   done
