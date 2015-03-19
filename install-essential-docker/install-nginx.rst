@@ -21,7 +21,7 @@ this container frequently, for convenience, we create a script to do this:
 ::
 
    mkdir ~/util
-   cat > ~/util/start-nginx.sh <<'EOF'
+   cat > ~/util/rerun-nginx.sh <<'EOF'
    #!/bin/bash
 
    echo Stoping and deleting current Nginx container...
@@ -31,7 +31,7 @@ this container frequently, for convenience, we create a script to do this:
     -v /var/docker/nginx:/etc/nginx/conf.d:ro $(cat ~/util/nginx-links.txt) \
     --name nginx nginx
    EOF
-   chmod +x ~/util/start-nginx.sh
+   chmod +x ~/util/rerun-nginx.sh
 
 Also download the :doc:`template Nginx configuration files <install-nginx/index>`:
 ::

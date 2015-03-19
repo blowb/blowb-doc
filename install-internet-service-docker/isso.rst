@@ -120,7 +120,7 @@ Add a new link to the ``nginx-links.txt`` file:
 Recreate the Nginx container:
 ::
 
-   ~/util/start-nginx.sh
+   ~/util/rerun-nginx.sh
 
 
 .. _Isso: http://postage.org/isso/
