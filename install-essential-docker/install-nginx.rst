@@ -33,6 +33,11 @@ this container frequently, for convenience, we create a script to do this:
    EOF
    chmod +x ~/util/rerun-nginx.sh
 
+Run the script to create the Nginx container:
+::
+
+   ~/util/rerun-nginx.sh
+
 Also download the :doc:`template Nginx configuration files <install-nginx/index>`:
 ::
 
