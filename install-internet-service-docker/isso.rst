@@ -70,7 +70,7 @@ Create a data container for isso:
 Start the isso docker container:
 ::
 
-   docker run --restart always -d -v /var/docker/isso:/etc/isso --volumes-from isso-data \
+   docker run --restart always -d -v /var/docker/isso:/etc/isso:ro --volumes-from isso-data \
     --env NUM_PROCESSES=1 --env NUM_THREADS=2 --add-host smtp-server:$DOCKER_INET \
     --name isso blowb/isso
 
