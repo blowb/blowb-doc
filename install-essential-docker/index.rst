@@ -14,9 +14,8 @@ If you have SELinux enabled, you should also run:
 
    sudo chcon -t svirt_sandbox_file_t $DOCKER_SHARE
 
-Contents:
-
 .. toctree::
+   :caption: Table of Contents
    :maxdepth: 2
 
    install-nginx

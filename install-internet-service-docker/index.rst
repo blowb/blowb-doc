@@ -6,9 +6,8 @@ as file/contact/calendar syncing (ownCloud), information publishing (Wordpress),
 (XMPP), etc. None of these software is essential, which means that you can choose to install only
 the ones which you need.
 
-Contents:
-
 .. toctree::
+   :caption: Table of Contents
    :maxdepth: 2
 
    isso
