@@ -22,43 +22,31 @@ following commands switch your working directory to ``/var/docker/isso`` and mod
 the configuration file (please replace ``isso@example.com`` with the email address you want
 notification to come from and ``me@example.com`` to be the address which receives email
 notification):
-::
+
+.. code-block:: bash
+   :linenos:
 
    cd /var/docker/isso
    export NOTIFICATION_FROM=isso@example.com
    export NOTIFICATION_TO=me@example.com
    sudo ed isso.conf << EOF
-   %s/^dbpath =.*$/dbpath = \/var\/uwsgi\/comments.db
-   %s/^notify =.*$/notify = smtp
-   %s/^port =.*$/port = 25
-   %s/^security =.*$/security = none
+   %s/^dbpath =.*/dbpath = \/var\/uwsgi\/comments.db
+   %s/^notify =.*/notify = smtp
+   %s/^port =.*/port = 25
+   %s/^security =.*/security = none
    %s/^host = localhost/host = docker-host
-   %s/^from =.*$/from = ${NOTIFICATION_FROM}
-   %s/^to =.*$/to = ${NOTIFICATION_TO}
+   %s/^from =.*/from = ${NOTIFICATION_FROM}
+   %s/^to =.*/to = ${NOTIFICATION_TO}
    wq
    EOF
    unset NOTIFICATION_FROM NOTIFICATION_TO
 
 Explanation:
 
-.. code-block:: none
+  - **line 5**: modifies the path to the comments database file to a location where writable by the uWSGI process(es);
 
-   %s/^dbpath =.*$/dbpath = \/var\/uwsgi\/comments.db
-
-This line modifies the path to the comments database file to a location where writable by the uWSGI
-process(es).
-
-.. code-block:: none
-
-   %s/^notify =.*$/notify = smtp
-   %s/^port =.*$/port = 25
-   %s/^security =.*$/security = none
-   %s/^host = localhost/host = docker-host
-   %s/^from =.*$/from = ${NOTIFICATION_FROM}
-   %s/^to =.*$/to = ${NOTIFICATION_TO}
-
-These lines set the email notification to your email address using the postfix server we have
-configured on the host system.
+  - **line 6-11**: set the email notification to your email address using the postfix server we have configured on the
+    host system.
 
 Now edit this config file manually to customize it for your website:
 ::
