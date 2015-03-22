@@ -38,7 +38,7 @@ Run the script to create the Nginx container:
 
    ~/util/rerun-nginx.sh
 
-Also download the :doc:`template Nginx configuration files <install-nginx/index>`:
+Also download the :doc:`template Nginx configuration files <appendices/list-of-nginx-config>`:
 ::
 
    for f in uwsgi.conf.tmpl uwsgi.tls.conf.tmpl; do

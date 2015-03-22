@@ -19,4 +19,4 @@ Contents:
 
    install-nginx
    install-mariadb
-   appendix
+   appendices/index
