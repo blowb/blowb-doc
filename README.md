@@ -9,7 +9,7 @@ Please visit http://blowb.topbug.net to read the document.
 
 ## License
 
-This document is licensed under a
+The contents of this document are licensed under a
 [Creative Commons Attribution-ShareAlike 4.0 International License][], i.e. CC BY-SA 4.0.
 
 
