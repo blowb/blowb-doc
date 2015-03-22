@@ -9,16 +9,16 @@ Configure Isso Options
 Create a directory to store isso configuration file:
 ::
 
-   sudo mkdir -p /var/docker/isso
+   sudo mkdir -p $DOCKER_SHARE/isso
 
-Download the isso example config file to ``/var/docker/isso``:
+Download the isso example config file to ``$DOCKER_SHARE/isso``:
 ::
 
-   sudo wget -O /var/docker/isso/isso.conf \
+   sudo wget -O $DOCKER_SHARE/isso/isso.conf \
     https://github.com/posativ/isso/raw/c8655731d6d183a590c04bdf1f97a0afbebee822/share/isso.conf
 
 Now we need to edit the config file to make some changes for the isso container we'll use. The
-following commands switch your working directory to ``/var/docker/isso`` and modify some parts of
+following commands switch your working directory to ``$DOCKER_SHARE/isso`` and modify some parts of
 the configuration file (please replace ``isso@example.com`` with the email address you want
 notification to come from and ``me@example.com`` to be the address which receives email
 notification):
@@ -26,7 +26,7 @@ notification):
 .. code-block:: bash
    :linenos:
 
-   cd /var/docker/isso
+   cd $DOCKER_SHARE/isso
    export NOTIFICATION_FROM=isso@example.com
    export NOTIFICATION_TO=me@example.com
    sudo ed isso.conf << EOF
@@ -51,7 +51,7 @@ Explanation:
 Now edit this config file manually to customize it for your website:
 ::
 
-   sudo vim /var/docker/isso/isso.conf
+   sudo vim $DOCKER_SHARE/isso/isso.conf
 
 Modify the ``host`` option in the ``[general]`` section. Follow the instructions in the comments
 above the ``host`` option to update the option to your website URL. If you need to serve multiple
@@ -70,7 +70,7 @@ Create a data container for isso:
 Start the isso docker container:
 ::
 
-   docker run --restart always -d -v /var/docker/isso:/etc/isso:ro --volumes-from isso-data \
+   docker run --restart always -d -v $DOCKER_SHARE/isso:/etc/isso:ro --volumes-from isso-data \
     --env NUM_PROCESSES=1 --env NUM_THREADS=2 --add-host smtp-server:$DOCKER_INET \
     --name isso blowb/isso
 
@@ -87,7 +87,7 @@ Replace ``comments.example.com`` with the address you want to use to serve as an
 the following commands:
 ::
 
-   cd /var/docker/nginx
+   cd $DOCKER_SHARE/nginx
    ISSO_URL='comments.example.com' sudo -s <<EOF
    sed -e "s/@server_name@/$ISSO_URL/g" \
     -e 's/@uwsgi_server@/isso:9000/g' uwsgi.conf.tmpl >isso.conf

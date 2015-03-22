@@ -5,12 +5,14 @@ In this chapter we'll install some essential software in Docker containers. Befo
 create a directory used to share files between the host and the containers:
 ::
 
-   sudo mkdir /var/docker
+   export DOCKER_SHARE=/var/docker
+   echo 'export DOCKER_SHARE=/var/docker' >> ~/.bashrc
+   sudo mkdir $DOCKER_SHARE
 
 If you have SELinux enabled, you should also run:
 ::
 
-   sudo chcon -t svirt_sandbox_file_t /var/docker
+   sudo chcon -t svirt_sandbox_file_t $DOCKER_SHARE
 
 Contents:
 

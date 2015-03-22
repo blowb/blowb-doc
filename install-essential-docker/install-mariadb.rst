@@ -37,8 +37,8 @@ Run the following commands to download and do some preprocessing of your MariaDB
    :linenos:
 
    export SIZE=YOUR_SIZE
-   sudo mkdir /var/docker/mariadb
-   sudo -E wget -O /var/docker/mariadb/my.cnf \
+   sudo mkdir $DOCKER_SHARE/mariadb
+   sudo -E wget -O $DOCKER_SHARE/mariadb/my.cnf \
     https://github.com/MariaDB/server/raw/10.0/support-files/my-$SIZE.cnf.sh
    sudo sed -ri -e 's/^(bind-address|skip-networking|socket)/#\1/' \
     -e 's/@MYSQL_TCP_PORT@/3306/' \
@@ -48,10 +48,10 @@ Run the following commands to download and do some preprocessing of your MariaDB
    character-set-server = utf8 \
    collation-server = utf8_general_ci' \
     -e '/^\[client\]/a \
-   default-character-set = utf8' /var/docker/mariadb/my.cnf
+   default-character-set = utf8' $DOCKER_SHARE/mariadb/my.cnf
    sudo -s <<'EOF'
-   echo >> /var/docker/mariadb/my.cnf
-   echo '!includedir /etc/mysql/conf.d/' >> /var/docker/mariadb/my.cnf
+   echo >> $DOCKER_SHARE/mariadb/my.cnf
+   echo '!includedir /etc/mysql/conf.d/' >> $DOCKER_SHARE/mariadb/my.cnf
    EOF
    unset SIZE
 
@@ -68,12 +68,12 @@ Explanation:
 Optionally you can also adjust other parameters in the config file at this point:
 ::
 
-   sudo vim /var/docker/mariadb/my.cnf
+   sudo vim $DOCKER_SHARE/mariadb/my.cnf
 
 Start the MariaDB container with the following command, after replacing ``'PASSWORD'`` with your own password:
 ::
 
-   docker run --restart always -d --volumes-from dbdata -v /var/docker/mariadb/my.cnf:/etc/mysql/my.cnf:ro \
+   docker run --restart always -d --volumes-from dbdata -v $DOCKER_SHARE/mariadb/my.cnf:/etc/mysql/my.cnf:ro \
     -e MYSQL_ROOT_PASSWORD='PASSWORD' --name mariadb mariadb:10.0
 
 Since our command line history has recorded the root password of MariaDB, we need to clear the
