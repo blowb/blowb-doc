@@ -41,7 +41,7 @@ Also run the following command:
 
 The output should be similar to the following:
 
-.. highlight:: none
+.. code-block:: none
 
     docker0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
             inet 172.17.42.1  netmask 255.255.0.0  broadcast 0.0.0.0
