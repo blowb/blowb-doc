@@ -29,22 +29,22 @@ this process would need. Lower the number to 8192 should be enough for a small d
 If you've imported an old database and configuration, you may want to check some compatibility issues you may have and
 skip the rest of this section. If this is your new OpenLDAP database, we have a little more work to do.
 
-We need to change the database suffix and the root DN. Run ``ne openldap`` to launch the shell inside the OpenLDAP
-container. Inside the container, run the following command, after replacing ``example.com`` with your domain:
+First, we need to change the database suffix and the root DN. Run ``ne openldap`` to launch the shell inside the
+OpenLDAP container. Inside the container, run the following command, after replacing ``example.com`` with your domain:
 ::
 
    MY_DOMAIN=example.com
-   LDAP_DOMAIN=$(sed -e 's/^/dc=/' -e 's/\./,dc=/g' <<< $MY_DOMAIN)
+   LDAP_SUFFIX=$(sed -e 's/^/dc=/' -e 's/\./,dc=/g' <<< $MY_DOMAIN)
    ldapmodify -H ldapi:/// <<EOF
    dn: olcDatabase={2}hdb,cn=config
    changetype: modify
    replace: olcSuffix
-   olcSuffix: $LDAP_DOMAIN
+   olcSuffix: $LDAP_SUFFIX
 
    dn: olcDatabase={2}hdb,cn=config
    changetype: modify
    replace: olcRootDN
-   olcRootDN: cn=users,$LDAP_DOMAIN
+   olcRootDN: cn=root,$LDAP_SUFFIX
 
    EOF
 
@@ -55,6 +55,48 @@ If you see messages similar to the following lines, then the modification should
    modifying entry "olcDatabase={2}hdb,cn=config"
 
    modifying entry "olcDatabase={2}hdb,cn=config"
+
+Next we are going to set up a password for the root DN. First, generate the hash of the password (follow the prompt to
+enter password):
+::
+
+   HASHED_PASSWD=$(slappasswd)
+
+Then, update the password in the configuration file:
+::
+
+   ldapmodify -H ldapi:/// <<EOF
+   dn: olcDatabase={2}hdb,cn=config
+   changetype: modify
+   add: olcRootPW
+   olcRootPW: $HASHED_PASSWD
+   EOF
+
+Add some basic schema:
+::
+
+   ldapadd -H ldapi:/// -f /etc/openldap/schema/core.ldif
+   ldapadd -H ldapi:/// -f /etc/openldap/schema/cosine.ldif
+   ldapadd -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif
+
+Add the domain (replace ``MY_PASSWORD`` with your actual password):
+::
+
+   ldapadd -H ldapi:/// -x -w MY_PASSWORD -D "cn=root,$LDAP_SUFFIX" <<EOF
+   dn: $LDAP_SUFFIX
+   objectClass: domain
+   dc: $(sed -e 's/,.*//' -e 's/dc=//' <<< $LDAP_SUFFIX)
+   EOF
+
+Add an organization unit to store the user data (replace ``MY_PASSWORD`` with your actual password):
+::
+
+   ldapadd -H ldapi:/// -x -w MY_PASSWORD -D "cn=root,$LDAP_SUFFIX" <<EOF
+   dn: ou=People,$LDAP_SUFFIX
+   ou: People
+   description: All users.
+   objectClass: organizationalUnit
+   EOF
 
 Press ``Ctrl+D`` to exit the container shell.
 
