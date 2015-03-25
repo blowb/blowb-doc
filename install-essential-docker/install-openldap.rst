@@ -1,5 +1,8 @@
+Install and Configure OpenLDAP
+==============================
+
 Install OpenLDAP
-================
+----------------
 
 We will use slapd (part of `OpenLDAP`_) as the main authentication service. Using an LDAP server to manage users makes it
 much easier to make changes to users', such as adding a new user, deleting a user, or modifying users' password.
@@ -27,7 +30,7 @@ Now we can create and run the ``openldap`` container:
 this process would need. Lower the number to 8192 should be enough for a small database.
 
 If you've imported an old database and configuration, you may want to check some compatibility issues you may have and
-skip the rest of this section. If this is your new OpenLDAP database, we have a little more work to do.
+skip to `Manage the LDAP Database with a GUI frontend`_. If this is your new OpenLDAP database, we have a little more work to do.
 
 First, we need to change the database suffix and the root DN. Run ``ne openldap`` to launch the shell inside the
 OpenLDAP container. Inside the container, run the following command, after replacing ``example.com`` with your domain:
@@ -100,7 +103,33 @@ Add an organization unit to store the user data (replace ``MY_PASSWORD`` with yo
 
 Press ``Ctrl+D`` to exit the container shell.
 
+Manage the LDAP Database with a GUI frontend
+--------------------------------------------
 
+To make managing the LDAP database easier, you probably want to use a GUI frontend, such as `JXplorer`_. You need the
+container's IP address and port number to connect to the slapd process. Use the following command to display the IP
+address of the OpenLDAP container:
+::
 
+   docker inspect --format '{{.NetworkSettings.IPAddress}}' openldap
 
+The default port number is 389.
+
+If you can access your server physically and you have a desktop environment installed on your server (such as GNOME),
+you can install a GUI front end, and connect to the ``slapd`` process through TCP/IP. If you are managing the server
+remotely, you can either (a) use a VNC server, or (b) use SSH tunneling. Here I will introduce the SSH tunneling method.
+
+First, install a GUI LDAP frontend locally. Then, assuming you are managing the server on a POSIX compliant system
+(GNU/Linux, FreeBSD, Mac OS X, etc), use the following command to build a SSH tunnel:
+::
+
+   ssh -L 12345:slapd_ip:389 username@yourserver.tld
+
+where ``slapd_ip`` is the IP address of the OpenLDAP container, ``yourserver.tld`` is your server's address,
+``username`` is the user name of your account on the server (Windows users may replace ``ssh`` with `plink`_).  Launch
+your GUI frontend and connect to ``localhost:12345``, then you should be able to connect to the OpenLDAP server you've
+just set up.
+
+.. _`JXplorer`: http://jxplorer.org/
 .. _`OpenLDAP`: http://www.openldap.org/
+.. _`plink`: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
