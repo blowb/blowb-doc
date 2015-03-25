@@ -48,9 +48,10 @@ container. Inside the container, run the following command, after replacing ``ex
 
    EOF
 
-If you see messages similar to the following line, then the modification should be successful:
+If you see messages similar to the following lines, then the modification should be successful:
 
 .. code-block:: none
+
    modifying entry "olcDatabase={2}hdb,cn=config"
 
    modifying entry "olcDatabase={2}hdb,cn=config"
