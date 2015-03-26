@@ -95,8 +95,8 @@ Add an organization unit to store the user data (replace ``MY_PASSWORD`` with yo
 ::
 
    ldapadd -H ldapi:/// -x -w MY_PASSWORD -D "cn=root,$LDAP_SUFFIX" <<EOF
-   dn: ou=People,$LDAP_SUFFIX
-   ou: People
+   dn: ou=people,$LDAP_SUFFIX
+   ou: people
    description: All users.
    objectClass: organizationalUnit
    EOF
