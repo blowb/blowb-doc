@@ -182,6 +182,17 @@ html_theme_path = ['_themes',]
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'Blowbdoc'
 
+import subprocess
+context = {
+    # source links
+    'source_url_prefix': 'https://gitlab.com/blowb/blowb/raw/{}/'.format(
+        subprocess.check_output('git rev-parse HEAD', shell = True).decode('utf-8')),
+    'source_suffix': '.rst'
+}
+if 'html_context' in globals():
+    html_context.update(context)
+else:
+    html_context = context
 
 # -- Options for LaTeX output ---------------------------------------------
 
