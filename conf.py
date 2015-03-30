@@ -194,6 +194,9 @@ if 'html_context' in globals():
 else:
     html_context = context
 
+# don't copy source code
+html_copy_source = False
+
 # -- Options for LaTeX output ---------------------------------------------
 
 latex_elements = {
