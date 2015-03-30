@@ -26,6 +26,51 @@ If this command fails, you should go back and check whether the admin account is
 We probably also need to install some utilities:
 ::
 
-   sudo yum install bash-completion ed nc telnet vim-enhanced
+   sudo yum install bash-completion ed nc telnet
 
-To safely assure everything set up in this section to be applied, reboot the system.
+We also need to set up a favorite terminal editor. If you are relatively new to GNU/Linux, I suggest you to try `Vim`_,
+which is an enhanced version of the POSIX standard vi. It has a steep but short learning curve for editing configuration
+files, but once you get used to it, you would become more efficient to edit configuration files than in the past. To
+install Vim, run:
+::
+
+   sudo yum install vim-enhanced
+
+Or simply use the ``vi`` command if you still want to use a vi style editor but not the full Vim.
+
+In the case you really don't want to learn vi key-binding, you may want to take a look at `GNU Nano`_. To install GNU
+Nano, run:
+::
+
+   sudo yum install nano
+
+You can use any other terminal editors as you want. Next, we should set up the ``EDITOR`` environment variable to your
+favorite editor command.
+
+- If you use Vim:
+  ::
+
+     echo 'export EDITOR=vim' >> ~/.bashrc
+
+- If you use vi (actually it is the small version of Vim on CentOS):
+  ::
+
+     echo 'export EDITOR=vi' >> ~/.bashrc
+
+- To use GNU Nano:
+  ::
+
+     echo 'export EDITOR=nano' >> ~/.bashrc
+
+- Other editors:
+  ::
+
+     echo 'export EDITOR=command_of_the_editor >> ~/.bashrc
+
+To safely assure everything set up in this section to be applied, reboot the system:
+::
+
+   sudo reboot
+
+.. _Vim: http://www.vim.org/
+.. _GNU Nano: http://www.nano-editor.org/

@@ -68,7 +68,7 @@ Explanation:
 Optionally you can also adjust other parameters in the config file at this point:
 ::
 
-   sudo vim $DOCKER_SHARE/mariadb/my.cnf
+   sudo $EDITOR $DOCKER_SHARE/mariadb/my.cnf
 
 Start the MariaDB container with the following command, after replacing ``'PASSWORD'`` with your own password:
 ::

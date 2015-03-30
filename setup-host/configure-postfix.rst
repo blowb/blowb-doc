@@ -67,7 +67,7 @@ In this section we will do manual editing of configuration files of postfix. Ope
 ``/etc/postfix/main.cf`` with your favorite editor, e.g.
 ::
 
-   sudo vim /etc/postfix/main.cf
+   sudo $EDITOR /etc/postfix/main.cf
 
 To achieve point 1 listed above, search the file for the entry ``inet_interfaces``. Replace the line
 with:

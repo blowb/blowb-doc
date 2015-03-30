@@ -51,7 +51,7 @@ Explanation:
 Now edit this config file manually to customize it for your website:
 ::
 
-   sudo vim $DOCKER_SHARE/isso/isso.conf
+   sudo $EDITOR $DOCKER_SHARE/isso/isso.conf
 
 Modify the ``host`` option in the ``[general]`` section. Follow the instructions in the comments
 above the ``host`` option to update the option to your website URL. If you need to serve multiple
