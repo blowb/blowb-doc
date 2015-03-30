@@ -178,5 +178,5 @@ pseudoxml:
 	@echo
 	@echo "Build finished. The pseudo-XML files are in $(BUILDDIR)/pseudoxml."
 
-deploy: html
+deploy: clean html
 	$(RSYNC) -rav --delete _build/html/ xuhdev,blowb@web.sourceforge.net:htdocs/
