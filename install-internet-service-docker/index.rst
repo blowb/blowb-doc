@@ -11,3 +11,4 @@ the ones which you need.
    :maxdepth: 2
 
    isso
+   prosody
