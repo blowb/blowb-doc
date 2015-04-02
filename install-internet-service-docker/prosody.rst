@@ -1,5 +1,5 @@
-Install Prosody, An XMPP Communication Server
-=============================================
+Prosody, An XMPP Communication Server
+=====================================
 
 `Prosody`_ is a modern XMPP (the Extensible Messaging and Presence Protocol) communication server, which serves the
 purpose for communication, e.g. text messaging, audio and video calls, multi-party chatting, etc.

@@ -1,5 +1,5 @@
-Install Isso
-============
+Isso, A Commenting Server
+=========================
 
 `Isso`_ is a commenting system which can embed into a static website.
 
