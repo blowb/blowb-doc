@@ -70,7 +70,7 @@ Explanation:
   - **line 9-10**: specify MariaDB connection parameters.
 
 You can edit the configuration file and enable additional modules if you want, such as ``carbons`` for message
-synchronization.
+synchronization, ``mam_sql`` for message archiving, etc.
 
 Put your XMPP server certificate in ``$DOCKER_SHARE/prosody/certs``. If you just want to use a dummy key, run the
 following command to copy the dummy key we generated in :doc:`../install-install-essential-docker/install-nginx`:
