@@ -73,7 +73,7 @@ You can edit the configuration file and enable additional modules if you want, s
 synchronization, ``mam_sql`` for message archiving, etc.
 
 Put your XMPP server certificate in ``$DOCKER_SHARE/prosody/certs``. If you just want to use a dummy key, run the
-following command to copy the dummy key we generated in :doc:`../install-install-essential-docker/install-nginx`:
+following command to copy the dummy key we generated in :doc:`../install-essential-docker/install-nginx`:
 ::
 
    sudo cp $DOCKER_SHARE/nginx/tls/dummy.* $DOCKER_SHARE/prosody/certs/
