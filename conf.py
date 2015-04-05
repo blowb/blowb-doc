@@ -114,7 +114,7 @@ html_theme_path = ['_themes',]
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-#html_title = None
+html_title = 'Blowb'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #html_short_title = None
@@ -211,7 +211,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  ('index', 'Blowb.tex', 'Blowb Documentation',
+  ('index', 'Blowb.tex', 'Blowb',
    'Hong Xu \\textless{}hong@topbug.net\\textgreater{}', 'manual'),
 ]
 
@@ -224,10 +224,10 @@ latex_documents = [
 #latex_use_parts = False
 
 # If true, show page references after internal links.
-#latex_show_pagerefs = False
+latex_show_pagerefs = True
 
 # If true, show URL addresses after external links.
-#latex_show_urls = False
+latex_show_urls = True
 
 # Documents to append as an appendix to all manuals.
 #latex_appendices = []
@@ -241,7 +241,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'blowb', 'Blowb Documentation',
+    ('index', 'blowb', 'Blowb',
      ['Hong Xu <hong@topbug.net>'], 1)
 ]
 
@@ -255,8 +255,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'Blowb', 'Blowb Documentation',
-   'Hong Xu <hong@topbug.net>', 'Blowb', 'One line description of project.',
+  ('index', 'Blowb', 'Blowb',
+   'Hong Xu <hong@topbug.net>', 'Blowb', 'Build Internet Apps that Belongs to You',
    'Miscellaneous'),
 ]
 
