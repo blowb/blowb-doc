@@ -11,4 +11,5 @@ the ones which you need.
    :maxdepth: 2
 
    isso
+   mozilla-sync
    prosody
