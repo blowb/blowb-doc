@@ -10,11 +10,11 @@ we can use our own server for synchronization.
 Set up Domain for the Syncing Service
 -------------------------------------
 
-Store the domain we will use for the Mozilla sync service (remember to replace ``sync.example.com`` with your domain
+Store the domain we will use for the Mozilla sync service (remember to replace ``msync.example.com`` with your domain
 name):
 ::
 
-   MY_DOMAIN=sync.example.com
+   MY_DOMAIN=msync.example.com
 
 You should also add an A record that points your domain to the IP address of the server.
 
@@ -111,9 +111,11 @@ To make your Firefox uses the synchronize server we have just set up, first log 
 logged in. Then type ``about:config`` in the navigation bar and press Enter. If a button with the text ``I'll be
 careful, I promise!`` shows up, click on it. Now you should be at a page with a list of options and a search bar on the
 top. Use the search bar to search for ``services.sync.tokenServerURI``, and change the value of this option to
-``https://your_domain/token/1.0/sync/1.5``, where ``your_domain`` should be replaced by your domain name used for
-Mozilla sync server. Now logging into your Firefox account should make Firefox use the synchronize server we have just
-set up.
+``https://msync.example.com/token/1.0/sync/1.5``, where ``msync.example.com`` should be replaced by your domain name
+used for Mozilla sync server, like what the picture shows below. Now logging into your Firefox account should make
+Firefox use the synchronize server we have just set up.
+
+.. image:: mozilla-sync-firefox.png
 
 Verify Whether the Setup Works
 ------------------------------
