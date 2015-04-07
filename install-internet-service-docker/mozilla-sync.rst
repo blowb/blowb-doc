@@ -75,8 +75,12 @@ Start the Mozilla sync server container:
 ::
 
    docker run -d --restart always --name msync --link mariadb:db \
+    --env NUM_PROCESSES=1 --env NUM_THREADS=2 \
     -v $DOCKER_SHARE/msync/syncserver.ini:/etc/syncserver.ini:ro \
     blowb/mozilla-sync-server
+
+You may adjust ``NUM_THREADS`` and ``NUM_PROCESSES`` depending on your need, but for a small website, ``NUM_THREADS=2``
+and ``NUM_PROCESSES=1`` should be enough.
 
 Configure Nginx
 ---------------
