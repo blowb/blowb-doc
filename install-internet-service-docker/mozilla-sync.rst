@@ -111,8 +111,9 @@ To make your Firefox uses the synchronize server we have just set up, first log 
 logged in. Then type ``about:config`` in the navigation bar and press Enter. If a button with the text ``I'll be
 careful, I promise!`` shows up, click on it. Now you should be at a page with a list of options and a search bar on the
 top. Use the search bar to search for ``services.sync.tokenServerURI``, and change the value of this option to
-``https://your_domain/token/1.0/sync/1.5``. Now logging into your Firefox account should make Firefox use the
-synchronize server we have just set up.
+``https://your_domain/token/1.0/sync/1.5``, where ``your_domain`` should be replaced by your domain name used for
+Mozilla sync server. Now logging into your Firefox account should make Firefox use the synchronize server we have just
+set up.
 
 Verify Whether the Setup Works
 ------------------------------
