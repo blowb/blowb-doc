@@ -5,7 +5,7 @@ free software for you, your family and/or your organization to preserve privacy.
 
 The project is currently under development, but you are free to play with it.
 
-Please visit http://blowb.topbug.net to read the document.
+Please visit http://www.blowb.org to read the document.
 
 ## License
 

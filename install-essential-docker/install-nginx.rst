@@ -42,5 +42,5 @@ Also download the :doc:`template Nginx configuration files <appendices/list-of-n
 ::
 
    for f in uwsgi.conf.tmpl uwsgi.tls.conf.tmpl; do
-     sudo wget -O $DOCKER_SHARE/nginx/$f http://blowb.topbug.net/_downloads/$f
+     sudo wget -O $DOCKER_SHARE/nginx/$f http://www.blowb.org/_downloads/$f
    done
