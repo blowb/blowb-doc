@@ -1,6 +1,9 @@
 Basic Setup and Preparation
 ===========================
 
+Create an Admin User
+--------------------
+
 If you haven't get an admin user account set up on your server, you probably want to create one to
 avoid using root to maintain. You can run the following command, after replacing
 ``<admin_user_name>`` with your favorite admin user name, such as ``admin``:
@@ -15,6 +18,9 @@ commands. Now you can switch to the admin user by running:
 
    su <admin_user_name>
 
+Update the System
+-----------------
+
 Probably you want to make sure software packages are up-to-date. Run the command below to update all
 system packages:
 ::
@@ -22,6 +28,9 @@ system packages:
    sudo yum update
 
 If this command fails, you should go back and check whether the admin account is set up correctly.
+
+Install Admin Tools
+-------------------
 
 We probably also need to install some utilities:
 ::
@@ -66,6 +75,24 @@ favorite editor command.
   ::
 
      echo 'export EDITOR=command_of_the_editor >> ~/.bashrc
+
+Store Logs Persistently
+-----------------------
+
+By default the logs are only stored in memory and cleared after a reboot. To preserve the logs even after rebooting, we
+have to set a journald option. Edit the file ``/etc/systemd/journald.conf``:
+::
+
+   sudo $EDITOR ``/etc/systemd/journald.conf``
+
+Uncomment the line ``#Storage=auto``, and change auto to persistent. Save the change and exit the editor. Alternatively,
+you can run the following command to apply the change:
+::
+
+   sudo sed -i 's/#Storage=auto/Storage=persistent/' /etc/systemd/journald.conf
+
+Reboot
+------
 
 To safely assure everything set up in this section to be applied, reboot the system:
 ::
