@@ -29,7 +29,7 @@ this container frequently, for convenience, we create a script to do this:
    echo Creating the new Nginx container...
    docker run --restart always -d -p 0.0.0.0:80:80 -p 0.0.0.0:443:443 \
     -v $DOCKER_SHARE/nginx:/etc/nginx/conf.d:ro $(cat ~/util/nginx-links.txt) \
-    --name nginx nginx
+    $(cat ~/util/nginx-volumes.txt) --name nginx nginx
    EOF
    chmod +x ~/util/rerun-nginx.sh
 
