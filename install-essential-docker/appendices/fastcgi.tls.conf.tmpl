@@ -1,0 +1,13 @@
+server {
+  listen 443 ssl;
+  server_name @server_name@;
+  root /var/www/@root@;
+
+  ssl_certificate     /etc/nginx/conf.d/tls/dummy.crt;
+  ssl_certificate_key /etc/nginx/conf.d/tls/dummy.key;
+
+  location ~ ^(.+?\.php)(/.*)?$ {
+    include fastcgi_params;
+    fastcgi_pass @fastcgi_server@;
+  }
+}

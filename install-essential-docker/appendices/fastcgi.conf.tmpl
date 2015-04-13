@@ -1,0 +1,10 @@
+server {
+  listen 80;
+  server_name @server_name@;
+  root /var/www/@root@;
+
+  location ~ ^(.+?\.php)(/.*)?$ {
+    include fastcgi_params;
+    fastcgi_pass @fastcgi_server@;
+  }
+}
