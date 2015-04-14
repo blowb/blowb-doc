@@ -15,4 +15,5 @@ password. I suggest to use a password with length greater than 10.
 
    isso
    mozilla-sync
+   piwik
    prosody
