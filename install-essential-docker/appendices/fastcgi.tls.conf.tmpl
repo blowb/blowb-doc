@@ -9,6 +9,7 @@ server {
 
   location ~ ^(.+?\.php)(/.*)?$ {
     include fastcgi_params;
+    fastcgi_param SCRIPT_FILENAME $document_root$1;
     fastcgi_pass @fastcgi_server@;
   }
 }
