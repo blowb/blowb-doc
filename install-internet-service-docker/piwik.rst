@@ -1,10 +1,13 @@
 Piwik, A Web Analytics Platform
 ===============================
 
-First, please add an A record to point the domain you want to use with Piwik to the IP address of the server.
+Configure DNS
+-------------
 
-Set up MariaDB
---------------
+Please add an A record to point the domain you want to use with Piwik to the IP address of the server.
+
+Configure the MariaDB Database
+------------------------------
 
 Please follow the instructions in :doc:`../common-tasks/add-mariadb-database` to create a new user and a database both
 named as ``piwik`` in MariaDB.

@@ -4,8 +4,19 @@ Prosody, An XMPP Communication Server
 `Prosody`_ is a modern XMPP (the Extensible Messaging and Presence Protocol) communication server, which serves the
 purpose for communication, e.g. text messaging, audio and video calls, multi-party chatting, etc.
 
-First, please follow the instructions in :doc:`../common-tasks/add-mariadb-database` to create a new user and a database
-both named as ``prosody`` in MariaDB.
+Configure DNS
+-------------
+
+Please add an A record to point the domain you want to use with Prosody to the IP address of the server.
+
+Configure the MariaDB Database
+------------------------------
+
+Please follow the instructions in :doc:`../common-tasks/add-mariadb-database` to create a new user and a database both
+named as ``prosody`` in MariaDB.
+
+Set up Prosody
+--------------
 
 Create a directory to store Prosody configuration files:
 ::

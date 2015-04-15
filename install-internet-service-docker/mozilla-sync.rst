@@ -7,8 +7,8 @@ we can use our own server for synchronization.
 
 *Note that the setup here uses the Mozilla hosted accounts server at https://accounts.firefox.com*
 
-Set up Domain for the Syncing Service
--------------------------------------
+Configure DNS
+-------------
 
 Store the domain we will use for the Mozilla sync service (remember to replace ``msync.example.com`` with your domain
 name):
@@ -16,10 +16,12 @@ name):
 
    MY_DOMAIN=msync.example.com
 
+We will use ``MY_DOMAIN`` to refer to the domain name we need to use in shell commands through this section.
+
 You should also add an A record that points your domain to the IP address of the server.
 
-Configure MariaDB Database
---------------------------
+Configure the MariaDB Database
+------------------------------
 
 Please follow the instructions in :doc:`../common-tasks/add-mariadb-database` to create a new user and a database both
 named as ``msync`` in MariaDB.
