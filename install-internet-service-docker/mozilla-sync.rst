@@ -55,7 +55,7 @@ you have just set for msync user in the MariaDB database:
 Explanation:
 
   - **line 2**: set the public url as what we will serve as;
-  - **line 3**: set the sql database to what we have just set up earlier in `Configure MariaDB Database`_ .
+  - **line 3**: set the sql database to what we have just set up earlier in `Configure the MariaDB Database`_ .
 
 Start the Mozilla sync server container:
 ::
