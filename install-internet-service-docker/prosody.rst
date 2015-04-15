@@ -4,27 +4,8 @@ Prosody, An XMPP Communication Server
 `Prosody`_ is a modern XMPP (the Extensible Messaging and Presence Protocol) communication server, which serves the
 purpose for communication, e.g. text messaging, audio and video calls, multi-party chatting, etc.
 
-We need to create a database for prosody first:
-::
-
-   ne mariadb
-
-Inside the shell of the MariaDB container, run:
-::
-
-   mysql -u root -p
-
-After enter the password, you should now be in the MariaDB shell. After replacing ``PASSWORD`` with your password, run
-the following commands:
-
-.. code-block:: sql
-
-   CREATE USER 'prosody' IDENTIFIED BY 'PASSWORD';
-   CREATE DATABASE prosody;
-   GRANT ALL PRIVILEGES ON prosody.* TO 'prosody';
-   FLUSH PRIVILEGES;
-
-Press ``Ctrl-D`` twice to exit the MariaDB shell and the container's shell.
+First, please follow the instructions in :doc:`../common-tasks/add-mariadb-database` to create a new user and a database
+both named as ``prosody`` in MariaDB.
 
 Create a directory to store Prosody configuration files:
 ::

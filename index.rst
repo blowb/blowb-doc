@@ -11,5 +11,6 @@ you, your family and/or your organization to preserve privacy.
 
    setup-host/index
    install-essential-docker/index
+   common-tasks/index
    install-internet-service-docker/index
    appendices/index

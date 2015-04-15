@@ -21,24 +21,8 @@ You should also add an A record that points your domain to the IP address of the
 Configure MariaDB Database
 --------------------------
 
-Enter the MariaDB container and start MariaDB shell:
-::
-
-   ne mariadb
-   # Now inside the Bash shell in the MariaDB container
-   mysql -u root -p
-
-Follow the prompt to enter your password. In the MariaDB shell, run the following command to create a database for
-Mozilla sync server, after replacing `PASSWORD` with a password you want to set:
-
-.. code-block:: sql
-
-   CREATE USER msync IDENTIFIED BY 'PASSWORD';
-   CREATE DATABASE msync;
-   GRANT ALL PRIVILEGES ON msync.* TO msync;
-   FLUSH PRIVILEGES;
-
-Press ``Ctrl-D`` twice to exit the MariaDB shell and the Bash shell in the MariaDB container.
+Please follow the instructions in :doc:`../common-tasks/add-mariadb-database` to create a new user and a database both
+named as ``msync`` in MariaDB.
 
 Configure Mozilla Sync Server
 -----------------------------

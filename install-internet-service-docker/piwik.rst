@@ -6,27 +6,8 @@ First, please add an A record to point the domain you want to use with Piwik to 
 Set up MariaDB
 --------------
 
-We need to create a database for Piwik first:
-::
-
-   ne mariadb
-
-Inside the shell of the MariaDB container, run:
-::
-
-   mysql -u root -p
-
-After enter the password, you should now be in the MariaDB shell. After replacing ``PASSWORD`` with your password, run
-the following commands:
-
-.. code-block:: sql
-
-   CREATE USER 'piwik' IDENTIFIED BY 'PASSWORD';
-   CREATE DATABASE piwik;
-   GRANT ALL PRIVILEGES ON piwik.* TO 'piwik';
-   FLUSH PRIVILEGES;
-
-Press ``Ctrl-D`` twice to exit the MariaDB shell and the container's shell.
+Please follow the instructions in :doc:`../common-tasks/add-mariadb-database` to create a new user and a database both
+named as ``piwik`` in MariaDB.
 
 Set up Piwik Container
 ----------------------
