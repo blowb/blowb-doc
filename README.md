@@ -9,11 +9,13 @@ Please visit http://www.blowb.org to read the document.
 
 ## Obtain the Latest Source Code
 
-You can always get the latest source code by git:
+You can always get the latest source code using [git][]:
 
     git clone --recursive https://gitlab.com/blowb/blowb.git
 
 Or download through [this link](https://gitlab.com/blowb/blowb/repository/archive.tar.gz).
+
+Visit the [project page on GitLab](https://gitlab.com/blowb/blowb) for more details.
 
 ## Build the Document
 
