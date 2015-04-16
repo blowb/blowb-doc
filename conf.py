@@ -37,7 +37,8 @@ git_rev = subprocess.check_output('git rev-parse HEAD', shell = True).decode('ut
 
 # extlinks
 extlinks = {
-    'source_archive' : ('https://gitlab.com/blowb/blowb/repository/archive.%s?ref=' + git_rev, '')
+    'source_archive' : ('https://gitlab.com/blowb/blowb/repository/archive.%s?ref=' + git_rev, ''),
+    'source_online' : ('https://gitlab.com/blowb/blowb/tree/' + git_rev, '')
 }
 # Add any paths that contain templates here, relative to this directory.
 # templates_path = ['_templates']

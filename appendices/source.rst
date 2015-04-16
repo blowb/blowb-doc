@@ -29,4 +29,6 @@ You can obtain the source code of this document in either of the following ways:
 
 To build this document from source, please follow the ``README.md`` file coming with the source tree.
 
+You can also browse the code :source_online:`online <>`.
+
 .. _git: http://www.git-scm.com
