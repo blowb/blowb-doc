@@ -1,4 +1,4 @@
-# Blowb -- Build Your Own Web
+# Blowb -- Build Internet Apps That Belongs to You
 
 This is a document project, consisting of instructions to set up Internet services using existing
 free software for you, your family and/or your organization to preserve privacy.
@@ -9,8 +9,9 @@ Please visit http://www.blowb.org to read the document.
 
 ## License
 
-The contents of this document are licensed under a
-[Creative Commons Attribution-ShareAlike 4.0 International License][], i.e. CC BY-SA 4.0.
+The contents of this document are licensed under [GNU General Public License version 2][], or any
+later version at your choice. The text of [GNU General Public License version 2][] and
+[GNU General Public License version 3][] are both available online.
 
-
-[Creative Commons Attribution-ShareAlike 4.0 International License]: http://creativecommons.org/licenses/by-sa/4.0/
+[GNU General Public License version 2]: https://www.gnu.org/licenses/gpl-2.0.html
+[GNU General Public License version 3]: https://www.gnu.org/licenses/gpl-3.0.html
