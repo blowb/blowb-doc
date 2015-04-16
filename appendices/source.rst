@@ -23,9 +23,7 @@ You can obtain the source code of this document in either of the following ways:
      git clone --recursive https://gitlab.com/blowb/blowb.git
 
 - Download an archive in any of these formats: :source_archive:`tar.gz`, :source_archive:`tar.bz2`,
-  :source_archive:`zip`. Then, extract the file you have just downloaded. You also need to download the `theme files
-  <https://github.com/snide/sphinx_rtd_theme/archive/master.tar.gz>`_ and extract the theme files into
-  ``/path/to/blowb-source/_themes/sphinx_rtd_theme``.
+  :source_archive:`zip`. Then, extract the file you have just downloaded.
 
 To build this document from source, please follow the ``README.md`` file coming with the source tree.
 
