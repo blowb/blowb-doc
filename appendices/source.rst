@@ -15,12 +15,17 @@
 Source Code of This Document
 ============================
 
-You can obtain the source code of this document in either of the following ways:
+For the latest version of the source code of the Blowb document, please visit https://gitlab.com/blowb/blowb .
+
+To obtain the source code of the version of the document you are reading, you can do either of the following:
 
 - Use `git`_:
-  ::
 
-     git clone --recursive https://gitlab.com/blowb/blowb.git
+  .. parsed-literal::
+
+     git clone --recursive https://gitlab.com/blowb/blowb.git blowb
+     cd blowb
+     git checkout |git_rev|
 
 - Download an archive in any of these formats: :source_archive:`tar.gz`, :source_archive:`tar.bz2`,
   :source_archive:`zip`. Then, extract the file you have just downloaded.
