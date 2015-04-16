@@ -1,4 +1,4 @@
-..  Copyright (C) Hong Xu <hong@topbug.net> 2015
+..  Copyright (c) 2015 Hong Xu <hong@topbug.net>
 
 ..  This file is part of Blowb.
 
