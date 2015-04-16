@@ -1,0 +1,32 @@
+..  Copyright (c) 2015 Hong Xu <hong@topbug.net>
+
+..  This file is part of Blowb.
+
+    Blowb is a free document: you can redistribute it and/or modify it under the terms of the GNU General Public License
+    as published by the Free Software Foundation, either version 2 of the License, or (at your option) any later
+    version.
+
+    Blowb is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License along with Blowb.  If not, see
+    <http://www.gnu.org/licenses/>.
+
+Source Code of This Document
+============================
+
+You can obtain the source code of this document in either of the following ways:
+
+- Use `git`_:
+  ::
+
+     git clone --recursive https://gitlab.com/blowb/blowb
+
+- Download an archive in any of these format: :source_archive:`tar.gz`, :source_archive:`tar.bz2`,
+  :source_archive:`zip`. Then, extract the file you have just downloaded. You also need to download the `theme files
+  <https://github.com/snide/sphinx_rtd_theme/archive/master.tar.gz>`_ and extract the theme files into
+  ``/path/to/blowb-source/_themes/sphinx_rtd_theme``.
+
+To build this document from source, please follow the README file inside the source tree.
+
+.. _git: http://www.git-scm.com
