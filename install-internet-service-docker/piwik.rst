@@ -103,4 +103,4 @@ server is ``ldap``). It's recommended to only use the LDAP server for authentica
 problems to connect to the OpenLDAP server. You can use some filters to only allow a specific group of users in the LDAP
 database to log in.
 
-.. Piwik:: https://piwik.org
+.. _Piwik: https://piwik.org
