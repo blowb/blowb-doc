@@ -90,7 +90,7 @@ To manually update, run the following command to enter the shell in the Piwik co
    # Now in the Piwik container
    cd /var/www
 
-Then follow the `manual update instructions <https://piwik.org/docs/update/>` to update.
+Then follow the `manual update instructions <https://piwik.org/docs/update/>`_ to update.
 
 Use Piwik with OpenLDAP
 -----------------------
