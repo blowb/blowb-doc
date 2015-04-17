@@ -15,6 +15,8 @@
 Piwik, A Web Analytics Platform
 ===============================
 
+`Piwik`_ is a free web analytics platform which you can install on your own server.
+
 Configure DNS
 -------------
 
@@ -73,3 +75,20 @@ Piwik. In the database setup page, remember in our setup, the database server is
 database password is the one we generated earlier, database name is ``piwik``. The table prefix can be any thing, even
 empty.
 
+Update Piwik
+------------
+
+The Piwik container used here is a self-managed php container, which means that all Piwik related files are actually
+downloaded and stored in a data container during the Piwik container's first run. To upgrade, you can use Piwik's
+builtin auto updater.
+
+To manually update, run the following command to enter the shell in the Piwik container then switch to ``/var/www``:
+::
+
+   ne piwik
+   # Now in the Piwik container
+   cd /var/www
+
+Then follow the `manual update instructions <https://piwik.org/docs/update/>` to update.
+
+.. Piwik:: https://piwik.org
