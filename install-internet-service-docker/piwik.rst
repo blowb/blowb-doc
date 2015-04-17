@@ -39,7 +39,8 @@ Create a data container for Piwik:
 To start the Piwik container, run the following command:
 ::
 
-   docker run -d --restart always --name piwik --link mariadb:db --volumes-from piwik-data blowb/piwik
+   docker run -d --restart always --name piwik --link mariadb:db --link openldap:ldap \
+    --volumes-from piwik-data blowb/piwik
 
 For the first time the container starts will download and decompress the Piwik installation to ``/var/www/piwik``.
 
@@ -90,5 +91,16 @@ To manually update, run the following command to enter the shell in the Piwik co
    cd /var/www
 
 Then follow the `manual update instructions <https://piwik.org/docs/update/>` to update.
+
+Use Piwik with OpenLDAP
+-----------------------
+
+To use Piwik with OpenLDAP, please follow the `Piwik plugin installation guide <https://piwik.org/faq/plugins/#faq_21>`_
+to install the `LoginLdap plugin <https://plugins.piwik.org/LoginLdap>`_. Follow the `LoginLdap installation guide
+<https://github.com/piwik/plugin-LoginLdap#installation>`_ and `LoginLdap configuration guide
+<https://github.com/piwik/plugin-LoginLdap#configurations>`_ to finish the installation (remember the host of the LDAP
+server is ``ldap``). It's recommended to only use the LDAP server for authentication only, as probably we would not have
+problems to connect to the OpenLDAP server. You can use some filters to only allow a specific group of users in the LDAP
+database to log in.
 
 .. Piwik:: https://piwik.org
