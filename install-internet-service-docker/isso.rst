@@ -102,7 +102,8 @@ the following commands:
 ::
 
    cd $DOCKER_SHARE/nginx
-   ISSO_URL='comments.example.com' sudo -s <<EOF
+   ISSO_URL='comments.example.com'
+   sudo -s <<EOF
    sed -e "s/@server_name@/$ISSO_URL/g" \
     -e 's/@uwsgi_server@/isso:9000/g' uwsgi.conf.tmpl >isso.conf
    sed -e "s/@server_name@/$ISSO_URL/g" \
