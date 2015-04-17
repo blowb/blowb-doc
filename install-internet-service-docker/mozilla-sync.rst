@@ -111,6 +111,12 @@ Rerun the Nginx container:
 Configure Firefox
 -----------------
 
+Before we start configuring, if you chose to use the dummy key, we need to add a security exception in Firefox. Visit
+the URL ``https://msync.example.com`` in your Firefox browser, where ``msync.example.com`` is your Mozilla sync server
+domain. In the "This Connection is Untrusted" page, click ``I Understand the Risks``, then the ``Add Exception...``
+button. Make sure the ``Permanently store this exception`` is checked, then click the ``Confirm Security Exception``
+button.
+
 To make your Firefox uses the synchronize server we have just set up, first log out your Mozilla account if you have
 logged in. Then type ``about:config`` in the navigation bar and press Enter. If a button with the text ``I'll be
 careful, I promise!`` shows up, click on it. Now you should be at a page with a list of options and a search bar on the
