@@ -76,6 +76,69 @@ Piwik. In the database setup page, remember in our setup, the database server is
 database password is the one we generated earlier, database name is ``piwik``. The table prefix can be any thing, even
 empty.
 
+Use Piwik with OpenLDAP
+-----------------------
+
+It is optional to use Piwik with OpenLDAP. If you decide not to use Piwik with OpenLDAP, you may skip this part.
+
+Please follow the instructions in :doc:`../common-tasks/group-tasks-openldap` to create a new group ``piwik`` and add
+all users which will be granted to use this service to this group.
+
+First we need to install the `LoginLdap plugin <https://plugins.piwik.org/LoginLdap>`_ . To install the plugin, log into
+your Piwik instance, click the ``Administration`` link on the top right corner and click the ``Marketplace`` link. You
+should now see an interface similar to :num:`figure #piwik-marketplace`.
+
+.. _piwik-marketplace:
+
+.. figure:: piwik/piwik-marketplace.png
+   :alt: Piwik Marketplace
+
+Then in the searchbox, search for ``LoginLdap``, and you should now see that the LoginLdap shows up in the plugin panel
+as shown in :num:`figure #piwik-marketplace-ldaplogin`.
+
+.. _piwik-marketplace-ldaplogin:
+
+.. figure:: piwik/piwik-marketplace-ldaplogin.png
+   :alt: Search for LdapLogin Plugin in Piwik Marketplace
+
+After that, click on the ``install`` link to install the plugin. If the installation is successful, you can click on the
+``Activate`` link to activate the plugin. Alternatively, you may follow the `Piwik plugin installation guide
+<https://piwik.org/faq/plugins/#faq_21>`_ and `LoginLdap installation guide
+<https://github.com/piwik/plugin-LoginLdap#installation>`_ to install and activate the LoginLdap plugin.
+
+After activating the LoginLdap plugin, you should be able to see an ``LDAP`` link in the administration panel as shown
+in :num:`figure #piwik-ldap`.
+
+.. _piwik-ldap:
+
+.. figure:: piwik/piwik-ldap.png
+   :alt: Piwik LdapLogin Settings
+
+Click the link, then you will see a list of LDAP settings on the right, as shown in :num:`figure #piwik-ldap`. Then make
+sure your LDAP server settings are similar to the settings in :num:`figure #piwik-ldap-server`, (replace
+``dc=example,ec=com`` with the ``$LDAP_SUFFIX`` in :doc:`../install-essential-docker/install-openldap` in the "Base DN"
+field) then click ``Save``.
+
+.. _piwik-ldap-server:
+
+.. figure:: piwik/piwik-ldap-server.png
+   :alt: Piwik LdapLogin LDAP Server Settings
+
+Change the "User ID Field" to `cn` as shown in :num:`figure #piwik-ldap-uid`, then click the save below it.
+
+.. _piwik-ldap-uid:
+
+.. figure:: piwik/piwik-ldap-uid.png
+   :alt: Piwik LdapLogin "User ID Field"
+
+Make sure the rest of the settings looks similar to :num:`figure #piwik-ldap`. Note that your "Required User Group"
+should be ``cn=piwik,ou=groups,dc=example,dc=com``, where ``dc=example,dc=com`` should be replaced by the
+``$LDAP_SUFFIX`` in :doc:`../install-essential-docker/install-openldap`. Click on the ``Test`` link in the "Required
+User Group" box to make sure the configuration is correct. Then click ``Save``.
+
+The configuration above is the recommended settings, but you may follow `LoginLdap configuration guide
+<https://github.com/piwik/plugin-LoginLdap#configurations>`_ to configure the plugin differently.
+
 Update Piwik
 ------------
 
@@ -91,16 +154,5 @@ To manually update, run the following command to enter the shell in the Piwik co
    cd /var/www
 
 Then follow the `manual update instructions <https://piwik.org/docs/update/>`_ to update.
-
-Use Piwik with OpenLDAP
------------------------
-
-To use Piwik with OpenLDAP, please follow the `Piwik plugin installation guide <https://piwik.org/faq/plugins/#faq_21>`_
-to install the `LoginLdap plugin <https://plugins.piwik.org/LoginLdap>`_. Follow the `LoginLdap installation guide
-<https://github.com/piwik/plugin-LoginLdap#installation>`_ and `LoginLdap configuration guide
-<https://github.com/piwik/plugin-LoginLdap#configurations>`_ to finish the installation (remember the host of the LDAP
-server is ``ldap``). It's recommended to only use the LDAP server for authentication only, as probably we would not have
-problems to connect to the OpenLDAP server. You can use some filters to only allow a specific group of users in the LDAP
-database to log in.
 
 .. _Piwik: https://piwik.org
