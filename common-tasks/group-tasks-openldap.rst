@@ -29,7 +29,7 @@ password, ``uid`` with a user name you want to add to the group):
    dn: cn=$NEWGROUP,ou=groups,$LDAP_SUFFIX
    cn: $NEWGROUP
    objectclass: groupOfNames
-   member: cn=uid,$LDAP_SUFFIX
+   member: cn=uid,ou=people,$LDAP_SUFFIX
    EOF
 
 Remember that the ``member:`` line is necessary, and it can appear multiple times to add more than one person to the
