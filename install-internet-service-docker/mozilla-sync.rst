@@ -12,8 +12,8 @@
     You should have received a copy of the GNU General Public License along with Blowb.  If not, see
     <http://www.gnu.org/licenses/>.
 
-Mozilla Sync Server, Synchronize Your Firefox Across Devices
-============================================================
+Mozilla Sync Server, Synchronizing Your Firefox Across Devices
+==============================================================
 
 `Mozilla Sync Server`_ is an Internet service which synchronize your Firefox (e.g. bookmarks, history, etc) across
 devices. By default, Firefox uses the sync server set up by Mozilla, but Mozilla has also released the sync server which
