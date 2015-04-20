@@ -23,3 +23,4 @@ perform later. You can skip the whole chapter for now, and come back to read the
    :maxdepth: 2
 
    add-mariadb-database
+   group-tasks-openldap
