@@ -140,6 +140,17 @@ surname of your new account (sure, it can be a faked one), and ``me@example.com`
    userPassword: $HASHED_PASSWD
    EOF
 
+We also need to add a group branch to control users' accessibility to services (replace ``MY_PASSWORD`` with your actual
+password):
+::
+
+   ldapadd -H ldapi:/// -x -w MY_PASSWORD -D "cn=root,$LDAP_SUFFIX" <<EOF
+   dn: ou=groups,$LDAP_SUFFIX
+   ou: groups
+   description: All groups.
+   objectClass: organizationalUnit
+   EOF
+
 Press ``Ctrl+D`` to exit the container shell.
 
 Manage the LDAP Database with a GUI frontend
