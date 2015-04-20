@@ -15,11 +15,12 @@
 Install and Configure OpenLDAP
 ==============================
 
-Install OpenLDAP
-----------------
+Start the OpenLDAP Container
+----------------------------
 
-We will use slapd (part of `OpenLDAP`_) as the main authentication service. Using an LDAP server to manage users makes it
-much easier to make changes to users', such as adding a new user, deleting a user, or modifying users' password.
+We will use ``slapd`` (part of `OpenLDAP`_) as the main authentication service. Using an LDAP server to manage users
+makes it much easier to make changes to users', such as adding a new user, deleting a user, or modifying users'
+password.
 
 Create a data container to store OpenLDAP data and config:
 ::
@@ -40,11 +41,15 @@ Now we can create and run the ``openldap`` container:
 
    docker run --restart always -d --volumes-from openldap-data --env MAX_NOFILE=8192 --name openldap blowb/openldap
 
-``MAX_NOFILE`` is the maximal number of files that the slapd process can open. The larger this file is, the more RAM
+``MAX_NOFILE`` is the maximal number of files that the ``slapd`` process can open. The larger this file is, the more RAM
 this process would need. Lower the number to 8192 should be enough for a small database.
 
 If you've imported an old database and configuration, you may want to check some compatibility issues you may have and
-skip to `Manage the LDAP Database with a GUI frontend`_. If this is your new OpenLDAP database, we have a little more work to do.
+skip to `Manage the LDAP Database with a GUI frontend`_. If this is your new OpenLDAP database, we have a little more
+work to do.
+
+Configure OpenLDAP
+------------------
 
 First, we need to change the database suffix and the root DN. Run ``ne openldap`` to launch the shell inside the
 OpenLDAP container. Inside the container, run the following command, after replacing ``example.com`` with your domain:
