@@ -29,6 +29,12 @@ Configure the MariaDB Database
 Please follow the instructions in :doc:`../common-tasks/add-mariadb-database` to create a new user and a database both
 named as ``prosody`` in MariaDB.
 
+Configure the OpenLDAP Database
+-------------------------------
+
+Please follow the instructions in :doc:`../common-tasks/group-tasks-openldap` to create a new group ``prosody`` and add
+all users which will be granted to use this service to this group.
+
 Set up Prosody
 --------------
 
@@ -57,7 +63,7 @@ Run the following command to modify the default config file to adjust it to run 
     -e 's/(authentication = )\"internal_plain\"/\1\"ldap\"/' \
     -e "1s/^/ldap_base = \"ou=people,$LDAP_SUFFIX\"\n/" \
     -e '1s/^/ldap_server = \"ldap\"\n/' \
-    -e '1s/^/ldap_filter = "(cn=$user)"\n/' \
+    -e "1s/^/ldap_filter = \"(\&(cn=\$user) (memberOf=cn=prosody,ou=groups,$LDAP_SUFFIX))\"\n/" \
     -e 's/\-\-(storage = \"sql\")/\1/' \
     prosody.cfg.lua
    sudo sed -i '/^storage = "sql"/a\
