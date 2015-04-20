@@ -20,6 +20,6 @@ Appendices of this document.
 .. toctree::
    :caption: Table of Contents
 
-   license
    bug-and-contribution
    source
+   license
