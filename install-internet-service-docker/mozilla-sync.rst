@@ -122,10 +122,15 @@ logged in. Then type ``about:config`` in the navigation bar and press Enter. If 
 careful, I promise!`` shows up, click on it. Now you should be at a page with a list of options and a search bar on the
 top. Use the search bar to search for ``services.sync.tokenServerURI``, and change the value of this option to
 ``https://msync.example.com/token/1.0/sync/1.5``, where ``msync.example.com`` should be replaced by your domain name
-used for Mozilla sync server, like what the picture shows below. Now logging into your Firefox account should make
-Firefox use the synchronize server we have just set up.
+used for Mozilla sync server, similar to what is shown in :num:`figure #mozilla-sync-firefox`. Now logging into your
+Firefox account should make Firefox use the synchronize server we have just set up.
 
-.. image:: mozilla-sync-firefox.png
+.. _mozilla-sync-firefox:
+
+.. figure:: mozilla-sync-firefox.png
+   :alt: Configure Firefox
+
+   Configure Firefox to use our own server.
 
 Verify Whether the Setup Works
 ------------------------------
