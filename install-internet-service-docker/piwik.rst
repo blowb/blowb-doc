@@ -93,6 +93,8 @@ should now see an interface similar to :num:`figure #piwik-marketplace`.
 .. figure:: piwik/piwik-marketplace.png
    :alt: Piwik Marketplace
 
+   Navigate to Piwik Marketplace.
+
 Then in the searchbox, search for ``LoginLdap``, and you should now see that the LoginLdap shows up in the plugin panel
 as shown in :num:`figure #piwik-marketplace-ldaplogin`.
 
@@ -100,6 +102,8 @@ as shown in :num:`figure #piwik-marketplace-ldaplogin`.
 
 .. figure:: piwik/piwik-marketplace-ldaplogin.png
    :alt: Search for LdapLogin Plugin in Piwik Marketplace
+
+   Search for LdapLogin in Piwik Marketplace.
 
 After that, click on the ``install`` link to install the plugin. If the installation is successful, you can click on the
 ``Activate`` link to activate the plugin. Alternatively, you may follow the `Piwik plugin installation guide
@@ -114,6 +118,8 @@ in :num:`figure #piwik-ldap`.
 .. figure:: piwik/piwik-ldap.png
    :alt: Piwik LdapLogin Settings
 
+   Configure the LdapLogin plugin.
+
 Click the link, then you will see a list of LDAP settings on the right, as shown in :num:`figure #piwik-ldap`. Then make
 sure your LDAP server settings are similar to the settings in :num:`figure #piwik-ldap-server`, (replace
 ``dc=example,ec=com`` with the ``$LDAP_SUFFIX`` in :doc:`../install-essential-docker/install-openldap` in the "Base DN"
@@ -124,12 +130,16 @@ field) then click ``Save``.
 .. figure:: piwik/piwik-ldap-server.png
    :alt: Piwik LdapLogin LDAP Server Settings
 
+   Set up the LDAP server connection.
+
 Change the "User ID Field" to `cn` as shown in :num:`figure #piwik-ldap-uid`, then click the save below it.
 
 .. _piwik-ldap-uid:
 
 .. figure:: piwik/piwik-ldap-uid.png
    :alt: Piwik LdapLogin "User ID Field"
+
+   Modify LdapLogin "User ID Field".
 
 Make sure the rest of the settings looks similar to :num:`figure #piwik-ldap`. Note that your "Required User Group"
 should be ``cn=piwik,ou=groups,dc=example,dc=com``, where ``dc=example,dc=com`` should be replaced by the
