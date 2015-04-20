@@ -48,3 +48,8 @@ root password):
    add: member
    member: cn=uid,ou=people,$LDAP_SUFFIX
    EOF
+
+Exit
+----
+
+After finish the task(s), press ``Ctrl-D`` to exit the shell in the container.
