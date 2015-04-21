@@ -15,6 +15,9 @@
 Set up the Host System
 ======================
 
+In this chapter, we will set up the host system, which is the server system which we will build all the service. You are
+assumed to use RHEL/CentOS 7.x (7.1 or later) throughout the whole document.
+
 .. toctree::
    :caption: Table of Contents
    :maxdepth: 2
