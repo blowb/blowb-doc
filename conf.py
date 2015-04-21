@@ -229,7 +229,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  ('index', 'Blowb.tex', 'Blowb',
+  ('index_printing', 'Blowb.tex', 'Blowb',
    'Hong Xu \\textless{}hong@topbug.net\\textgreater{}', 'book'),
 ]
 
@@ -248,7 +248,9 @@ latex_show_pagerefs = True
 latex_show_urls = 'footnote'
 
 # Documents to append as an appendix to all manuals.
-#latex_appendices = []
+latex_appendices = ['appendices/bug-and-contribution',
+                    'appendices/source',
+                    'appendices/license']
 
 # If false, no module index is generated.
 #latex_domain_indices = True
@@ -273,13 +275,15 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'Blowb', 'Blowb',
+  ('index_printing', 'Blowb', 'Blowb',
    'Hong Xu <hong@topbug.net>', 'Blowb', 'Build Internet Apps that Belongs to You',
    'Miscellaneous'),
 ]
 
 # Documents to append as an appendix to all manuals.
-#texinfo_appendices = []
+texinfo_appendices = ['appendices/bug-and-contribution',
+                      'appendices/source',
+                      'appendices/license']
 
 # If false, no module index is generated.
 #texinfo_domain_indices = True
@@ -355,7 +359,7 @@ epub_exclude_files = ['search.html']
 #epub_max_image_width = 0
 
 # How to display URL addresses: 'footnote', 'no', or 'inline'.
-#epub_show_urls = 'inline'
+epub_show_urls = 'footnote'
 
 # If false, no index is generated.
 #epub_use_index = True
