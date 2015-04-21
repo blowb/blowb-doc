@@ -41,7 +41,7 @@ extlinks = {
     'source_online' : ('https://gitlab.com/blowb/blowb/tree/%s' + git_rev, '')
 }
 # Add any paths that contain templates here, relative to this directory.
-# templates_path = ['_templates']
+templates_path = ['_templates']
 
 # The suffix of source filenames.
 source_suffix = '.rst'
@@ -202,8 +202,11 @@ htmlhelp_basename = 'Blowbdoc'
 context = {
     # source links
     'source_url_prefix': 'https://gitlab.com/blowb/blowb/raw/{}/'.format(git_rev),
-    'source_suffix': '.rst'
+    'source_suffix': '.rst',
+    # piwik URL
+    'piwik_url': os.environ.get('PIWIK_URL')
 }
+
 if 'html_context' in globals():
     html_context.update(context)
 else:

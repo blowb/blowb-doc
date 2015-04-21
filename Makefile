@@ -178,5 +178,6 @@ pseudoxml:
 	@echo
 	@echo "Build finished. The pseudo-XML files are in $(BUILDDIR)/pseudoxml."
 
-deploy: clean html
+deploy: clean
+	PIWIK_URL=piwik.topbug.net $(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	$(RSYNC) -rav --delete _build/html/ xuhdev,blowb@web.sourceforge.net:htdocs/
