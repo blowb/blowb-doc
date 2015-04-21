@@ -29,9 +29,7 @@ needs_sphinx = '1.3'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-import sys,os
-sys.path.append(os.path.abspath('_exts'))
-extensions = ['sphinx.ext.extlinks', 'numfig']
+extensions = ['sphinx.ext.extlinks']
 
 # git revision
 import subprocess
@@ -111,6 +109,11 @@ highlight_language = 'bash'
 # If true, keep warnings as "system message" paragraphs in the built documents.
 #keep_warnings = False
 
+# Numbering figure
+numfig = True
+
+# the depth of figure numbering
+numfig_secnum_depth = 2
 
 # -- Options for HTML output ----------------------------------------------
 
