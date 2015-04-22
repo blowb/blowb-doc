@@ -120,7 +120,7 @@ You should be running bash in the docker container now. Run the commands below a
 ``you@example.com`` with your email address:
 ::
 
-   export YOUR_EMAIL=you@example.com
+   YOUR_EMAIL=you@example.com
    cat > sendmail.txt <<EOF
    HELO x
    MAIL FROM: test@example.com

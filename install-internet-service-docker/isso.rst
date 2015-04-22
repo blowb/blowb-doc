@@ -41,8 +41,8 @@ notification):
    :linenos:
 
    cd $DOCKER_SHARE/isso
-   export NOTIFICATION_FROM=isso@example.com
-   export NOTIFICATION_TO=me@example.com
+   NOTIFICATION_FROM=isso@example.com
+   NOTIFICATION_TO=me@example.com
    sudo ed isso.conf << EOF
    %s/^dbpath =.*/dbpath = \/var\/uwsgi\/comments.db
    %s/^notify =.*/notify = smtp
