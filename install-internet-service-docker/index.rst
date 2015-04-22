@@ -24,6 +24,7 @@ these software is essential, so you can choose to install only the ones which yo
    :maxdepth: 2
 
    isso
+   ltb-self-service-password
    mozilla-sync
    piwik
    prosody
