@@ -55,6 +55,6 @@ Run the script to create the Nginx container:
 Also download the :doc:`template Nginx configuration files <appendices/list-of-nginx-config>`:
 ::
 
-   for f in uwsgi.conf.tmpl uwsgi.tls.conf.tmpl fastcgi.conf.tmpl fastcgi.tls.conf.tmpl; do
+   for f in fastcgi.conf.tmpl fastcgi.tls.conf.tmpl redirect-https.conf.tmpl uwsgi.conf.tmpl uwsgi.tls.conf.tmpl; do
      sudo wget -O $DOCKER_SHARE/nginx/$f http://docs.blowb.org/_downloads/$f
    done
