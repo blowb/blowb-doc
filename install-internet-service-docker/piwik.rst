@@ -44,8 +44,8 @@ To start the Piwik container, run the following command:
 
 For the first time the container starts will download and decompress the Piwik installation to ``/var/www/piwik``.
 
-Set up Nginx
-------------
+Configure Nginx
+---------------
 
 Now run the following command to set up Nginx, after replacing ``piwik.example.com`` with your Piwik domain:
 ::
@@ -62,6 +62,8 @@ Now run the following command to set up Nginx, after replacing ``piwik.example.c
     -e 's/@root@/piwik/g' \
     -e 's/@fastcgi_server@/piwik:9000/g' fastcgi.tls.conf.tmpl >piwik.tls.conf
    EOF
+
+Optionally you can edit ``piwik.tls.conf`` to use your own TLS/SSL key instead of the dummy key.
 
 Restart the Nginx container:
 ::
