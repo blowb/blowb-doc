@@ -63,7 +63,7 @@ Run the following command to modify the default config file to adjust it to run 
     -e 's/(authentication = )\"internal_plain\"/\1\"ldap\"/' \
     -e "1s/^/ldap_base = \"ou=people,$LDAP_SUFFIX\"\n/" \
     -e '1s/^/ldap_server = \"ldap\"\n/' \
-    -e "1s/^/ldap_filter = \"(\&(cn=\$user) (memberOf=cn=prosody,ou=groups,$LDAP_SUFFIX))\"\n/" \
+    -e "1s/^/ldap_filter = \"(\&(uid=\$user) (memberOf=cn=prosody,ou=groups,$LDAP_SUFFIX))\"\n/" \
     -e 's/\-\-(storage = \"sql\")/\1/' \
     prosody.cfg.lua
    sudo sed -i '/^storage = "sql"/a\
@@ -76,7 +76,7 @@ Explanation:
   - **line 3**: use the OpenLDAP server we set up for authentication instead of the internal one;
   - **line 4**: specify the base in the LDAP database;
   - **line 5**: specify the OpenLDAP server;
-  - **line 6**: use ``cn`` attribute as the user name;
+  - **line 6**: use ``uid`` attribute as the user name;
   - **line 7**: use sql backend for data storage;
   - **line 9-10**: specify MariaDB connection parameters.
 

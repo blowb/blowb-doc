@@ -126,15 +126,17 @@ terminal). First run ``slappasswd`` to generate the hashed password:
 
    HASHED_PASSWD=$(slappasswd)
 
-Then run the following command, after replacing ``username`` with the user name of the new account, ``surname`` with the
-surname of your new account (sure, it can be a faked one), and ``me@example.com`` with the email of the new account:
+Then run the following command, after replacing ``username`` with the user name of the new account, ``fullname`` with
+the full name of the user, ``surname`` with the surname of your new account (sure, both ``fullname`` and ``surname`` can
+be faked), and ``me@example.com`` with the email of the new account:
 ::
 
-   CN='username' SN='surname' MAIL='me@example.com'
+   UN='username' CN='fullname' SN='surname' MAIL='me@example.com'
    ldapadd -H ldapi:/// -x -w MY_PASSWORD -D "cn=root,$LDAP_SUFFIX" <<EOF
-   dn: cn=$CN,ou=people,$LDAP_SUFFIX
-   cn: $CN
+   dn: uid=$UN,ou=people,$LDAP_SUFFIX
+   uid: $UN
    objectClass: inetOrgPerson
+   cn: $CN
    sn: $SN
    mail: $MAIL
    userPassword: $HASHED_PASSWD

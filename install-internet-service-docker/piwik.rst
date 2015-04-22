@@ -132,15 +132,6 @@ with the ``$LDAP_SUFFIX`` in :doc:`../install-essential-docker/install-openldap`
 
    Set up the LDAP server connection.
 
-Change the "User ID Field" to `cn` as shown in :numref:`piwik-ldap-uid`, then click the save below it.
-
-.. _piwik-ldap-uid:
-
-.. figure:: piwik/piwik-ldap-uid.png
-   :alt: Piwik LdapLogin "User ID Field"
-
-   Modify LdapLogin "User ID Field".
-
 Make sure the rest of the settings looks similar to :numref:`piwik-ldap`. Note that your "Required User Group" should be
 ``cn=piwik,ou=groups,dc=example,dc=com``, where ``dc=example,dc=com`` should be replaced by the ``$LDAP_SUFFIX`` in
 :doc:`../install-essential-docker/install-openldap`. Click on the ``Test`` link in the "Required User Group" box to make
