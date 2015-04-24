@@ -260,7 +260,8 @@ latex_show_pagerefs = True
 latex_show_urls = 'footnote'
 
 # Documents to append as an appendix to all manuals.
-latex_appendices = ['appendices/bug-and-contribution',
+latex_appendices = ['appendices/list-of-nginx-config',
+                    'appendices/bug-and-contribution',
                     'appendices/source',
                     'appendices/license']
 
@@ -293,7 +294,8 @@ texinfo_documents = [
 ]
 
 # Documents to append as an appendix to all manuals.
-texinfo_appendices = ['appendices/bug-and-contribution',
+texinfo_appendices = ['appendices/list-of-nginx-config',
+                      'appendices/bug-and-contribution',
                       'appendices/source',
                       'appendices/license']
 

@@ -53,7 +53,7 @@ Run the script to create the Nginx container:
 
    ~/util/rerun-nginx.sh
 
-Also download the :doc:`template Nginx configuration files <appendices/list-of-nginx-config>`:
+Also download the :doc:`template Nginx configuration files <../appendices/list-of-nginx-config>`:
 ::
 
    for f in fastcgi.conf.tmpl fastcgi.tls.conf.tmpl redirect-https.conf.tmpl \

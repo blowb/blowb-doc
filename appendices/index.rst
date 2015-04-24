@@ -20,6 +20,7 @@ Appendices of this document.
 .. toctree::
    :caption: Table of Contents
 
+   list-of-nginx-config
    bug-and-contribution
    source
    license

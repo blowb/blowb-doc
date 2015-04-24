@@ -17,22 +17,22 @@ List of Template Nginx Configuration Files
 
 .. highlight:: nginx
 
-:download:`fastcgi.conf.tmpl <fastcgi.conf.tmpl>`
+:download:`fastcgi.conf.tmpl <list-of-nginx-config/fastcgi.conf.tmpl>`
 
-.. literalinclude:: fastcgi.conf.tmpl
+.. literalinclude:: list-of-nginx-config/fastcgi.conf.tmpl
 
-:download:`fastcgi.tls.conf.tmpl <fastcgi.tls.conf.tmpl>`
+:download:`fastcgi.tls.conf.tmpl <list-of-nginx-config/fastcgi.tls.conf.tmpl>`
 
-.. literalinclude:: fastcgi.tls.conf.tmpl
+.. literalinclude:: list-of-nginx-config/fastcgi.tls.conf.tmpl
 
-:download:`redirect-https.conf.tmpl <redirect-https.conf.tmpl>`
+:download:`redirect-https.conf.tmpl <list-of-nginx-config/redirect-https.conf.tmpl>`
 
-.. literalinclude:: redirect-https.conf.tmpl
+.. literalinclude:: list-of-nginx-config/redirect-https.conf.tmpl
 
-:download:`uwsgi.conf.tmpl <uwsgi.conf.tmpl>`
+:download:`uwsgi.conf.tmpl <list-of-nginx-config/uwsgi.conf.tmpl>`
 
-.. literalinclude:: uwsgi.conf.tmpl
+.. literalinclude:: list-of-nginx-config/uwsgi.conf.tmpl
 
-:download:`uwsgi.tls.conf.tmpl <uwsgi.tls.conf.tmpl>`
+:download:`uwsgi.tls.conf.tmpl <list-of-nginx-config/uwsgi.tls.conf.tmpl>`
 
-.. literalinclude:: uwsgi.tls.conf.tmpl
+.. literalinclude:: list-of-nginx-config/uwsgi.tls.conf.tmpl

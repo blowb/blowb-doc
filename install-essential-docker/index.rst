@@ -35,4 +35,3 @@ If you have SELinux enabled, you should also run:
    install-nginx
    install-mariadb
    install-openldap
-   appendices/index
