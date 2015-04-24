@@ -126,4 +126,4 @@ Recreate the Nginx container:
    ~/util/rerun-nginx.sh
 
 
-.. _Isso: http://postage.org/isso/
+.. _Isso: http://posativ.org/isso/

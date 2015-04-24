@@ -79,5 +79,5 @@ Reload ``~/.bashrc``:
 
    source ~/.bashrc
 
-.. _Docker: http://docker.com
+.. _Docker: https://www.docker.com
 .. _nsenter: http://blog.docker.com/tag/nsenter/

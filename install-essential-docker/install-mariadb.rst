@@ -100,4 +100,4 @@ relevant history entries:
 The commands above first write all histories in RAM to the history file, then delete all history
 entries which contains ``MYSQL_ROOT_PASSWORD``.
 
-.. _MariaDB: http://www.mariadb.org
+.. _MariaDB: https://mariadb.org
