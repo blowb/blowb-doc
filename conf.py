@@ -227,8 +227,14 @@ latex_elements = {
 \MakePerPage{footnote}
 """,
 
-# Latex figure (float) alignment
+# LaTeX figure (float) alignment
 'figure_align': 'H',
+
+# No blank pages
+'classoptions': ',openany',
+
+# English
+'babel': r'\usepackage[english]{babel}'
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
