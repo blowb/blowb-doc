@@ -110,9 +110,11 @@ You can create additional configuration host configurations if you need to host 
 To start the container:
 ::
 
-   docker run -d -t --restart always -v $DOCKER_SHARE/prosody/prosody.cfg.lua:/etc/prosody/prosody.cfg.lua:ro \
-    -v $DOCKER_SHARE/prosody/conf.d:/etc/prosody/conf.d:ro -v $DOCKER_SHARE/prosody/certs:/etc/prosody/certs:ro \
-    --name prosody -p 5222:5222 -p 5223:5223 -p 5269:5269 -p 5298:5298 --link mariadb:db --link openldap:ldap \
+   docker run -d -t --restart always  --link mariadb:db --link openldap:ldap \
+    -v $DOCKER_SHARE/prosody/prosody.cfg.lua:/etc/prosody/prosody.cfg.lua:ro \
+    -v $DOCKER_SHARE/prosody/conf.d:/etc/prosody/conf.d:ro \
+    -v $DOCKER_SHARE/prosody/certs:/etc/prosody/certs:ro \
+    --name prosody -p 5222:5222 -p 5223:5223 -p 5269:5269 -p 5298:5298 \
     blowb/prosody
 
 .. _`Prosody`: http://prosody.im

@@ -44,7 +44,8 @@ to add a function to enter a container easily:
    cat >>~/.bashrc << 'EOF'
    ne () {
      pid=$(docker inspect --format '{{.State.Pid}}' $1)
-     env SHELL='/bin/bash' sudo -E nsenter --target $pid --mount --uts --ipc --net --pid
+     env SHELL='/bin/bash' sudo -E nsenter --target $pid \
+      --mount --uts --ipc --net --pid
    }
    EOF
 

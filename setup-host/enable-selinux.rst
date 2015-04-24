@@ -22,8 +22,9 @@ which provides good out-of-box integration with SELinux.
 To install relevant packages:
 ::
 
-   sudo yum install policycoreutils policycoreutils-python selinux-policy selinux-policy-targeted \
-        libselinux-utils setroubleshoot-server setools setools-console mcstrans
+   sudo yum install policycoreutils policycoreutils-python selinux-policy \
+    selinux-policy-targeted libselinux-utils setroubleshoot-server setools \
+    setools-console mcstrans
 
 To check the status of SELinux on your system, you can run the command below:
 ::

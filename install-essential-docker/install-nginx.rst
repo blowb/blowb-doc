@@ -27,7 +27,8 @@ If needed create a dummy SSL/TLS key pair for nginx:
 ::
 
     sudo openssl req -x509 -nodes -days 3000 -newkey rsa:2048 \
-     -keyout $DOCKER_SHARE/nginx/tls/dummy.key -out $DOCKER_SHARE/nginx/tls/dummy.crt
+     -keyout $DOCKER_SHARE/nginx/tls/dummy.key \
+     -out $DOCKER_SHARE/nginx/tls/dummy.crt
     sudo chmod 600 $DOCKER_SHARE/nginx/tls/dummy.key
 
 Since we need to add additional links into this container later, which means we need to recreate
@@ -55,6 +56,7 @@ Run the script to create the Nginx container:
 Also download the :doc:`template Nginx configuration files <appendices/list-of-nginx-config>`:
 ::
 
-   for f in fastcgi.conf.tmpl fastcgi.tls.conf.tmpl redirect-https.conf.tmpl uwsgi.conf.tmpl uwsgi.tls.conf.tmpl; do
+   for f in fastcgi.conf.tmpl fastcgi.tls.conf.tmpl redirect-https.conf.tmpl \
+    uwsgi.conf.tmpl uwsgi.tls.conf.tmpl; do
      sudo wget -O $DOCKER_SHARE/nginx/$f http://docs.blowb.org/_downloads/$f
    done

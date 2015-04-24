@@ -74,9 +74,10 @@ Optionally you can further modify the configuration file ``config.inc.php`` to a
 Start the container:
 ::
 
-   docker run --restart always -d --name ltb-self-service-password --link openldap:ldap \
+   docker run --restart always -d --name ltb-self-service-password \
+    --link openldap:ldap --add-host smtp-server:$DOCKER_INET \
     -v $DOCKER_SHARE/ltb-self-service-password/config.inc.php:/var/www/ltb-self-service-password/conf/config.inc.php \
-    --add-host smtp-server:$DOCKER_INET blowb/ltb-self-service-password
+    blowb/ltb-self-service-password
 
 Configure Nginx
 ---------------
@@ -88,16 +89,19 @@ After replacing ``password.example.com`` with the domain you want to use to visi
 following command:
 ::
 
-   echo --link ltb-self-service-password:ltb-self-service-password >> ~/util/nginx-links.txt
+   echo --link ltb-self-service-password:ltb-self-service-password \
+    >> ~/util/nginx-links.txt
    echo --volumes-from ltb-self-service-password >> ~/util/nginx-volumes.txt
    cd $DOCKER_SHARE/nginx
    LTB_SSP_URL='password.example.com'
    sudo -s <<EOF
    sed -e "s/@server_name@/$LTB_SSP_URL/g" \
-   -e 's/@fastcgi_server@/ltb-self-service-password:9000/g' redirect-https.conf.tmpl >ltb-self-service-password.conf
+   -e 's/@fastcgi_server@/ltb-self-service-password:9000/g' \
+   redirect-https.conf.tmpl > ltb-self-service-password.conf
    sed -e "s/@server_name@/$LTB_SSP_URL/g" \
    -e 's/@root@/ltb-self-service-password/g' \
-   -e 's/@fastcgi_server@/ltb-self-service-password:9000/g' fastcgi.tls.conf.tmpl >ltb-self-service-password.tls.conf
+   -e 's/@fastcgi_server@/ltb-self-service-password:9000/g' \
+   fastcgi.tls.conf.tmpl > ltb-self-service-password.tls.conf
    EOF
 
 You can edit ``ltb-self-service-password.tls.conf`` to use your own tls/ssl key if you don't want to use the dummy key.

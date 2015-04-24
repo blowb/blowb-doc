@@ -53,7 +53,8 @@ Pull the Mozilla sync server image and generate the default configuration file:
 ::
 
    docker pull blowb/mozilla-sync-server
-   sudo -s <<< "docker run --rm blowb/mozilla-sync-server cat /var/uwsgi/syncserver.ini > syncserver.ini"
+   sudo -s <<< "docker run --rm blowb/mozilla-sync-server \
+    cat /var/uwsgi/syncserver.ini > syncserver.ini"
 
 Modify the default configuration file by running the following command, after replacing ``PASSWORD`` with the password
 you have just set for msync user in the MariaDB database:
@@ -161,7 +162,8 @@ disable new users signups, edit ``$DOCKER_SHARE/msync/syncserver.ini`` to uncomm
 or run the following command:
 ::
 
-   sudo sed -ri 's/^# (allow_new_users = false)/\1/' $DOCKER_SHARE/msync/syncserver.ini
+   sudo sed -ri 's/^# (allow_new_users = false)/\1/' \
+    $DOCKER_SHARE/msync/syncserver.ini
 
 Restart relevant Docker containers to take effect:
 ::

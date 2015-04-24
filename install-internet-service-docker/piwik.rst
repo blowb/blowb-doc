@@ -39,8 +39,8 @@ Create a data container for Piwik:
 To start the Piwik container, run the following command:
 ::
 
-   docker run -d --restart always --name piwik --link mariadb:db --link openldap:ldap \
-    --volumes-from piwik-data blowb/piwik
+   docker run -d --restart always --name piwik --link mariadb:db \
+    --link openldap:ldap --volumes-from piwik-data blowb/piwik
 
 For the first time the container starts will download and decompress the Piwik installation to ``/var/www/piwik``.
 
@@ -57,10 +57,10 @@ Now run the following command to set up Nginx, after replacing ``piwik.example.c
    sudo -s <<EOF
    sed -e "s/@server_name@/$PIWIK_URL/g" \
     -e 's/@root@/piwik/g' \
-    -e 's/@fastcgi_server@/piwik:9000/g' fastcgi.conf.tmpl >piwik.conf
+    -e 's/@fastcgi_server@/piwik:9000/g' fastcgi.conf.tmpl > piwik.conf
    sed -e "s/@server_name@/$PIWIK_URL/g" \
     -e 's/@root@/piwik/g' \
-    -e 's/@fastcgi_server@/piwik:9000/g' fastcgi.tls.conf.tmpl >piwik.tls.conf
+    -e 's/@fastcgi_server@/piwik:9000/g' fastcgi.tls.conf.tmpl > piwik.tls.conf
    EOF
 
 Optionally you can edit ``piwik.tls.conf`` to use your own TLS/SSL key instead of the dummy key.

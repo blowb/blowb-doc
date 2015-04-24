@@ -25,7 +25,8 @@ password.
 Create a data container to store OpenLDAP data and config:
 ::
 
-   docker run -v /var/lib/ldap -v /etc/openldap/slapd.d --name openldap-data busybox /bin/true
+   docker run -v /var/lib/ldap -v /etc/openldap/slapd.d --name openldap-data \
+    busybox /bin/true
 
 - If you have an old database to import, you can copy them into the data container now (configuration into
   :file:`/etc/openldap/slapd.d`, and data into :file:`/var/lib/ldap`).
@@ -34,12 +35,14 @@ Create a data container to store OpenLDAP data and config:
   (:file:`/etc/openldap/slapd.d`) with default configuration:
   ::
 
-     docker run --rm --volumes-from openldap-data centos:7 yum install -y openldap-servers
+     docker run --rm --volumes-from openldap-data centos:7 \
+      yum install -y openldap-servers
 
 Now we can create and run the ``openldap`` container:
 ::
 
-   docker run --restart always -d --volumes-from openldap-data --env MAX_NOFILE=8192 --name openldap blowb/openldap
+   docker run --restart always -d --volumes-from openldap-data \
+    --env MAX_NOFILE=8192 --name openldap blowb/openldap
 
 ``MAX_NOFILE`` is the maximal number of files that the ``slapd`` process can open. The larger this file is, the more RAM
 this process would need. Lower the number to 8192 should be enough for a small database.
