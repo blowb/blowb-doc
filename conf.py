@@ -222,7 +222,10 @@ latex_elements = {
 'pointsize': '11pt',
 
 # Additional stuff for the LaTeX preamble.
-#'preamble': '',
+'preamble': r"""
+\usepackage{perpage}
+\MakePerPage{footnote}
+""",
 
 # Latex figure (float) alignment
 'figure_align': 'H',
