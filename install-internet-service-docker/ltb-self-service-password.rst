@@ -75,8 +75,8 @@ Start the container:
 ::
 
    docker run --restart always -d --name ltb-self-service-password \
-    --link openldap:ldap --add-host smtp-server:$DOCKER_INET \
-    -v $DOCKER_SHARE/ltb-self-service-password/config.inc.php:/var/www/ltb-self-service-password/conf/config.inc.php \
+    --link openldap:ldap --add-host smtp-server:$DOCKER_INET -v \
+    $DOCKER_SHARE/ltb-self-service-password/config.inc.php:/etc/config.inc.php:ro \
     blowb/ltb-self-service-password
 
 Configure Nginx
