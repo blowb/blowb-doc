@@ -85,8 +85,9 @@ Start the isso docker container:
 ::
 
    docker run --restart always -d -v $DOCKER_SHARE/isso:/etc/isso:ro \
-    --volumes-from isso-data --name isso blowb/isso \
-    --env NUM_PROCESSES=1 --env NUM_THREADS=2 --add-host smtp-server:$DOCKER_INET
+    --volumes-from isso-data --name isso \
+    --env NUM_PROCESSES=1 --env NUM_THREADS=2 \
+    --add-host smtp-server:$DOCKER_INET blowb/isso
 
 You may adjust ``NUM_THREADS`` and ``NUM_PROCESSES`` depending on your need, but for a small
 website, ``NUM_THREADS=2`` and ``NUM_PROCESSES=1`` should be enough.
