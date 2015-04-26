@@ -96,7 +96,6 @@ following command:
    LTB_SSP_URL='password.example.com'
    sudo -s <<EOF
    sed -e "s/@server_name@/$LTB_SSP_URL/g" \
-   -e 's/@fastcgi_server@/ltb-self-service-password:9000/g' \
    redirect-https.conf.tmpl > ltb-self-service-password.conf
    sed -e "s/@server_name@/$LTB_SSP_URL/g" \
    -e 's/@root@/ltb-self-service-password/g' \
