@@ -87,12 +87,16 @@ Configure Nginx
 ---------------
 
 Run the following command to generate a configuration file which would make Nginx pass all requests to your sync server
-URL to the Mozilla sync server container under the uWSGI protocol:
+URL to the Mozilla sync server container under the uWSGI protocol (replace ``MSYNC_DOMAIN`` with the domain you will use
+for the mozilla sync service):
 ::
 
+   MSYNC_DOMAIN='msync.example.com'
    cd $DOCKER_SHARE/nginx
    sudo -s <<EOF
-   sed -e "s/@server_name@/$MY_DOMAIN/g" \
+   sed -e "s/@server_name@/$MSYNC_DOMAIN/g" \
+    redirect-https.conf.tmpl > msync.conf
+   sed -e "s/@server_name@/$MSYNC_DOMAIN/g" \
     -e 's/@uwsgi_server@/msync:9000/g' uwsgi.tls.conf.tmpl > msync.tls.conf
    EOF
 
