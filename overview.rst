@@ -34,12 +34,12 @@ putting everything on the host. A typical overall deployment structure for an ap
      "openldap" [label="OpenLDAP"]
      "postfix" [label="Postfix (Sitting on the Host)"]
 
-     "client" -> "nginx" [label="Send Request to"]
-     "nginx" -> "app" [label="Forward Request to"]
+     "client" -> "nginx" [label="Sends Request to"]
+     "nginx" -> "app" [label="Forwards Request to"]
      "app" -> "data" [label="Stores Data Files in"]
-     "app" -> "mariadb" [label="Store Data in"]
-     "app" -> "openldap" [label="Authenticate via"]
-     "app" -> "postfix" [label="Send Email via"]
+     "app" -> "mariadb" [label="Stores Data in"]
+     "app" -> "openldap" [label="Authenticates via"]
+     "app" -> "postfix" [label="Sends Email via"]
    }
 
 Software in each box runs inside a Docker container, except for Postfix which runs on the host. However, not all
