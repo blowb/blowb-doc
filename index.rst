@@ -22,6 +22,7 @@ Build Internet Apps That Belongs to You
    :numbered:
    :maxdepth: 2
 
+   overview
    setup-host/index
    install-essential-docker/index
    common-tasks/index

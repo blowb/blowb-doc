@@ -19,6 +19,7 @@ Build Internet Apps That Belongs to You
    :caption: Table of Contents
 
    preface
+   overview
    setup-host/index
    install-essential-docker/index
    common-tasks/index
