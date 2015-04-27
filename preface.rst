@@ -12,14 +12,7 @@
     You should have received a copy of the GNU General Public License along with Blowb.  If not, see
     <http://www.gnu.org/licenses/>.
 
-Build Internet Apps That Belongs to You
-=======================================
+Preface
+=======
 
-.. toctree::
-   :caption: Table of Contents
-
-   preface
-   setup-host/index
-   install-essential-docker/index
-   common-tasks/index
-   install-internet-service-docker/index
+.. include:: intro.rst

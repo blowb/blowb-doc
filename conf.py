@@ -225,6 +225,7 @@ latex_elements = {
 'preamble': r"""
 \usepackage{perpage}
 \MakePerPage{footnote}
+\setcounter{chapter}{-1}
 """,
 
 # LaTeX figure (float) alignment
