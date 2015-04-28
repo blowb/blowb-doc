@@ -59,6 +59,9 @@ software systematically. For this reason, I started the Blowb project, which is 
 these free software more integrally than each individual server software's own document.
 
 This document consists of instructions to set up a relatively comprehensive set of Internet services using existing free
-software for you, your family and/or your organization.
+software for you, your family and/or your organization. Basic knowledge of GNU/Linux (or a different POSIX system such
+as OS X, FreeBSD) command line is required. Server setup knowledge is recommended but not required. you should be able
+to set up an integrated system running multiple server software following this document, but you can also use this
+document as a reference if you follow a different document to set up some of the software mentioned in this document.
 
 .. _free software: https://www.gnu.org/philosophy/free-sw.html
