@@ -12,8 +12,8 @@
     You should have received a copy of the GNU General Public License along with Blowb.  If not, see
     <http://www.gnu.org/licenses/>.
 
-Build Internet Apps That Belongs to You
-=======================================
+The Blowb Project
+=================
 
 .. include:: intro.rst
 

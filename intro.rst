@@ -12,28 +12,51 @@
     You should have received a copy of the GNU General Public License along with Blowb.  If not, see
     <http://www.gnu.org/licenses/>.
 
+Blowb is a free document project which aims to help individuals and organizations set up servers which run
+free/open-source Internet and/or intranet services. The Blowb project also promotes open `federation
+<https://en.wikipedia.org/wiki/Federation_(information_technology)>`_ protocols and software whenever applicable.
+
+.. _privacy-censorship:
+
+Privacy and Censorship Concerns Rise at the Age of the Internet
+---------------------------------------------------------------
+
 At the age of the Internet, we use Internet services everyday: We use Google Hangout to communicate; we use Facebook to
 share stories; we use Chrome Sync to synchronize browser bookmarks. They are pretty cool, but do you know
 
-  - that they collect your data, even private data, for the purpose to "improve" your experience;
+  - that they collect your data, even private data, for the purpose to "improve your experience as a user";
   - that they tie you to their platforms and your friends have to be also tied to the platform to be with you;
   - that they control what stories you "should" publish and what stories you "should not" publish.
 
-It looks like the Internet is owned by service providers, not by you. So what can we do, the people who live in the
-Internet age?
+Privacy and free speech are threatened.
 
-**We can take the Internet back.** There are many Internet related `free software`_ projects which cover almost all
-commonly used Internet services:
+Organizations and Working groups are Subjugated to Proprietary Software and Network Service
+-------------------------------------------------------------------------------------------
 
-  - GNU Social for decentralized social networking,
+Many small organizations and working groups use proprietary software and file formats to collaborate. This leads to the
+fact that they are largely limited by the software and formats they use.
+
+  - If their work is not done on their own servers, the points in :ref:`privacy-censorship` apply.
+  - They are not able to extend the software they use to fit in their situation by themselves or hiring people -- that
+    is, they do not control the software they run.
+  - If the companies which creates the software and formats are gone, they will either become unsupported, or migrate to
+    a new system which is usually expensive in the sense of time, money and quality.
+
+Solve the Problem using Free and Federated Software
+---------------------------------------------------
+
+The problem **can be solved**. There are many network related `free software`_ projects which cover almost all commonly
+used Internet and intranet services:
+
+  - GNU Social for decentralized and federated social networking,
   - Mozilla Sync for synchronizing your web browsers,
   - ownCloud for file, contact and calendar synchronization,
   - Prosody and other free XMPP software for instant messaging,
   - ... (a longer list is `available <https://en.wikipedia.org/wiki/List_of_free_software_web_applications>`_)
 
-However, by the time this document was written, there is no comprehensive documents which talks about systematically
-setting up these software. For this reason, I started the Blowb project, which is a free document project on setting up
-these free software in a systematic manner.
+However, by the time this document was written, there were no comprehensive documents showing how to set up these
+software systematically. For this reason, I started the Blowb project, which is a free document project on setting up
+these free software more integrally than each individual server software's own document.
 
 This document consists of instructions to set up a relatively comprehensive set of Internet services using existing free
 software for you, your family and/or your organization.
