@@ -32,6 +32,6 @@ If you have SELinux enabled, you should also run:
    :caption: Table of Contents
    :maxdepth: 2
 
-   install-nginx
-   install-mariadb
-   install-openldap
+   nginx
+   mariadb
+   openldap

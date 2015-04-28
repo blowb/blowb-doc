@@ -25,7 +25,7 @@ Enter the OpenLDAP container:
    ne openldap
 
 In the OpenLDAP container, run the following command to set up domain and the new group name as bash variables (replace
-``example.com`` with your domain configured in :doc:`../install-essential-docker/install-openldap`):
+``example.com`` with your domain configured in :doc:`../install-essential-docker/openldap`):
 ::
 
    MY_DOMAIN=example.com

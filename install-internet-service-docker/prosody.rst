@@ -52,8 +52,8 @@ Download the default prosody configuration file:
    sudo -s <<< "docker run --rm blowb/prosody cat /etc/prosody/prosody.cfg.lua > prosody.cfg.lua"
 
 Run the following command to modify the default config file to adjust it to run a Docker container, after replacing
-'dc=example,dc=com' with the ``LDAP_SUFFIX`` value in :doc:`../install-essential-docker/install-openldap`, and
-``PASSWORD`` with the password of the prosody user in MariaDB you've just created:
+'dc=example,dc=com' with the ``LDAP_SUFFIX`` value in :doc:`../install-essential-docker/openldap`, and ``PASSWORD`` with
+the password of the prosody user in MariaDB you've just created:
 
 .. code-block:: bash
    :linenos:
@@ -84,7 +84,7 @@ You can edit the configuration file and enable additional modules if you want, s
 synchronization, ``mam_sql`` for message archiving, etc.
 
 Put your XMPP server certificate in ``$DOCKER_SHARE/prosody/certs``. If you just want to use a dummy key, run the
-following command to copy the dummy key we generated in :doc:`../install-essential-docker/install-nginx`:
+following command to copy the dummy key we generated in :doc:`../install-essential-docker/nginx`:
 ::
 
    sudo cp $DOCKER_SHARE/nginx/tls/dummy.* $DOCKER_SHARE/prosody/certs/

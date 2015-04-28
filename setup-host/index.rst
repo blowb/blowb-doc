@@ -23,6 +23,6 @@ assumed to use RHEL/CentOS 7.x (7.1 or later) throughout the whole document.
    :maxdepth: 2
 
    basic-setup
-   install-docker
-   configure-postfix
-   enable-selinux
+   docker
+   postfix
+   selinux

@@ -39,7 +39,7 @@ Generate the default configuration file:
     cat /var/www/ltb-self-service-password/conf/config.inc.php > config.inc.php"
 
 Run the following commands to modify the configuration file, after replacing ``dc=example,dc=com`` with the
-``$LDAP_SUFFIX`` in :doc:`../install-essential-docker/install-openldap`, ``password@example.com`` with the notification
+``$LDAP_SUFFIX`` in :doc:`../install-essential-docker/openldap`, ``password@example.com`` with the notification
 email you want to use, and ``MY_LDAP_ROOT_PASSWORD`` with the root password of your OpenLDAP server:
 
 .. code-block:: bash
