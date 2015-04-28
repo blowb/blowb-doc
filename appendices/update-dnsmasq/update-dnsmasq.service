@@ -1,6 +1,7 @@
 [Unit]
 Description=Update dnsmasq DNS record
-After=docker.target
+After=docker.service
+Requires=docker.service
 
 [Service]
 User=root
