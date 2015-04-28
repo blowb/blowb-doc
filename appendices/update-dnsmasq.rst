@@ -12,16 +12,17 @@
     You should have received a copy of the GNU General Public License along with Blowb.  If not, see
     <http://www.gnu.org/licenses/>.
 
-Appendices
-==========
+Dnsmasq Auto Update Script
+==========================
 
-Appendices of this document.
+.. highlight:: bash
 
-.. toctree::
-   :caption: Table of Contents
+:download:`update-dnsmasq.sh <update-dnsmasq/update-dnsmasq.sh>`
 
-   update-dnsmasq
-   list-of-nginx-config
-   bug-and-contribution
-   source
-   license
+.. literalinclude:: update-dnsmasq/update-dnsmasq.sh
+
+.. highlight:: ini
+
+:download:`update-dnsmasq.service <update-dnsmasq/update-dnsmasq.service>`
+
+.. literalinclude:: update-dnsmasq/update-dnsmasq.service
