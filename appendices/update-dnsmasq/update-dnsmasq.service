@@ -1,0 +1,15 @@
+[Unit]
+Description=Update dnsmasq DNS record
+After=docker.target
+
+[Service]
+User=root
+Environment=INTERVAL=10 DNSMASQ_CONFIG=/etc/dnsmasq.d
+ExecStart=/usr/local/bin/update-dnsmasq.sh
+Restart=on-failure
+RestartPreventExitStatus=1
+SuccessExitStatus=2
+RestartForceExitStatus=3 4
+
+[Install]
+WantedBy=multi-user.target
