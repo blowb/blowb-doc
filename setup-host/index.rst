@@ -24,5 +24,6 @@ assumed to use RHEL/CentOS 7.x (7.1 or later) throughout the whole document.
 
    basic-setup
    docker
+   dnsmasq
    postfix
    selinux
