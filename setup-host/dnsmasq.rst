@@ -37,6 +37,8 @@ Search for the option ``interface``, uncomment the line, and change it to the fo
 
    interface=docker0
 
+Search for the option ``domain-needed`` and uncomment it, since we have all Docker container names without dots.
+
 Save the file and exit.
 
 We can now start dnsmasq:
