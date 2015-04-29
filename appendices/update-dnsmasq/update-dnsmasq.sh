@@ -15,12 +15,12 @@ declare -A service_map
 
 while true
 do
+    changed=false
     while read line
     do
-        changed=false
         name=${line##* }
         ip=$(${DOCKER} inspect --format '{{.NetworkSettings.IPAddress}}' $name)
-        if [ -z ${service_map[$name]} ] || [ ${service_map[$name]} != $ip ]
+        if [ -z ${service_map[$name]} ] || [ ${service_map[$name]} != $ip ] # IP addr changed
         then
             service_map[$name]=$ip
             # write to file
@@ -30,12 +30,13 @@ do
         else
             echo $name is unchanged.
         fi
-
-        if [ $changed = true ];
-        then
-            systemctl restart dnsmasq
-        fi
     done < <(${DOCKER} ps | ${TAIL} -n +2)
+
+    # a change of IP address occured, restart dnsmasq
+    if [ $changed = true ]
+    then
+        systemctl restart dnsmasq
+    fi
 
     ${SLEEP} $INTERVAL
 done

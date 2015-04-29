@@ -1,16 +1,13 @@
 [Unit]
-Description=Update dnsmasq DNS record
-After=docker.service
-Requires=docker.service
+Description=Dnsmasq Auto Restarter when Docker Containers' IP Addresses Changed
+After=docker.service dnsmasq.service
+Requires=docker.service dnsmasq.service
 
 [Service]
 User=root
 Environment=INTERVAL=10 DNSMASQ_CONFIG=/etc/dnsmasq.d
 ExecStart=/usr/local/bin/update-dnsmasq.sh
 Restart=on-failure
-RestartPreventExitStatus=1
-SuccessExitStatus=2
-RestartForceExitStatus=3 4
 
 [Install]
 WantedBy=multi-user.target
