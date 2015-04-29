@@ -193,6 +193,12 @@ We also need to set up the ``memberOf`` overlay so that we queries can use ``mem
 
 Press ``Ctrl+D`` to exit the container shell.
 
+Finally, add a DNS record to alias ``db`` to ``mariadb`` and restart ``dnsmasq``:
+::
+
+   sudo -s <<< "echo 'cname=ldap,openldap' > /etc/dnsmasq.d/ldap"
+   sudo systemctl restart dnsmasq
+
 Manage the LDAP Database with a GUI frontend
 --------------------------------------------
 

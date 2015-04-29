@@ -101,4 +101,10 @@ relevant history entries:
 The commands above first write all histories in RAM to the history file, then delete all history
 entries which contains ``MYSQL_ROOT_PASSWORD``.
 
+Finally, add a DNS record to alias ``db`` to ``mariadb`` and restart ``dnsmasq``:
+::
+
+   sudo -s <<< "echo 'cname=db,mariadb' > /etc/dnsmasq.d/db"
+   sudo systemctl restart dnsmasq
+
 .. _MariaDB: https://mariadb.org
