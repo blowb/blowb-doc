@@ -42,9 +42,10 @@ putting everything on the host. A typical overall deployment structure for an ap
      "app" -> "postfix" [label="Sends Email via"]
    }
 
-Software in each box runs inside a Docker container, except for Postfix which runs on the host. However, not all
-Internet apps have the complete structure as shown above. For example, Prosody is not a web service thus Nginx is not
-part of the game: users send requests directly to the Prosody instance.
+Software in each box runs inside a Docker container, except for Postfix which runs on the host. Containers locate each
+other via the dnsmasq server on the host. Note that not all Internet apps have the complete structure as shown above,
+e.g. Prosody is not a web service thus Nginx is not part of the game: users send requests directly to the Prosody
+instance.
 
 .. _Docker: https://www.docker.com
 .. _GNU/Linux: http://www.getgnulinux.org/en/
