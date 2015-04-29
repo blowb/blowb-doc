@@ -59,4 +59,5 @@ Also download the :doc:`template Nginx configuration files <../appendices/list-o
    for f in fastcgi.conf.tmpl fastcgi.tls.conf.tmpl redirect-https.conf.tmpl \
     uwsgi.conf.tmpl uwsgi.tls.conf.tmpl; do
      sudo wget -O $DOCKER_SHARE/nginx/$f http://docs.blowb.org/_downloads/$f
+     sudo sed -i "s/@resolver@/$DOCKER_INET/g" $DOCKER_SHARE/nginx/$f
    done

@@ -1,11 +1,13 @@
 server {
+  resolver @resolver@;
   listen 443 ssl;
   server_name @server_name@;
   ssl_certificate     /etc/nginx/conf.d/tls/dummy.crt;
   ssl_certificate_key /etc/nginx/conf.d/tls/dummy.key;
 
   location / {
-    uwsgi_pass @uwsgi_server@;
+    set $backend "@uwsgi_server@";
+    uwsgi_pass $backend;
     include uwsgi_params;
   }
 }
