@@ -1,7 +1,7 @@
 [Unit]
 Description=Dnsmasq Auto Restarter when Docker Containers' IP Addresses Changed
 After=docker.service dnsmasq.service
-Requires=docker.service dnsmasq.service
+Requires=docker.service
 
 [Service]
 User=root
