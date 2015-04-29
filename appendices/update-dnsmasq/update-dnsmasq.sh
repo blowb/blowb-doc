@@ -27,8 +27,6 @@ do
             echo $name has a new IP Address $ip >&2
             echo "host-record=$name,$ip"  > "${DNSMASQ_CONFIG}/docker-$name"
             changed=true
-        else
-            echo $name is unchanged.
         fi
     done < <(${DOCKER} ps | ${TAIL} -n +2)
 
