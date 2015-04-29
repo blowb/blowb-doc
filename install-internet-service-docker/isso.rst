@@ -116,15 +116,10 @@ The commands above generate two configuration files which pass all requests to t
 replace the dummy key and certificate with your key and certificate if you don't want to use the
 dummy one.
 
-Add a new link to the ``nginx-links.txt`` file:
-::
-
-   echo --link isso:isso >> ~/util/nginx-links.txt
-
 Recreate the Nginx container:
 ::
 
-   ~/util/rerun-nginx.sh
+   docker restart nginx
 
 
 .. _Isso: http://posativ.org/isso/

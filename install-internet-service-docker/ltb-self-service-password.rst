@@ -75,7 +75,7 @@ Start the container:
 ::
 
    docker run --restart always -d --name ltb-self-service-password \
-    --link openldap:ldap --add-host smtp-server:$DOCKER_INET -v \
+    --dns $DOCKER_INET --add-host smtp-server:$DOCKER_INET -v \
     $DOCKER_SHARE/ltb-self-service-password/config.inc.php:/etc/config.inc.php:ro \
     blowb/ltb-self-service-password
 
@@ -89,8 +89,6 @@ After replacing ``password.example.com`` with the domain you want to use to visi
 following command:
 ::
 
-   echo --link ltb-self-service-password:ltb-self-service-password \
-    >> ~/util/nginx-links.txt
    echo --volumes-from ltb-self-service-password >> ~/util/nginx-volumes.txt
    cd $DOCKER_SHARE/nginx
    LTB_SSP_URL='password.example.com'

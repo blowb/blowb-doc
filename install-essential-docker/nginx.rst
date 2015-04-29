@@ -43,7 +43,7 @@ this container frequently, for convenience, we create a script to do this:
    docker stop nginx && docker rm nginx
    echo Creating the new Nginx container...
    docker run --restart always -d -p 0.0.0.0:80:80 -p 0.0.0.0:443:443 \
-    -v $DOCKER_SHARE/nginx:/etc/nginx/conf.d:ro $(cat ~/util/nginx-links.txt) \
+    --dns $DOCKER_INET -v $DOCKER_SHARE/nginx:/etc/nginx/conf.d:ro \
     $(cat ~/util/nginx-volumes.txt) --name nginx nginx
    EOF
    chmod +x ~/util/rerun-nginx.sh

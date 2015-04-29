@@ -110,7 +110,7 @@ You can create additional configuration host configurations if you need to host 
 To start the container:
 ::
 
-   docker run -d -t --restart always  --link mariadb:db --link openldap:ldap \
+   docker run -d -t --restart always --dns $DOCKER_INET \
     -v $DOCKER_SHARE/prosody/prosody.cfg.lua:/etc/prosody/prosody.cfg.lua:ro \
     -v $DOCKER_SHARE/prosody/conf.d:/etc/prosody/conf.d:ro \
     -v $DOCKER_SHARE/prosody/certs:/etc/prosody/certs:ro \

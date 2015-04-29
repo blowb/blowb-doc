@@ -39,8 +39,8 @@ Create a data container for Piwik:
 To start the Piwik container, run the following command:
 ::
 
-   docker run -d --restart always --name piwik --link mariadb:db \
-    --link openldap:ldap --volumes-from piwik-data blowb/piwik
+   docker run -d --restart always --name piwik --dns $DOCKER_INET \
+    --volumes-from piwik-data blowb/piwik
 
 For the first time the container starts will download and decompress the Piwik installation to ``/var/www/piwik``.
 
@@ -50,7 +50,6 @@ Configure Nginx
 Now run the following command to set up Nginx, after replacing ``piwik.example.com`` with your Piwik domain:
 ::
 
-   echo --link piwik:piwik >> ~/util/nginx-links.txt
    echo --volumes-from piwik-data >> ~/util/nginx-volumes.txt
    cd $DOCKER_SHARE/nginx
    PIWIK_URL='piwik.example.com'

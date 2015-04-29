@@ -75,7 +75,7 @@ Explanation:
 Start the Mozilla sync server container:
 ::
 
-   docker run -d --restart always --name msync --link mariadb:db \
+   docker run -d --restart always --name msync --dns $DOCKER_INET \
     --env NUM_PROCESSES=1 --env NUM_THREADS=2 \
     -v $DOCKER_SHARE/msync/syncserver.ini:/etc/syncserver.ini:ro \
     blowb/mozilla-sync-server
@@ -103,15 +103,10 @@ for the mozilla sync service):
 Note here we do not use the http version as it's unsafe to transfer your bookmark, history, etc. in plain text over the
 Internet. Edit the ``msync.tls.conf`` file to replace dummy key and certificate if you don't want to use the dummy ones.
 
-Add a new link to the ``nginx-links.txt`` file:
+Restart the Nginx container:
 ::
 
-   echo --link msync:msync >> ~/util/nginx-links.txt
-
-Rerun the Nginx container:
-::
-
-   ~/util/rerun-nginx.sh
+   systemctl restart nginx
 
 Configure Firefox
 -----------------
