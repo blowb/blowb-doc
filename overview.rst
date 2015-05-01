@@ -12,8 +12,8 @@
     You should have received a copy of the GNU General Public License along with Blowb.  If not, see
     <http://www.gnu.org/licenses/>.
 
-Overview
-========
+Technical Overview
+==================
 
 The whole system will be built on `GNU/Linux`_, and `Docker`_ will be used for deployment of Internet apps. We will put
 most apps in a Docker container, which runs on top of the host system. We use Docker because a Docker container can
