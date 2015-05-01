@@ -25,6 +25,10 @@ List of Template Nginx Configuration Files
 
 .. literalinclude:: list-of-nginx-config/fastcgi.tls.conf.tmpl
 
+:download:`reverse-proxy.conf.tmpl <list-of-nginx-config/reverse-proxy.conf.tmpl>`
+
+.. literalinclude:: list-of-nginx-config/reverse-proxy.conf.tmpl
+
 :download:`redirect-https.conf.tmpl <list-of-nginx-config/redirect-https.conf.tmpl>`
 
 .. literalinclude:: list-of-nginx-config/redirect-https.conf.tmpl

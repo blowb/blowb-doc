@@ -1,0 +1,14 @@
+server {
+  resolver @resolver@;
+  listen 443 ssl;
+  server_name @server_name@;
+  ssl_certificate     /etc/nginx/conf.d/tls/dummy.crt;
+  ssl_certificate_key /etc/nginx/conf.d/tls/dummy.key;
+
+  location / {
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    set $backend "http://@web_server@";
+    proxy_pass $backend;
+  }
+}
