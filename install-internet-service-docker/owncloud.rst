@@ -77,6 +77,7 @@ database login is ``owncloud``; database password is the one we generated earlie
 
 .. figure:: owncloud/firstrun-setup.png
    :alt: OwnCloud First Run Setup
+   :scale: 40 %
 
    Set up ownCloud in the first run.
 
