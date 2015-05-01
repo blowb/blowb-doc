@@ -40,7 +40,7 @@ To start the ownCloud container, run the following command:
 ::
 
    docker run -d --restart always --name owncloud --dns $DOCKER_INET \
-    --volumes-from owncloud-data blowb/owncloud
+    --add-host smtp-server:$DOCKER_INET --volumes-from owncloud-data blowb/owncloud
 
 For the first time the container starts will download and decompress the ownCloud installation to ``/var/www/html/``.
 
@@ -65,8 +65,8 @@ Restart the Nginx container:
 
    docker restart nginx
 
-Configure OwnCloud
-------------------
+Basic Configuration of OwnCloud
+-------------------------------
 
 Visit your ownCloud setup in a browser (e.g. ``https://owncloud.example.com``), and follow the instructions to set up
 ownCloud. In the first-run setup page, database type is ``MySQL/MariaDB`` not ``SQLite``; the database server is ``db``;
@@ -82,6 +82,28 @@ setup.
 
    Set up ownCloud in the first run.
 
+You should now automatically log into your admin account. Then we need to configure the email server for sending
+notification.  Click on the triangle on the right up corner, and click "Admin", as shown in :numref:`enter-admin`. This
+should lead you to the admin interface.
+
+.. _enter-admin:
+
+.. figure:: owncloud/enter-admin.png
+   :alt: Enter Admin
+   :scale: 60%
+
+   Enter admin interface.
+
+In the admin interface, there is an "Email Server" section. "Send mode" should be ``smtp``; "From address" can be
+anything you like (e.g. ``owncloud@example.com``); "Server address" should be ``smtp-server``. The settings should look
+similar to :numref:`email-server`.
+
+.. _email-server:
+
+.. figure:: owncloud/email-server.png
+   :alt: Email Server Settings
+
+   Set email server.
 
 Use OwnCloud with OpenLDAP
 --------------------------
@@ -112,16 +134,7 @@ the right panel. Click on the "Enable" button to enable this LDAP backend ownClo
 
    Enable the LDAP backend app.
 
-Click on the triangle on the right up corner, and click "Admin", as shown in :numref:`enter-admin`. This should lead you
-to the admin interface.
-
-.. _enter-admin:
-
-.. figure:: owncloud/enter-admin.png
-   :alt: Enter Admin
-   :scale: 60%
-
-   Enter admin interface.
+Enter the admin interface as shown in :numref:`enter-admin`.
 
 In the admin interface, we are going to set up the LDAP server. In the "Server" tab, fill in the ``host`` field with
 ``ldap``, ``Base DN`` field with ``$LDAP_SUFFIX``, where ``$LDAP_SUFFIX`` should be replaced by the ``$LDAP_SUFFIX``
@@ -152,5 +165,13 @@ can be left as default.
    :alt: LDAP "Login Filter" Tab
 
    Fill in the "Login Filter" tab in LDAP settings panel.
+
+Other Settings
+--------------
+
+You may adjust settings and add more ownCloud apps to your installation. The way to add a new app into your ownCloud
+installation is similar to adding the LDAP backend app as shown in :ref:`Use OwnCloud with LDAP`. It is recommended to
+enable the `Calendar <https://doc.owncloud.org/server/8.0/user_manual/pim/calendar.html>`_ and `Contacts
+<https://doc.owncloud.org/server/8.1/user_manual/pim/contacts.html>`_ apps to synchronize your calendar and contacts.
 
 .. _OwnCloud: https://owncloud.org
