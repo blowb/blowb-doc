@@ -105,6 +105,8 @@ similar to :numref:`email-server`.
 
    Set email server.
 
+.. _use-owncloud-with-openldap:
+
 Use OwnCloud with OpenLDAP
 --------------------------
 
@@ -170,7 +172,7 @@ Other Settings
 --------------
 
 You may adjust settings and add more ownCloud apps to your installation. The way to add a new app into your ownCloud
-installation is similar to adding the LDAP backend app as shown in :ref:`Use OwnCloud with OpenLDAP`. It is recommended
+installation is similar to adding the LDAP backend app as shown in :ref:`use-owncloud-with-openldap`. It is recommended
 to enable the `Calendar <https://doc.owncloud.org/server/8.0/user_manual/pim/calendar.html>`_ and `Contacts
 <https://doc.owncloud.org/server/8.1/user_manual/pim/contacts.html>`_ apps to synchronize your calendar and contacts.
 
