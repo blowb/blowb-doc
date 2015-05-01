@@ -26,5 +26,6 @@ these software is essential, so you can choose to install only the ones which yo
    isso
    ltb-self-service-password
    mozilla-sync
+   owncloud
    piwik
    prosody
