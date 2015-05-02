@@ -291,7 +291,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
   ('index_printing', 'Blowb', 'Blowb',
-   'Hong Xu <hong@topbug.net>', 'Blowb', 'Build Internet Apps that Belongs to You',
+   'Hong Xu <hong@topbug.net>', 'Blowb', 'The Blowb Project',
    'Miscellaneous'),
 ]
 
