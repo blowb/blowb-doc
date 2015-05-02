@@ -176,4 +176,23 @@ installation is similar to adding the LDAP backend app as shown in :ref:`use-own
 to enable the `Calendar <https://doc.owncloud.org/server/8.0/user_manual/pim/calendar.html>`_ and `Contacts
 <https://doc.owncloud.org/server/8.1/user_manual/pim/contacts.html>`_ apps to synchronize your calendar and contacts.
 
+Update OwnCloud
+---------------
+
+The ownCloud container used here is a self-managed php container, which means that all ownCloud related files are
+actually downloaded and stored in a data container during the ownCloud container's first run. To upgrade, you can use
+`ownCloud's Updater app <https://doc.owncloud.org/server/8.0/admin_manual/maintenance/update.html>`_.
+
+To manually update ownCloud, run the following command to enter the shell in the ownCloud container then switch to
+``/var/www/html``:
+::
+
+   ne owncloud
+   # Now in the owncloud container
+   cd /var/www/html
+
+Then follow `the official instruction
+<https://doc.owncloud.org/server/8.0/admin_manual/maintenance/upgrade.html#manual-upgrade-procedure>`_ to update.
+
+
 .. _OwnCloud: https://owncloud.org
