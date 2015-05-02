@@ -30,6 +30,7 @@ If you have SELinux enabled, you should also run:
 
 .. toctree::
    :caption: Table of Contents
+   :name: essential_docker_toc
    :maxdepth: 2
 
    nginx

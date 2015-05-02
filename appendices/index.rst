@@ -19,6 +19,7 @@ Appendices of this document.
 
 .. toctree::
    :caption: Table of Contents
+   :name: appendices_toc
 
    update-dnsmasq
    list-of-nginx-config

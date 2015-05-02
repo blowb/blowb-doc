@@ -20,6 +20,7 @@ perform later. You can skip the whole chapter for now, and come back to read the
 
 .. toctree::
    :caption: Table of Contents
+   :name: common_tasks_toc
    :maxdepth: 2
 
    add-mariadb-database

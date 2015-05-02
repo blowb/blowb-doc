@@ -21,6 +21,7 @@ these software is essential, so you can choose to install only the ones which yo
 
 .. toctree::
    :caption: Table of Contents
+   :name: install_service_toc
    :maxdepth: 2
 
    isso

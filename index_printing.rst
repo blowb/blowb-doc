@@ -17,6 +17,9 @@ The Blowb Project
 
 .. toctree::
    :caption: Table of Contents
+   :name: masterdoc
+   :numbered:
+   :maxdepth: 2
 
    preface
    overview

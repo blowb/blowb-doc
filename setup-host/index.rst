@@ -20,6 +20,7 @@ assumed to use RHEL/CentOS 7.x (7.1 or later) throughout the whole document.
 
 .. toctree::
    :caption: Table of Contents
+   :name: setup_host_toc
    :maxdepth: 2
 
    basic-setup
