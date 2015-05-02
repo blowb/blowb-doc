@@ -21,7 +21,8 @@ Visit the [project page on GitLab](https://gitlab.com/blowb/blowb) for more deta
 
 To build the document, first please follow [this link](http://sphinx-doc.org/install.html) to
 install [Sphinx][], which is the main tool to build the document. [GNU Make][] or a compatible
-[Make][] program is also needed. [LaTeX][] is required if you want to generate the PDF document.
+[Make][] program is also needed. If you need to generate the diagrams, you need to have [Graphviz][]
+installed. [LaTeX][] is required if you want to generate the PDF document.
 
 Then we need to download the theme files if you are going to use the same theme as
 [the Blowb online doc](http://docs.blowb.org). If you used [git][] to obtain the source, please make
@@ -58,6 +59,7 @@ You should have received a copy of the GNU General Public License along with Blo
 
 [git]: http://git-scm.com
 [GNU Make]: https://www.gnu.org/software/make/
+[Graphviz]: http://www.graphviz.org/
 [LaTeX]: http://latex-project.org/ftp.html
 [Make]: https://en.wikipedia.org/wiki/Make_(software)
 [Sphinx]: http://sphinx-doc.org/
