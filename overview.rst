@@ -47,5 +47,8 @@ other via the dnsmasq server on the host. Note that not all Internet apps have t
 e.g. Prosody is not a web service thus Nginx is not part of the game: users send requests directly to the Prosody
 instance.
 
+Throughout this document, `GNU Bash`_ is assumed to be the shell used on the host.
+
 .. _Docker: https://www.docker.com
+.. _GNU Bash: https://www.gnu.org/software/bash/
 .. _GNU/Linux: http://www.getgnulinux.org/en/
