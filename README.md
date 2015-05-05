@@ -1,7 +1,9 @@
-# Blowb -- Build Internet Apps That Belongs to You
+# The Blowb Project
 
-This is a document project, consisting of instructions to set up Internet services using existing
-free software for you, your family and/or your organization to preserve privacy.
+Blowb is a free document project which aims to help individuals and organizations set up servers
+which run free/open-source Internet and/or intranet services. The Blowb project also promotes open
+[federation](https://en.wikipedia.org/wiki/Federation_(information_technology)) protocols and
+software whenever applicable.
 
 The project is currently under development, but you are free to play with it.
 
