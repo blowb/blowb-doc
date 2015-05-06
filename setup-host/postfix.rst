@@ -140,7 +140,7 @@ Run the following commands to starts connect
 to the postfix server:
 ::
 
-   apt-get update && apt-get install netcat
+   apt-get update && apt-get install -y netcat
    nc <echo $DOCKER_INET> 25 <sendmail.txt
 
 If successful, you should be able to receive an email in your inbox from ``test@example.com``. Also
