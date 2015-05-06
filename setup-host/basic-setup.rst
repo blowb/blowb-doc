@@ -49,7 +49,7 @@ Install Admin Tools
 We probably also need to install some utilities:
 ::
 
-   sudo yum install bash-completion ed nc telnet
+   sudo yum install bash-completion ed nc telnet wget
 
 We also need to set up a favorite terminal editor. If you are relatively new to GNU/Linux, I suggest you to try `Vim`_,
 which is an enhanced version of the POSIX standard vi. It has a steep but short learning curve for editing configuration
