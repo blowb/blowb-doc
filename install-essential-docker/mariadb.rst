@@ -63,7 +63,7 @@ Run the following commands to download and do some preprocessing of your MariaDB
    collation-server = utf8_general_ci' \
     -e '/^\[client\]/a \
    default-character-set = utf8' $DOCKER_SHARE/mariadb/my.cnf
-   sudo -s <<'EOF'
+   sudo -s <<EOF
    echo >> $DOCKER_SHARE/mariadb/my.cnf
    echo '!includedir /etc/mysql/conf.d/' >> $DOCKER_SHARE/mariadb/my.cnf
    EOF
