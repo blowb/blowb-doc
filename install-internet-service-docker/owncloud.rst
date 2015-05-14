@@ -110,7 +110,7 @@ running the following command on the host system (after replacing ``owncloud.exa
 the ownCloud instance):
 ::
 
-   docker exec -i owncloud bash -c 'cat >> /var/www/html/config/config.php' << 'EOF'
+   docker exec -i owncloud bash -c 'cat >>/var/www/html/config/config.php' <<'EOF'
    # reverse proxy settings
    $CONFIG = array_merge($CONFIG, array (
    "overwritehost"     => "owncloud.example.com",
