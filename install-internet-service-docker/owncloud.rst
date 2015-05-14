@@ -105,6 +105,19 @@ similar to :numref:`email-server`.
 
    Set email server.
 
+Since we use reverse proxy for the ownCloud setup, we also need to configure ownCloud to recognize reverse proxy by
+running the following command on the host system (after replacing ``owncloud.example.com`` with the domain you use with
+the ownCloud instance):
+::
+
+   docker exec -i owncloud bash -c 'cat >> /var/www/html/config/config.php' << 'EOF'
+   # reverse proxy settings
+   $CONFIG = array_merge($CONFIG, array (
+   "overwritehost"     => "owncloud.example.com",
+   "overwriteprotocol" => "https",
+   ));
+   EOF
+
 .. _use-owncloud-with-openldap:
 
 Use OwnCloud with OpenLDAP
