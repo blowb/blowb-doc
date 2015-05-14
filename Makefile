@@ -181,5 +181,6 @@ pseudoxml:
 deploy: clean
 	PIWIK_URL=piwik.topbug.net $(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo "ErrorDocument 404 /404.html" > $(BUILDDIR)/html/.htaccess
+	@echo "Sitemap: http://docs.blowb.org/sitemap.xml" > $(BUILDDIR)/html/robots.txt
 	python gen_sitemap.py > $(BUILDDIR)/html/sitemap.xml
 	$(RSYNC) -rav --delete _build/html/ xuhdev,blowb@web.sourceforge.net:htdocs/
