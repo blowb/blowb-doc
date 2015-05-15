@@ -18,7 +18,6 @@ print('''
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
- <url>
 ''')
 
 # search for all *.rst files, replace .rst with .html, and prepend the site base url.
