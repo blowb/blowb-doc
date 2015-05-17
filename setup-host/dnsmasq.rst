@@ -57,9 +57,9 @@ In this shell:
 ::
 
    apt-get update && apt-get install -y --no-install-recommends dnsutils
-   dig @<echo $DOCKER_ADDR> www.blowb.org
+   dig @<echo $DOCKER_HOST> www.blowb.org
 
-Where ``<echo $DOCKER_ADDR>`` is the output of ``echo $DOCKER_ADDR`` on the bash shell on your host. If the DNS record
+Where ``<echo $DOCKER_HOST>`` is the output of ``echo $DOCKER_HOST`` on the bash shell on your host. If the DNS record
 of ``www.blowb.org`` is shown, ``dnsmasq`` is correctly set up. Exit the shell in the container by press ``Ctrl-D``.
 
 Auto Update DNS Record of Docker Containers
