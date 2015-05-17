@@ -75,7 +75,7 @@ Explanation:
 Start the Mozilla sync server container:
 ::
 
-   docker run -d --restart always --name msync --dns $DOCKER_INET \
+   docker run -d --restart always --name msync --dns $DOCKER_ADDR \
     --env NUM_PROCESSES=1 --env NUM_THREADS=2 \
     -v $DOCKER_SHARE/msync/syncserver.ini:/etc/syncserver.ini:ro \
     blowb/mozilla-sync-server

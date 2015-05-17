@@ -43,7 +43,7 @@ this container frequently, for convenience, we create a script to do this:
    docker stop nginx && docker rm nginx
    echo Creating the new Nginx container...
    docker run --restart always -d -p 0.0.0.0:80:80 -p 0.0.0.0:443:443 \
-    --dns $DOCKER_INET -v $DOCKER_SHARE/nginx:/etc/nginx/conf.d:ro \
+    --dns $DOCKER_ADDR -v $DOCKER_SHARE/nginx:/etc/nginx/conf.d:ro \
     $(cat ~/util/nginx-volumes.txt) --name nginx nginx
    EOF
    chmod +x ~/util/rerun-nginx.sh
@@ -59,5 +59,5 @@ Also download the :doc:`template Nginx configuration files <../appendices/list-o
    for f in fastcgi.conf.tmpl fastcgi.tls.conf.tmpl reverse-proxy.tls.conf.tmpl \
     redirect-https.conf.tmpl uwsgi.conf.tmpl uwsgi.tls.conf.tmpl; do
      sudo wget -O $DOCKER_SHARE/nginx/$f http://docs.blowb.org/_downloads/$f
-     sudo sed -i "s/@resolver@/$DOCKER_INET/g" $DOCKER_SHARE/nginx/$f
+     sudo sed -i "s/@resolver@/$DOCKER_ADDR/g" $DOCKER_SHARE/nginx/$f
    done

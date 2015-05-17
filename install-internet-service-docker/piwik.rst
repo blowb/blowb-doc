@@ -39,7 +39,7 @@ Create a data container for Piwik:
 To start the Piwik container, run the following command:
 ::
 
-   docker run -d --restart always --name piwik --dns $DOCKER_INET \
+   docker run -d --restart always --name piwik --dns $DOCKER_ADDR \
     --volumes-from piwik-data blowb/piwik
 
 For the first time the container starts will download and decompress the Piwik installation to ``/var/www/piwik``.
