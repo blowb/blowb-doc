@@ -75,7 +75,7 @@ Start the container:
 ::
 
    docker run --restart always -d --name ltb-self-service-password \
-    --dns $DOCKER_HOST --add-host smtp-server:$DOCKER_HOST -v \
+    --dns $HOST_ADDR --add-host smtp-server:$HOST_ADDR -v \
     $DOCKER_SHARE/ltb-self-service-password/config.inc.php:/etc/config.inc.php:ro \
     blowb/ltb-self-service-password
 

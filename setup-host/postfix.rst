@@ -88,9 +88,9 @@ with:
 
 .. code-block:: none
 
-   inet_interfaces = localhost, <echo $DOCKER_HOST>
+   inet_interfaces = localhost, <echo $HOST_ADDR>
 
-where ``<echo $DOCKER_HOST>`` should be replaced with your output of ``echo $DOCKER_HOST`` when run
+where ``<echo $HOST_ADDR>`` should be replaced with your output of ``echo $HOST_ADDR`` when run
 on bash.
 
 To achieve point 2, search this file for ``mynetworks``. The whole docker network as well as
@@ -100,9 +100,9 @@ localhost should be added to ``mynetworks``. If your ``ifconfig docker0`` has a 
 
 .. code-block:: none
 
-   mynetworks = localhost, <echo $DOCKER_HOST | awk -F. '{print $1 "." $2 ".0.0/16"}'>
+   mynetworks = localhost, <echo $HOST_ADDR | awk -F. '{print $1 "." $2 ".0.0/16"}'>
 
-Where ``<echo $DOCKER_HOST | awk -F. '{print $1 "." $2 ".0.0/16"}'>`` is the corresponding output on
+Where ``<echo $HOST_ADDR | awk -F. '{print $1 "." $2 ".0.0/16"}'>`` is the corresponding output on
 bash.
 
 Save the configuration file and restart postfix:
@@ -141,7 +141,7 @@ to the postfix server:
 ::
 
    apt-get update && apt-get install -y netcat
-   nc <echo $DOCKER_HOST> 25 <sendmail.txt
+   nc <echo $HOST_ADDR> 25 <sendmail.txt
 
 If successful, you should be able to receive an email in your inbox from ``test@example.com``. Also
 check your spam folder if you didn't receive the email. Now exit the bash in the container and

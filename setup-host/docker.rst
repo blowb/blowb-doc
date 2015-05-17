@@ -71,7 +71,7 @@ You may have a different IP address after ``inet``. Export the ``inet`` entry to
 we will use it later. In this example it should be:
 ::
 
-   echo 'export DOCKER_HOST=172.17.42.1' >> ~/.bashrc
+   echo 'export HOST_ADDR=172.17.42.1' >> ~/.bashrc
 
 Remember to replace ``172.17.42.1`` with the output on your system!
 
