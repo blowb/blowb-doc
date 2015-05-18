@@ -9,7 +9,8 @@ import os
 import time
 
 SITEURL = 'http://docs.blowb.org'
-EXCLUDE_FILES = ['index_printing']
+EXCLUDE_FILES = ['index_printing', 'what-is-blowb']
+EXCLUDE_DIRS = ['.git', '_build', '_templates', '_themes']
 
 print('''<?xml version="1.0" encoding="UTF-8"?>
 <urlset
@@ -25,6 +26,14 @@ for root, dirnames, filenames in os.walk('.'):
         excluded = False
         for ex in EXCLUDE_FILES:
             if ex + '.rst' == filename:
+                excluded = True
+                break
+
+        if excluded:
+            continue
+
+        for ex in EXCLUDE_DIRS:
+            if (root + os.path.sep).find(os.path.sep + ex + os.path.sep) != -1:
                 excluded = True
                 break
 
