@@ -101,6 +101,27 @@ relevant history entries:
 The commands above first write all histories in RAM to the history file, then delete all history
 entries which contains ``MYSQL_ROOT_PASSWORD``.
 
+We then need to disable remote root access of the MariaDB instance for better security. enter the MariaDB container
+shell:
+::
+
+   ne mariadb
+
+Inside the shell of the MariaDB container, run the following command to start MariaDB shell:
+::
+
+   mysql -u root -p
+
+Execute the following SQL statement:
+
+.. code-block:: mysql
+
+   rename user 'root'@'%' to 'root'@'localhost';
+
+The SQL statement above limits root access to localhost only.
+
+Press ``Ctrl-D`` twice to exit the MariaDB shell and the container's shell.
+
 Finally, add a DNS record to alias ``db`` to ``mariadb`` and restart ``dnsmasq``:
 ::
 
