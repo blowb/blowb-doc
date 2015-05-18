@@ -32,14 +32,16 @@ Inside the shell of the MariaDB container, run the following command to start Ma
    mysql -u root -p
 
 After enter the root password of your MariaDB instance, you should now be in the MariaDB shell. After replacing
-``newuser`` with the new user's user name, ``newdb`` with the new database name you want to create, and ``PASSWORD``
-with the password your generated earlier in this section, run the following SQL commands:
+``newuser`` with the new user's user name, ``userhost`` with the host from which the user connects (if you followed
+:doc:`../setup-host/dnsmasq`, this should be simply the name of the container of the Internet app), ``newdb`` with the
+new database name you want to create, and ``PASSWORD`` with the password your generated earlier in this section, run the
+following SQL commands:
 
-.. code-block:: sql
+.. code-block:: mysql
 
-   CREATE USER 'newuser' IDENTIFIED BY 'PASSWORD';
+   CREATE USER 'newuser'@'userhost' IDENTIFIED BY 'PASSWORD';
    CREATE DATABASE newdb;
-   GRANT ALL PRIVILEGES ON newdb.* TO 'newuser';
+   GRANT ALL PRIVILEGES ON newdb.* TO 'newuser'@'userhost';
    FLUSH PRIVILEGES;
 
 The SQL statements above creates a new user ``newuser`` with a password of ``PASSWORD`` and a new database ``newdb``,

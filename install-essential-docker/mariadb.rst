@@ -89,7 +89,8 @@ Start the MariaDB container with the following command, after replacing ``'PASSW
 
    docker run --restart always -d --volumes-from dbdata \
     -v $DOCKER_SHARE/mariadb/my.cnf:/etc/mysql/my.cnf:ro \
-    -e MYSQL_ROOT_PASSWORD='PASSWORD' --name mariadb mariadb:10.0
+    -e MYSQL_ROOT_PASSWORD='PASSWORD' --dns $HOST_ADDR \
+    --name mariadb mariadb:10.0
 
 Since our command line history has recorded the root password of MariaDB, we need to clear the
 relevant history entries:
