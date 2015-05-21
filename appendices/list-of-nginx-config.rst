@@ -15,6 +15,8 @@
 List of Template Nginx Configuration Files
 ==========================================
 
+See :doc:`../install-essential-docker/nginx.rst` for more details.
+
 .. highlight:: nginx
 
 :download:`fastcgi.conf.tmpl <list-of-nginx-config/fastcgi.conf.tmpl>`

@@ -15,6 +15,8 @@
 Dnsmasq Auto Update Script
 ==========================
 
+See :doc:`../setup-host/dnsmasq` for more details.
+
 .. highlight:: bash
 
 :download:`update-dnsmasq.sh <update-dnsmasq/update-dnsmasq.sh>`
