@@ -15,7 +15,7 @@
 List of Template Nginx Configuration Files
 ==========================================
 
-See :doc:`../install-essential-docker/nginx.rst` for more details.
+See :doc:`../install-essential-docker/nginx` for more details.
 
 .. highlight:: nginx
 
