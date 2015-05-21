@@ -68,9 +68,9 @@ Auto Update DNS Record of Docker Containers
 We need to automatically update Docker container DNS records when a container changes its IP address.
 
 The Blowb project has prepared a script ``update-dnsmasq.sh`` to do auto updating, and a systemd unit file to run the
-script as a daemon. The script checks the IP addresses of all running containers every period of time (10s by default).
-If a change of IP address(es) is detected, it will update the configuration files in ``/etc/dnsmasq.d`` and restart
-``dnsmasq``.  To download the relevant files and run this script:
+script as a daemon (can be viewed in :doc:`../appendices/update-dnsmasq`). The script checks the IP addresses of all
+running containers every period of time (10s by default). If a change of IP address(es) is detected, it will update the
+configuration files in ``/etc/dnsmasq.d`` and restart ``dnsmasq``. To download the relevant files and run this script:
 ::
 
    sudo wget -O /usr/local/bin/update-dnsmasq.sh \
