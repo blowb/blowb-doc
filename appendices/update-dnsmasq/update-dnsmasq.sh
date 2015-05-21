@@ -3,7 +3,7 @@
 # 10 seconds interval time by default
 INTERVAL=${INTERVAL:-10}
 
-# Consul config directory
+# dnsmasq config directory
 DNSMASQ_CONFIG=${DNSMASQ_CONFIG:-.}
 
 # commands used in this script
