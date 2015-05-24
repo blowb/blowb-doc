@@ -7,17 +7,17 @@ software whenever applicable.
 
 The project is currently under development, but you are free to play with it.
 
-Please visit http://www.blowb.org to read the document.
+Please visit http://docs.blowb.org to read the document.
 
 ## Obtain the Latest Source Code
 
 You can always get the latest source code using [git][]:
 
-    git clone --recursive https://gitlab.com/blowb/blowb.git
+    git clone --recursive https://gitlab.com/blowb/blowb-doc.git
 
-Or download through [this link](https://gitlab.com/blowb/blowb/repository/archive.tar.gz).
+Or download through [this link](https://gitlab.com/blowb/blowb-doc/repository/archive.tar.gz).
 
-Visit the [project page on GitLab](https://gitlab.com/blowb/blowb) for more details.
+Visit the [project page on GitLab](https://gitlab.com/blowb/blowb-doc) for more details.
 
 ## Build the Document
 

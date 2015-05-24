@@ -37,8 +37,8 @@ git_rev = subprocess.check_output('git rev-parse HEAD', shell = True).decode('ut
 
 # extlinks
 extlinks = {
-    'source_archive' : ('https://gitlab.com/blowb/blowb/repository/archive.%s?ref=' + git_rev, ''),
-    'source_online' : ('https://gitlab.com/blowb/blowb/tree/%s' + git_rev, '')
+    'source_archive' : ('https://gitlab.com/blowb/blowb-doc/repository/archive.%s?ref=' + git_rev, ''),
+    'source_online' : ('https://gitlab.com/blowb/blowb-doc/tree/%s' + git_rev, '')
 }
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -201,7 +201,7 @@ htmlhelp_basename = 'Blowbdoc'
 
 context = {
     # source links
-    'source_url_prefix': 'https://gitlab.com/blowb/blowb/raw/{}/'.format(git_rev),
+    'source_url_prefix': 'https://gitlab.com/blowb/blowb-doc/raw/{}/'.format(git_rev),
     'source_suffix': '.rst',
     # piwik URL
     'piwik_url': os.environ.get('PIWIK_URL')
