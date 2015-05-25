@@ -15,6 +15,8 @@
 Piwik, A Web Analytics Platform
 ===============================
 
+*Uses dnsmasq, MariaDB, Nginx and OpenLDAP*
+
 `Piwik`_ is a free web analytics platform which you can install on your own server.
 
 Configure DNS

@@ -15,6 +15,8 @@
 Mozilla Sync Server, Synchronizing Your Firefox Across Devices
 ==============================================================
 
+*uses dnsmasq MariaDB and Nginx*
+
 `Mozilla Sync Server`_ is an Internet service which synchronize your Firefox (e.g. bookmarks, history, etc) across
 devices. By default, Firefox uses the sync server set up by Mozilla, but Mozilla has also released the sync server which
 we can use our own server for synchronization.

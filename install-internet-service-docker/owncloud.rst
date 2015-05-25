@@ -15,6 +15,8 @@
 OwnCloud, A File Synchronization and Cloud Service
 ==================================================
 
+*Uses a data container, dnsmasq, MariaDB, Nginx, OpenLDAP and Postfix*
+
 `Owncloud`_ is a free, open source, Dropbox-like file synchronization and cloud service.
 
 Configure DNS

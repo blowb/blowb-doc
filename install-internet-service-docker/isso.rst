@@ -15,6 +15,8 @@
 Isso, A Commenting Server
 =========================
 
+*uses a data container, Nginx and Postfix*
+
 `Isso`_ is a commenting system which can embed into a static website.
 
 Configure Isso Options
