@@ -21,7 +21,7 @@ these software is essential, so you can choose to install only the ones which yo
 
 This chapter only introduces a limited number of Internet service software, to serve as examples. In this chapter, all
 of the Internet apps are configured to be fit in the framework introduced in :doc:`../overview`. The basic rules for
-each Internet app are:
+each Internet app are (as illustrated in :numref:`overview-diagram`):
 
 - If needed, forward Nginx incoming connections to the Internet app.
 - If needed, use the dnsmasq instance on the host to look up other services.

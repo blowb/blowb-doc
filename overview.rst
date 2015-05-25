@@ -20,7 +20,11 @@ most apps in a Docker container, which runs on top of the host system. We use Do
 isolate the app with other parts of the system, which leads to easy deployment, and can be configured to be safer than
 putting everything on the host. A typical overall deployment structure for an app can be seen in the following diagram:
 
+.. _overview-diagram:
+
 .. graphviz::
+   :alt: Overview of the deployment structure.
+   :caption: Overview of the deployment structure is shown.
 
    digraph structure {
      graph[overlap=false, splines=true]
