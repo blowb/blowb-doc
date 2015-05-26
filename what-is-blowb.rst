@@ -12,6 +12,9 @@
     You should have received a copy of the GNU General Public License along with Blowb.  If not, see
     <http://www.gnu.org/licenses/>.
 
-Blowb is a free document project which aims to help individuals and organizations set up servers which run
-free/open-source Internet and/or intranet services. The Blowb project also promotes open `federation
+Blowb is a project which aims to help individuals and organizations set up servers which run free/open-source Internet
+and/or intranet services. The Blowb project also promotes open `federation
 <https://en.wikipedia.org/wiki/Federation_(information_technology)>`_ protocols and software whenever applicable.
+
+The project consists of two parts: the Blowb Software Project and the Blowb Document Project. This document is the main
+part of the Blowb Document Project.
