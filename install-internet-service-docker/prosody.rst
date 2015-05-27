@@ -53,6 +53,9 @@ Download the default prosody configuration file:
    docker pull blowb/prosody
    sudo -s <<< "docker run --rm blowb/prosody cat /etc/prosody/prosody.cfg.lua > prosody.cfg.lua"
 
+The Dockerfile from which the image was generated is `available
+<https://registry.hub.docker.com/u/blowb/prosody/dockerfile/>`_.
+
 Run the following command to modify the default config file to adjust it to run a Docker container, after replacing
 'dc=example,dc=com' with the ``LDAP_SUFFIX`` value in :doc:`../install-essential-docker/openldap`, and ``PASSWORD`` with
 the password of the prosody user in MariaDB you've just created:

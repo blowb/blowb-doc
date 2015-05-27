@@ -81,6 +81,9 @@ Start the container:
     $DOCKER_SHARE/ltb-self-service-password/config.inc.php:/etc/config.inc.php:ro \
     blowb/ltb-self-service-password
 
+The Dockerfile from which the image was generated is `available
+<https://registry.hub.docker.com/u/blowb/ltb-self-service-password/dockerfile/>`_.
+
 Configure Nginx
 ---------------
 

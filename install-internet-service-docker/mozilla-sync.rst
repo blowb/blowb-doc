@@ -58,6 +58,9 @@ Pull the Mozilla sync server image and generate the default configuration file:
    sudo -s <<< "docker run --rm blowb/mozilla-sync-server \
     cat /var/uwsgi/syncserver.ini > syncserver.ini"
 
+The Dockerfile from which the image was generated is `available
+<https://registry.hub.docker.com/u/blowb/mozilla-sync-server/dockerfile/>`_.
+
 Modify the default configuration file by running the following command, after replacing ``PASSWORD`` with the password
 you have just set for msync user in the MariaDB database:
 

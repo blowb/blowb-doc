@@ -91,8 +91,10 @@ Start the isso docker container:
     --env NUM_PROCESSES=1 --env NUM_THREADS=2 \
     --add-host smtp-server:$HOST_ADDR blowb/isso
 
-You may adjust ``NUM_THREADS`` and ``NUM_PROCESSES`` depending on your need, but for a small
-website, ``NUM_THREADS=2`` and ``NUM_PROCESSES=1`` should be enough.
+The Dockerfile from which the image was generated is `available
+<https://registry.hub.docker.com/u/blowb/isso/dockerfile/>`_.
+You may adjust ``NUM_THREADS`` and ``NUM_PROCESSES`` depending on your need, but for a small website, ``NUM_THREADS=2``
+and ``NUM_PROCESSES=1`` should be enough.
 
 Configure Nginx
 ---------------

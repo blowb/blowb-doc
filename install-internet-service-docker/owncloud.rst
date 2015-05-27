@@ -44,7 +44,9 @@ To start the ownCloud container, run the following command:
    docker run -d --restart always --name owncloud --dns $HOST_ADDR \
     --add-host smtp-server:$HOST_ADDR --volumes-from owncloud-data blowb/owncloud
 
-For the first time the container starts will download and decompress the ownCloud installation to ``/var/www/html/``.
+The Dockerfile from which the image was generated is `available
+<https://registry.hub.docker.com/u/blowb/owncloud/dockerfile/>`_. For the first time the container starts will download
+and decompress the ownCloud installation to ``/var/www/html/``.
 
 Configure Nginx
 ---------------

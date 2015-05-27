@@ -44,7 +44,9 @@ To start the Piwik container, run the following command:
    docker run -d --restart always --name piwik --dns $HOST_ADDR \
     --volumes-from piwik-data blowb/piwik
 
-For the first time the container starts will download and decompress the Piwik installation to ``/var/www/piwik``.
+The Dockerfile from which the image was generated is `available
+<https://registry.hub.docker.com/u/blowb/piwik/dockerfile/>`_. For the first time the container starts will download and
+decompress the Piwik installation to ``/var/www/piwik``.
 
 Configure Nginx
 ---------------
