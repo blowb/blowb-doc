@@ -265,6 +265,7 @@ latex_appendices = ['appendices/update-dnsmasq',
                     'appendices/list-of-nginx-config',
                     'appendices/bug-and-contribution',
                     'appendices/source',
+                    'appendices/references',
                     'appendices/license']
 
 # If false, no module index is generated.
@@ -300,6 +301,7 @@ texinfo_appendices = ['appendices/update-dnsmasq',
                       'appendices/list-of-nginx-config',
                       'appendices/bug-and-contribution',
                       'appendices/source',
+                      'appendices/references',
                       'appendices/license']
 
 # If false, no module index is generated.

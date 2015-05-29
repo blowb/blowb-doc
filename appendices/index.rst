@@ -25,4 +25,5 @@ Appendices of this document.
    list-of-nginx-config
    bug-and-contribution
    source
+   references
    license
