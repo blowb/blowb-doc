@@ -18,7 +18,8 @@ Install Docker
 `Docker`_ is an essential software in Blowb. Most of our services will be installed into a docker
 container for better isolation.
 
-Run the following command to install docker:
+Run the following command to install Docker (you need to enable the ``extra`` repo if you are on Red Hat Enterprise
+Linux):
 ::
 
    sudo yum install docker
