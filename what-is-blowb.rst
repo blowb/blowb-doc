@@ -14,7 +14,7 @@
 
 Blowb is a project which aims to help individuals and organizations set up servers which run free/open-source Internet
 and/or intranet services. It helps set up an extensible framework where you can install Internet software using
-`Docker`_. The Blowb project also promotes open `federation
+`Docker`_ in an integrated manner. The Blowb project also promotes open `federation
 <https://en.wikipedia.org/wiki/Federation_(information_technology)>`_ protocols and software whenever applicable.
 
 This document is the main document of the Blowb project.
