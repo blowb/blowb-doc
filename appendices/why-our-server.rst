@@ -12,7 +12,7 @@
     You should have received a copy of the GNU General Public License along with Blowb.  If not, see
     <http://www.gnu.org/licenses/>.
 
-Why should we set up our own server?
+Why Should We Set up Our Own Server?
 ====================================
 
 Privacy and Censorship Concerns Rise at the Age of the Internet
