@@ -261,7 +261,8 @@ latex_show_pagerefs = True
 latex_show_urls = 'footnote'
 
 # Documents to append as an appendix to all manuals.
-latex_appendices = ['appendices/update-dnsmasq',
+latex_appendices = ['appendices/why-our-server',
+                    'appendices/update-dnsmasq',
                     'appendices/list-of-nginx-config',
                     'appendices/bug-and-contribution',
                     'appendices/source',
@@ -297,7 +298,8 @@ texinfo_documents = [
 ]
 
 # Documents to append as an appendix to all manuals.
-texinfo_appendices = ['appendices/update-dnsmasq',
+texinfo_appendices = ['appendices/why-our-server',
+                      'appendices/update-dnsmasq',
                       'appendices/list-of-nginx-config',
                       'appendices/bug-and-contribution',
                       'appendices/source',

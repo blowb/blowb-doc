@@ -21,6 +21,7 @@ Appendices of this document.
    :caption: Table of Contents
    :name: appendices_toc
 
+   why-our-server
    update-dnsmasq
    list-of-nginx-config
    bug-and-contribution
