@@ -29,8 +29,8 @@ Technical Reasons
 ~~~~~~~~~~~~~~~~~
 
 Docker is an emerging technology which can isolates service better. However, there is no thorough document at this point
-which explains how to set up integrated service using Docker. This document was written so that people who want to set
-up a server using Docker can have a guide to follow and a reference to look up.
+which explains how to deploy integrated service using Docker. This document was written so that people who want to
+deploy service using Docker can have a guide to follow and a reference to look up.
 
 
 Political Reasons
@@ -39,7 +39,7 @@ Political Reasons
 Many organizations and individuals use third party servers to serve some of their work, e.g. cloud file synchronization,
 cloud-based office suite, etc. This practice causes some problems -- mainly privacy and censorship issues (see
 :doc:`appendices/why-our-server` for a more detailed description). This document was written to make server setup easier
-thus encourages people to set up their own servers.
+thus encourages people to deploy service on their own servers.
 
 How to Use This Document
 ------------------------
