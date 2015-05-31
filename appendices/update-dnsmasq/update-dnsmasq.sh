@@ -20,7 +20,8 @@ do
     do
         name=${line##* }
         ip=$(${DOCKER} inspect --format '{{.NetworkSettings.IPAddress}}' $name)
-        if [ -z ${service_map[$name]} ] || [ ${service_map[$name]} != $ip ] # IP addr changed
+        # if IP addr changed
+        if [ -z ${service_map[$name]} ] || [ ${service_map[$name]} != $ip ]
         then
             service_map[$name]=$ip
             # write to file
