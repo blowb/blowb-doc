@@ -82,6 +82,12 @@ rst_epilog = ".. |git_rev| replace:: " + git_rev
 # directories to ignore when looking for source files.
 exclude_patterns = ['_build', '_themes', 'what-is-blowb.rst']
 
+# Printing excludes index.rst, otherwise excludes index_printing.rst
+if os.getenv('PRINTING') == "TRUE":
+    exclude_patterns.append('index.rst')
+else:
+    exclude_patterns.append('index_printing.rst')
+
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
 #default_role = None
