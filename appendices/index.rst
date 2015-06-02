@@ -27,4 +27,4 @@ Appendices of this document.
    bug-and-contribution
    source
    references
-   license
+   ../copyright

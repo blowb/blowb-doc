@@ -28,5 +28,5 @@ You should have received a copy of the GNU General Public License along with Blo
 
 Below is the text of the GNU General Public License version 2.
 
-.. literalinclude:: ../LICENSE.txt
+.. literalinclude:: LICENSE.txt
    :language: text

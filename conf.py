@@ -267,7 +267,7 @@ latex_appendices = ['appendices/why-our-server',
                     'appendices/bug-and-contribution',
                     'appendices/source',
                     'appendices/references',
-                    'appendices/license']
+                    'copyright']
 
 # If false, no module index is generated.
 #latex_domain_indices = True
@@ -304,7 +304,7 @@ texinfo_appendices = ['appendices/why-our-server',
                       'appendices/bug-and-contribution',
                       'appendices/source',
                       'appendices/references',
-                      'appendices/license']
+                      'copyright']
 
 # If false, no module index is generated.
 #texinfo_domain_indices = True
