@@ -24,7 +24,6 @@ Appendices of this document.
    why-our-server
    update-dnsmasq
    list-of-nginx-config
-   bug-and-contribution
    source
    references
    ../copyright

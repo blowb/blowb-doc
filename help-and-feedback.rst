@@ -12,13 +12,12 @@
     You should have received a copy of the GNU General Public License along with Blowb.  If not, see
     <http://www.gnu.org/licenses/>.
 
-Discussion, Bug Report and Contribution
-=======================================
+Help and Feedback
+=================
 
 If you have any questions or need some help, or you have a brilliant idea that you want to discuss, feel free to send an
-email to the mailing list <blowb-discuss@lists.sourceforge.net> (no subscription required). You can also subscribe to
-the mailing list, or see the archive of the mailing list `here
-<https://lists.sourceforge.net/lists/listinfo/blowb-discuss>`_. For bugs regarding this documentation, please report
+email to the `mailing list <https://lists.sourceforge.net/lists/listinfo/blowb-discuss>`_ (no subscription required), or
+post to the `forum <https://sourceforge.net/p/blowb/discussion/>`_. For bugs regarding this documentation, please report
 them to the `issue tracker`_. To contribute, please `make a merge request
 <https://gitlab.com/blowb/blowb-doc/merge_requests>`_ (which is similar to a `GitHub pull request
 <https://help.github.com/articles/using-pull-requests/>`_). Here is `a short tutorial

@@ -264,9 +264,9 @@ latex_show_urls = 'footnote'
 latex_appendices = ['appendices/why-our-server',
                     'appendices/update-dnsmasq',
                     'appendices/list-of-nginx-config',
-                    'appendices/bug-and-contribution',
                     'appendices/source',
                     'appendices/references',
+                    'help-and-feedback',
                     'copyright']
 
 # If false, no module index is generated.
@@ -301,9 +301,9 @@ texinfo_documents = [
 texinfo_appendices = ['appendices/why-our-server',
                       'appendices/update-dnsmasq',
                       'appendices/list-of-nginx-config',
-                      'appendices/bug-and-contribution',
                       'appendices/source',
                       'appendices/references',
+                      'help-and-feedback',
                       'copyright']
 
 # If false, no module index is generated.

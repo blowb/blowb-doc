@@ -30,3 +30,4 @@ The Blowb Project -- Deploy Integrated Service Using Docker
    common-tasks/index
    install-internet-service-docker/index
    appendices/index
+   help-and-feedback
