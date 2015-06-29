@@ -19,8 +19,7 @@ In this chapter, we will install Internet service software with which users dire
 file/contact/calendar syncing (ownCloud), information publishing (Wordpress), instant messaging (XMPP), etc. None of
 these software is essential, so you can choose to install only the ones which you need.
 
-Basic Rules
------------
+.. rubric:: Basic Rules
 
 This chapter only introduces a limited number of Internet service software, to serve as examples. In this chapter, all
 of the Internet apps are configured to be fit in the framework introduced in :doc:`../overview`. The basic rules for
@@ -38,8 +37,7 @@ As long as you can configure an app following the rules above, your app would fi
 At the beginning of each section in this chapter, the rules above followed for the corresponding app are listed and thus
 easier for you to look up.
 
-Upgrade an Internet App
------------------------
+.. rubric:: Upgrade an Internet App
 
 Unless otherwise stated, to upgrade a specific app, you need to:
 
