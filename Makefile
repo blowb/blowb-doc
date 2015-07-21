@@ -7,7 +7,7 @@ SPHINXBUILD   = sphinx-build
 PAPER         =
 BUILDDIR      = _build
 
-RSYNC         = rsync
+GIT           = git
 
 # User-friendly check for sphinx-build
 ifeq ($(shell which $(SPHINXBUILD) >/dev/null 2>&1; echo $$?), 1)
@@ -180,7 +180,8 @@ pseudoxml:
 
 deploy: clean
 	PIWIK_URL=piwik.topbug.net $(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
-	@echo "ErrorDocument 404 /404.html" > $(BUILDDIR)/html/.htaccess
 	@echo "Sitemap: http://docs.blowb.org/sitemap.xml" > $(BUILDDIR)/html/robots.txt
 	python gen_sitemap.py > $(BUILDDIR)/html/sitemap.xml
-	$(RSYNC) -rav --delete _build/html/ xuhdev,blowb@web.sourceforge.net:htdocs/
+	touch $(BUILDDIR)/html/.nojekyll
+	@echo docs.blowb.org > $(BUILDDIR)/html/CNAME
+	cd $(BUILDDIR)/html && $(GIT) init . && $(GIT) config user.name "Web" && $(GIT) config user.email "Email" && $(GIT) add . && $(GIT) commit -m "Update" && $(GIT) push -f git@github.com:blowb/blowb.github.io.git master
