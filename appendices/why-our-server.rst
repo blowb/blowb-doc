@@ -37,8 +37,8 @@ used network services:
   - Prosody and other free XMPP software for instant messaging,
   - ... (a longer list is `available <https://en.wikipedia.org/wiki/List_of_free_software_web_applications>`_)
 
-It looks like it is completely possible to deploy service using our own server. However, by the time this document was
-written, there were no comprehensive documents showing how to set up these software integrally. For this reason, the
+It looks like it is completely possible to deploy service using our own server. However, by the time this documentation
+was written, there were no comprehensive documents showing how to set up these software integrally. For this reason, the
 Blowb project was started.
 
 .. _free software: https://www.gnu.org/philosophy/free-sw.html
