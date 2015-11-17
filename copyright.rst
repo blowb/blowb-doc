@@ -9,4 +9,4 @@ CC BY-SA 4.0. To view a copy of this license, visit http://creativecommons.org/l
 .. literalinclude:: LICENSE.txt
    :language: text
 
-_`Creative Commons Attribution-ShareAlike 4.0 International License`: http://creativecommons.org/licenses/by-sa/4.0/
+.. _`Creative Commons Attribution-ShareAlike 4.0 International License`: http://creativecommons.org/licenses/by-sa/4.0/
