@@ -48,20 +48,13 @@ pdf version. Running `make` will give a list of output formats supported.
 
 Copyright (c) 2015 Hong Xu <hong@topbug.net>
 
-Blowb is a free document: you can redistribute it and/or modify it under the terms of the GNU
-General Public License as published by the Free Software Foundation, either version 2 of the
-License, or (at your option) any later version.
+The contents of this document are licensed under a [Creative Commons Attribution-ShareAlike 4.0
+International License][], i.e. CC BY-SA 4.0.
 
-Blowb is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the
-implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public
-License for more details.
-
-You should have received a copy of the GNU General Public License along with Blowb.  If not, see
-<http://www.gnu.org/licenses/>.
-
-[git]: http://git-scm.com
+[Creative Commons Attribution-ShareAlike 4.0 International License]: http://creativecommons.org/licenses/by-sa/4.0/
 [GNU Make]: https://www.gnu.org/software/make/
 [Graphviz]: http://www.graphviz.org/
 [LaTeX]: http://latex-project.org/ftp.html
 [Make]: https://en.wikipedia.org/wiki/Make_(software)
 [Sphinx]: http://sphinx-doc.org/
+[git]: http://git-scm.com
