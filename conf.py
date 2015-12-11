@@ -85,6 +85,7 @@ exclude_patterns = ['_build', '_themes', 'what-is-blowb.rst']
 # Printing excludes index.rst, otherwise excludes index_printing.rst
 if os.getenv('PRINTING') == "TRUE":
     exclude_patterns.append('index.rst')
+    master_doc = 'index_printing'
 else:
     exclude_patterns.append('index_printing.rst')
 
