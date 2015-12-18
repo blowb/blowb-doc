@@ -235,6 +235,7 @@ latex_elements = {
 \usepackage{perpage}
 \MakePerPage{footnote}
 \setcounter{chapter}{-1}
+\pagestyle{normal}
 """,
 
 # LaTeX figure (float) alignment
