@@ -19,7 +19,7 @@ Download the isso example config file to ``$DOCKER_SHARE/isso``:
    sudo wget -O $DOCKER_SHARE/isso/isso.conf \
     https://github.com/posativ/isso/raw/c8655731d6d183a590c04bdf1f97a0afbebee822/share/isso.conf
 
-Now we need to edit the config file to make some changes for the isso container we'll use. The
+Now we need to edit the config file to make some changes for the isso container we will use. The
 following commands switch your working directory to ``$DOCKER_SHARE/isso`` and modify some parts of
 the configuration file (please replace ``isso@example.com`` with the email address you want
 notification to come from and ``me@example.com`` to be the address which receives email
