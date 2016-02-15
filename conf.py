@@ -232,17 +232,15 @@ latex_elements = {
 
 # Additional stuff for the LaTeX preamble.
 'preamble': r"""
+\pdfinclusioncopyfonts=1
+
 \usepackage{perpage}
 \MakePerPage{footnote}
 \setcounter{chapter}{-1}
-\pagestyle{normal}
 """,
 
 # LaTeX figure (float) alignment
-'figure_align': 'H',
-
-# No blank pages
-'classoptions': ',openany',
+'figure_align': '!htb',
 
 # English
 'babel': r'\usepackage[english]{babel}'
