@@ -91,8 +91,9 @@ for the mozilla sync service):
     -e 's/@uwsgi_server@/msync:9000/g' uwsgi.tls.conf.tmpl > msync.tls.conf
    EOF
 
-Note here we do not use the http version as it's unsafe to transfer your bookmark, history, etc. in plain text over the
-Internet. Edit the ``msync.tls.conf`` file to replace dummy key and certificate if you don't want to use the dummy ones.
+Note here we do not use the http version as it is insecure to transfer your bookmark, history, etc. in plain text over
+the Internet. Edit the ``msync.tls.conf`` file to replace dummy key and certificate if you don't want to use the dummy
+ones.
 
 Restart the Nginx container:
 ::

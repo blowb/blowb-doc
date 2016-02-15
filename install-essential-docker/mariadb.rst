@@ -13,8 +13,8 @@ file which is suitable for the server. There are official templates for 5 differ
 ``small``, ``medium``, ``large``, ``huge``, ``innodb-heavy-4G``. The criteria to choose any of them are written in the
 comments of these template configuration files. For convenience, I pasted the relevant part below:
 
-  - **small**: This is for a system with little memory (<= 64M) where MariaDB is only used from time to time and it's
-    important that the mysqld daemon doesn't use much resources.
+  - **small**: This is for a system with little memory (<= 64M) where MariaDB is only used from time to time and it is
+    important that the mysqld daemon does not use much resources.
 
   - **medium**: This is for a system with little memory (32M - 64M) where MariaDB plays an important part, or systems up
     to 128M where MariaDB is used together with other programs (such as a web server).
@@ -26,7 +26,7 @@ comments of these template configuration files. For convenience, I pasted the re
   - **innodb-heavy-4G**: This is for systems with 4GB of memory running mostly MariaDB using InnoDB only tables and
     performing complex queries with few connections.
 
-Very likely **small** isn't enough for our use case, as the Internet service software we will install probably uses
+Very likely **small** is not enough for our use case, as the Internet service software we will install probably uses
 MariaDB as an important part. You can start with **medium** if you are not sure how much resource your MairaDB instance
 would use.
 
@@ -57,7 +57,7 @@ Run the following commands to download and do some preprocessing of your MariaDB
 
 Explanation:
 
-  - **line 5:** don't set ``bind-address``, ``skip-networking``, or ``socket``;
+  - **line 5:** do not set ``bind-address``, ``skip-networking``, or ``socket``;
 
   - **line 6:** use 3306 as the MariaDB listening port;
 

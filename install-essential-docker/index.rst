@@ -1,7 +1,7 @@
 Install Essential Software in Docker Containers
 ===============================================
 
-In this chapter we'll install some essential software in Docker containers. Before we proceed,
+In this chapter we will install some essential software in Docker containers. Before we proceed,
 create a directory used to share files between the host and the containers:
 ::
 
