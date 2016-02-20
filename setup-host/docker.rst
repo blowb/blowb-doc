@@ -13,8 +13,8 @@ Linux):
 Start docker and make docker start at boot:
 ::
 
-   sudo systemctl start docker
    sudo systemctl enable docker
+   sudo systemctl start docker
 
 To use docker as a non-root user:
 ::
