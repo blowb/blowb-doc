@@ -7,8 +7,8 @@ different GNU/Linux distribution, as long as the following requirements are met:
 - Ed, dnsmasq, Docker, GNU sed, netcat, and wget are available.
 - A mail transfer (MTA) agent is available.
 - The scripts introduced in :doc:`dnsmasq` can be installed, thus the availability of systemd is recommended. If systemd
-  is not available, the systemd unit file introduced in :doc:`dnsmasq` must be replaced by a file for a different
-  service manager.
+  is not available, the systemd unit file introduced in :doc:`dnsmasq` must be replaced by an equivalent configuration
+  file for the available service manager.
 
 After the host is set up, the following criteria must be met for you to proceed to the next chapter:
 
