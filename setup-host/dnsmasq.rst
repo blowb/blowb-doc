@@ -33,6 +33,13 @@ We can now start dnsmasq:
    sudo systemctl enable dnsmasq
    sudo systemctl start dnsmasq
 
+If you have the firewall enabled (you can check it by executing ``systemctl status firewalld``), you need to make
+``docker0`` a trusted network:
+::
+
+   sudo firewall-cmd --permanent --zone=trusted --change-interface=docker0
+   sudo firewall-cmd --reload
+
 To test whether dnsmasq is accessible from a Docker container, run the following command to run a shell in Docker
 container:
 ::

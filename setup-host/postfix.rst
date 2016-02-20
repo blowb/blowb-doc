@@ -96,6 +96,13 @@ Save the configuration file and restart postfix:
 
    sudo systemctl restart postfix
 
+If you have the firewall enabled, you need to make ``docker0`` a trusted network (you probably have done it in
+:doc:`dnsmasq`; in this case, there is no need to execute them again and you can just skip them):
+::
+
+   sudo firewall-cmd --permanent --zone=trusted --change-interface=docker0
+   sudo firewall-cmd --reload
+
 To test whether it works within a docker container, run the following command to start a test docker
 container:
 ::
