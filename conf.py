@@ -239,8 +239,6 @@ latex_elements = {
 \setcounter{chapter}{-1}
 \pagestyle{normal}
 
-\fvset{fontsize=\footnotesize}
-
 \makeatletter
     \def\cleardoublepage{\clearpage%
         \if@twoside
