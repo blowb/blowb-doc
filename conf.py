@@ -237,6 +237,7 @@ latex_elements = {
 \usepackage{perpage}
 \MakePerPage{footnote}
 \setcounter{chapter}{-1}
+\pagestyle{normal}
 
 \fvset{fontsize=\footnotesize}
 """,
