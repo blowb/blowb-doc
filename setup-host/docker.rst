@@ -19,6 +19,7 @@ Start docker and make docker start at boot:
 To use docker as a non-root user:
 ::
 
+    sudo groupadd docker
     sudo usermod -a -G docker $USER
 
 It will let you run docker without root access. Remember you need to relogin to make the group
