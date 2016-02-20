@@ -240,6 +240,24 @@ latex_elements = {
 \pagestyle{normal}
 
 \fvset{fontsize=\footnotesize}
+
+\makeatletter
+    \def\cleardoublepage{\clearpage%
+        \if@twoside
+            \ifodd\c@page\else
+                \vspace*{\fill}
+                \hfill
+                \begin{center}
+                This page intentionally left blank.
+                \end{center}
+                \vspace{\fill}
+                \thispagestyle{empty}
+                \newpage
+                \if@twocolumn\hbox{}\newpage\fi
+            \fi
+        \fi
+    }
+\makeatother
 """,
 
 # LaTeX figure (float) alignment
