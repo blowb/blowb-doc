@@ -83,7 +83,7 @@ By default the logs are only stored in memory and cleared after a reboot. To pre
 have to set a journald option. Edit the file ``/etc/systemd/journald.conf``:
 ::
 
-   sudo $EDITOR ``/etc/systemd/journald.conf``
+   sudo $EDITOR /etc/systemd/journald.conf
 
 Uncomment the line ``#Storage=auto``, and change auto to persistent. Save the change and exit the editor. Alternatively,
 you can run the following command to apply the change:
