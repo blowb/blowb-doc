@@ -74,7 +74,7 @@ favorite editor command.
 - Other editors:
   ::
 
-     echo 'export EDITOR=command_of_the_editor >> ~/.bashrc
+     echo 'export EDITOR=command_of_the_editor' >> ~/.bashrc
 
 Store Logs Persistently
 -----------------------
