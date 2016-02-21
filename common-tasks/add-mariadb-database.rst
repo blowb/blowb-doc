@@ -33,4 +33,4 @@ following SQL commands:
 The SQL statements above creates a new user ``newuser`` with a password of ``PASSWORD`` and a new database ``newdb``,
 and grants ``newuser`` the privilege to perform all operations on the database ``newdb``.
 
-Press ``Ctrl-D`` twice to exit the MariaDB shell and the container's shell.
+Press ``Ctrl-D`` twice to exit the MariaDB shell and the container shell.
