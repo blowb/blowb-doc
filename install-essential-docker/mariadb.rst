@@ -39,7 +39,7 @@ Run the following commands to download and do some preprocessing of your MariaDB
    export SIZE=YOUR_SIZE
    sudo mkdir $DOCKER_SHARE/mariadb
    sudo -E wget -O $DOCKER_SHARE/mariadb/my.cnf \
-    https://github.com/MariaDB/server/raw/10.0/support-files/my-$SIZE.cnf.sh
+    https://github.com/MariaDB/server/raw/10.1/support-files/my-$SIZE.cnf.sh
    sudo sed -ri -e 's/^(bind-address|skip-networking|socket)/#\1/' \
     -e 's/@MYSQL_TCP_PORT@/3306/' \
     -e 's/^#(innodb_buffer_pool_size|innodb_log_file_size|innodb_log_buffer_size)/\1/' \
@@ -76,7 +76,7 @@ Start the MariaDB container with the following command, after replacing ``'PASSW
    docker run --restart always -d --volumes-from dbdata \
     -v $DOCKER_SHARE/mariadb/my.cnf:/etc/mysql/my.cnf:ro \
     -e MYSQL_ROOT_PASSWORD='PASSWORD' --dns $HOST_ADDR \
-    --name mariadb mariadb:10.0
+    --name mariadb mariadb:10.1
 
 Since our command line history has recorded the root password of MariaDB, we need to clear the
 relevant history entries:
