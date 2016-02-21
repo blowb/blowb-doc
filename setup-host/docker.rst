@@ -10,11 +10,44 @@ Linux):
 
    sudo yum install docker
 
-Start docker and make docker start at boot:
+Set up Docker Storage Options
+-----------------------------
+
+By default, Docker storage uses devicemapper storage driver in the loopback mode. However, this default setting is
+strongly discouraged for production use. Here, the overlay storage driver will be used, but you are free to explore
+`other storage options <https://docs.docker.com/engine/userguide/storagedriver/selectadriver/>`__. If you have your own
+idea of storage options, you can skip to the section `Enable and Start Docker`_.
+
+To change the storage options, set the ``DOCKER_STORAGE_OPTIONS`` in ``/etc/sysconfig/docker-storage``:
+::
+
+   sudo sed -i '/DOCKER_STORAGE_OPTIONS=/s/$/-s overlay/' /etc/sysconfig/docker-storage
+
+Since SELinux is not supported by the ``overlay`` driver, the SELinux support for Docker should be disabled by removing
+``--selinux-enabled`` from the Docker options in ``/etc/sysconfig/docker``:
+::
+
+   sudo sed -i '/OPTIONS=/s/--selinux-enabled//' /etc/sysconfig/docker
+
+On some Red Hat systems, a service ``docker-storage-setup`` is available on the system (you can check this by executing
+``systemctl | grep docker-storage-setup``). In this case, you need to disable it:
+::
+
+   sudo systemctl disable docker-storage-setup
+
+.. _enable-start-docker:
+
+Enable and Start Docker
+-----------------------
+
+Now you can start Docker and make Docker start at boot:
 ::
 
    sudo systemctl enable docker
    sudo systemctl start docker
+
+Miscellaneous Setup for Convenient Administration
+-------------------------------------------------
 
 To use docker as a non-root user:
 ::
@@ -25,8 +58,8 @@ To use docker as a non-root user:
 It will let you run docker without root access. Remember you need to relogin to make the group
 change take effect.
 
-Since we may need to use `nsenter`_ to enter the container, for convenience, run the command below
-to add a function to enter a container easily:
+Since you may need to use `nsenter`_ to enter the container, for convenience, run the command below to add a function to
+enter a container easily:
 ::
 
    cat >>~/.bashrc << 'EOF'
@@ -56,7 +89,7 @@ The output should be similar to the following:
             TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
 You may have a different IP address after ``inet``. Export the ``inet`` entry to a variable, which
-we will use it later. In this example it should be:
+will be used later. In this example it should be:
 ::
 
    echo 'export HOST_ADDR=172.17.42.1' >> ~/.bashrc
