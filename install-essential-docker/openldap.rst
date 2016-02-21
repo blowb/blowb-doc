@@ -33,9 +33,9 @@ Now we can create and run the ``openldap`` container:
 ``MAX_NOFILE`` is the maximal number of files that the ``slapd`` process can open. The larger this file is, the more RAM
 this process would need. Lower the number to 8192 should be enough for a small database.
 
-If you've imported an old database and configuration, you may want to check some compatibility issues you may have and
-skip to `Manage the LDAP Database with a GUI frontend`_. If this is your new OpenLDAP database, we have a little more
-work to do.
+If you have imported an old database and configuration, you may want to check some compatibility issues you may have and
+skip to `Manage the LDAP Database with a GUI frontend`_. If this is a new OpenLDAP database, we have a little more work
+to do.
 
 Configure OpenLDAP
 ------------------
@@ -109,15 +109,15 @@ Add an organization unit to store the user data (replace ``MY_PASSWORD`` with yo
    objectClass: organizationalUnit
    EOF
 
-Next, add minimal user entries for yourself (and other users if they do not oppose to type their password here in the
-terminal). First run ``slappasswd`` to generate the hashed password:
+Next, we will add a minimal user entry for ourselves (and other users if they do not oppose to type their password here
+in the terminal). First run ``slappasswd`` to generate the hashed password:
 ::
 
    HASHED_PASSWD=$(slappasswd)
 
-Then run the following command, after replacing ``username`` with the user name of the new account, ``fullname`` with
-the full name of the user, ``surname`` with the surname of your new account (sure, both ``fullname`` and ``surname`` can
-be faked), and ``me@example.com`` with the email of the new account:
+Then run the following command, after replacing ``username`` with the user name, ``fullname`` with the full name,
+``surname`` with the surname (sure, both ``fullname`` and ``surname`` can be faked), and ``me@example.com`` with the
+email of the new account:
 ::
 
    UN='username' CN='fullname' SN='surname' MAIL='me@example.com'
@@ -188,29 +188,29 @@ Finally, add a DNS record to alias ``db`` to ``mariadb`` and restart ``dnsmasq``
 Manage the LDAP Database with a GUI frontend
 --------------------------------------------
 
-To make managing the LDAP database easier, you probably want to use a GUI frontend, such as `JXplorer`_. You need the
-container's IP address and port number to connect to the slapd process. Use the following command to display the IP
-address of the OpenLDAP container:
+To make managing the LDAP database easier, we probably want to use a GUI frontend, such as `JXplorer`_. In order to
+connect to the slapd process, we need the container's IP address and port number. Use the following command to display
+the IP address of the OpenLDAP container:
 ::
 
    docker inspect --format '{{.NetworkSettings.IPAddress}}' openldap
 
 The default port number is 389.
 
-If you can access your server physically and you have a desktop environment installed on your server (such as GNOME),
-you can install a GUI front end, and connect to the ``slapd`` process through TCP/IP. If you are managing the server
-remotely, you can either (a) use a VNC server, or (b) use SSH tunneling. Here I will introduce the SSH tunneling method.
+If the server is physically accessible and it has a desktop environment installed (such as GNOME), we can install a GUI
+front end, and connect to the ``slapd`` process through TCP/IP. If the server is managed remotely, we can either (a) use
+a VNC server, or (b) use SSH tunneling. Here we will use the SSH tunneling method.
 
-First, install a GUI LDAP frontend locally. Then, assuming you are managing the server on a POSIX compliant system
-(GNU/Linux, FreeBSD, Mac OS X, etc), use the following command to build a SSH tunnel:
+First, install a GUI LDAP frontend locally on the client side. Then, assuming you are managing the server on a POSIX
+compliant system (GNU/Linux, FreeBSD, Mac OS X, etc), use the following command to build a SSH tunnel:
 ::
 
-   ssh -L 12345:slapd_ip:389 username@yourserver.tld
+   ssh -L 12345:slapd_ip:389 username@server.tld
 
-where ``slapd_ip`` is the IP address of the OpenLDAP container, ``yourserver.tld`` is your server's address,
-``username`` is the user name of your account on the server (Windows users may replace ``ssh`` with `plink`_).  Launch
-your GUI frontend and connect to ``localhost:12345``, then you should be able to connect to the OpenLDAP server you've
-just set up.
+where ``slapd_ip`` is the IP address of the OpenLDAP container, ``server.tld`` is the server's address, ``username`` is
+the user name of the POSIX account on the server (Windows users may replace ``ssh`` with `plink`_). By launching the GUI
+front end and connect to ``localhost:12345``, we should be able to connect to the OpenLDAP server that we have just set
+up.
 
 .. _`JXplorer`: http://jxplorer.org/
 .. _`OpenLDAP`: http://www.openldap.org/
