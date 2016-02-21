@@ -2,7 +2,7 @@ Configure Postfix
 =================
 
 `Postfix`_ is a mail server. Postfix on the host system will serve two purposes: sends admin
-notification mails to your email inbox, and acts as the mailer for the Internet services we will
+notification mails to our email inbox, and acts as the mailer for the Internet services we will
 install later (such as registering email confirmation, notification, etc). In this section, we will
 configure a minimal postfix instance, e.g. no associated domain, no incoming mails from outside
 accepted.
@@ -10,7 +10,7 @@ accepted.
 Install and Enable Postfix
 --------------------------
 
-Postfix is installed and enabled by default on CentOS. Just in case, you can check whether postfix
+Postfix is installed and enabled by default on CentOS. Just in case, we can check whether postfix
 is installed and running by running the following two commands:
 ::
 
@@ -27,15 +27,14 @@ Or just simply run the following commands to install and enable postfix:
 Configure Postfix for Admin
 ---------------------------
 
-We need to set up all mails which the root user is supposed to receive to be sent to you.
-``/etc/aliases`` is the file where postfix uses to set up mail aliases for users on the system. You
-may inspect this file to ensure that there are no strange aliases (e.g. root has already been
-aliased to a different person). Then after replacing ``you@example.com`` with your email address,
-Or run the following command on bash to add root as the alias of you and make the changed aliases
-file take effects:
+We need to set up all mails which the root user is supposed to receive to be sent to our own inbox. ``/etc/aliases`` is
+the file where postfix uses to set up mail aliases for users on the system. We may need to inspect this file to ensure
+that there are no strange aliases (e.g. root has already been aliased to a different person). Then after replacing
+``me@example.com`` with our email address, run the following command on bash to add root as the alias of your email
+address and make the changed aliases file take effects:
 ::
 
-   sudo bash -c "echo 'root:  you@example.com' >>/etc/aliases"
+   sudo bash -c "echo 'root:  me@example.com' >>/etc/aliases"
    sudo newaliases
 
 Send root a mail to see if it works:
@@ -59,9 +58,9 @@ Configure Postfix for Software Running in Docker Containers
 There are two changes need to be made on postfix:
 
 1. Expose postfix to the docker network, that is, postfix must be configured to bind to localhost as
-   well as the docker network;
+   well as the docker network.
 
-2. Accept all incoming connections which come from any docker container.
+2. Accept all incoming connections which come from any Docker containers.
 
 In this section we will do manual editing of configuration files of postfix. Open
 ``/etc/postfix/main.cf`` with your favorite editor, e.g.
@@ -76,27 +75,24 @@ with:
 
    inet_interfaces = localhost, <echo $HOST_ADDR>
 
-where ``<echo $HOST_ADDR>`` should be replaced with your output of ``echo $HOST_ADDR`` when run
-on bash.
+where ``<echo $HOST_ADDR>`` should be replaced with the output of ``echo $HOST_ADDR`` run on bash.
 
-To achieve point 2, search this file for ``mynetworks``. The whole docker network as well as
-localhost should be added to ``mynetworks``. If your ``ifconfig docker0`` has a netmask of
-``255.255.0.0`` (which is the default case), add this following line below the commented
-``mynetworks`` lines:
+To achieve point 2, search this file for ``mynetworks``. The whole docker network as well as localhost should be added
+to ``mynetworks``. If the output of ``ifconfig docker0`` shows a netmask of ``255.255.0.0`` (which is the default case),
+add this following line below the commented ``mynetworks`` lines:
 
 .. code-block:: none
 
    mynetworks = localhost, <echo $HOST_ADDR | awk -F. '{print $1 "." $2 ".0.0/16"}'>
 
-Where ``<echo $HOST_ADDR | awk -F. '{print $1 "." $2 ".0.0/16"}'>`` is the corresponding output on
-bash.
+Where ``<echo $HOST_ADDR | awk -F. '{print $1 "." $2 ".0.0/16"}'>`` is the corresponding output on bash.
 
 Save the configuration file and restart postfix:
 ::
 
    sudo systemctl restart postfix
 
-If you have the firewall enabled, you need to make ``docker0`` a trusted network (you probably have done it in
+If the firewall is enabled, we need to make ``docker0`` a trusted network (you probably have done it in
 :doc:`dnsmasq`; in this case, there is no need to execute them again and you can just skip them):
 ::
 
@@ -109,11 +105,11 @@ container:
 
    docker run -t -i --rm debian /bin/bash
 
-You should be running bash in the docker container now. Run the commands below after replacing
-``you@example.com`` with your email address:
+We should be running bash in the docker container now. Run the commands below after replacing
+``me@example.com`` with your email address:
 ::
 
-   YOUR_EMAIL=you@example.com
+   YOUR_EMAIL=me@example.com
    cat > sendmail.txt <<EOF
    HELO x
    MAIL FROM: test@example.com
@@ -129,16 +125,15 @@ You should be running bash in the docker container now. Run the commands below a
    quit
    EOF
 
-Run the following commands to starts connect
-to the postfix server:
+Run the following commands to connect to the postfix server and send out the email:
 ::
 
    apt-get update && apt-get install -y netcat
    nc <echo $HOST_ADDR> 25 <sendmail.txt
 
-If successful, you should be able to receive an email in your inbox from ``test@example.com``. Also
-check your spam folder if you didn't receive the email. Now exit the bash in the container and
-the testing container should automatically be deleted:
+If successful, we should be able to receive an email from ``test@example.com``. If you didn't receive the email, you
+should check the spam folder first. Now exit the bash in the container and the testing container should be automatically
+deleted:
 ::
 
    exit # quit the bash in the docker container
@@ -152,16 +147,15 @@ a different computer to see that whether postfix accepts incoming connections fr
 
    telnet your_server_address 25
 
-(You can also use `netcat`_ to perform the test; using telnet is just easier for Windows users)
+(We can also use `netcat`_ to perform the test; using telnet is just easier for Windows users.)
 
-If you see some output similar to the following:
+If the output is similar to the following:
 
 .. code-block:: none
 
    220 host_name ESMTP Postfix
 
-Then you must have done something wrong. Please don't ignore this issue and go back to double check
--- this issue can make your server a spam machine.
+Then something's wrong. Please do not ignore this issue---it can make the server a spam machine.
 
 .. _Postfix: http://www.postfix.org
 .. _open relay: https://en.wikipedia.org/wiki/Open_mail_relay
