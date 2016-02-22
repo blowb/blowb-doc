@@ -239,6 +239,9 @@ latex_elements = {
 \setcounter{chapter}{-1}
 \pagestyle{normal}
 
+\usepackage[draft]{minted}
+\fvset{breaklines=true}
+
 \makeatletter
     \def\cleardoublepage{\clearpage%
         \if@twoside
