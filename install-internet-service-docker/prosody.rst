@@ -74,14 +74,20 @@ Explanation:
 You can edit the configuration file and enable additional modules if you want, such as ``carbons`` for message
 synchronization, ``mam_sql`` for message archiving, etc.
 
-Put your XMPP server certificate in ``$DOCKER_SHARE/prosody/certs``. If you just want to use a dummy key, run the
-following command to copy the dummy key we generated in :doc:`../install-essential-docker/nginx`:
+Put your XMPP server certificate in ``$DOCKER_SHARE/prosody/certs``. If you just want to use a dummy key, similar to the
+key generation described in :doc:`../install-essential-docker/nginx`, run the following command to generate a pair of
+dummy keys:
 ::
 
-   sudo cp $DOCKER_SHARE/nginx/tls/dummy.* $DOCKER_SHARE/prosody/certs/
+   sudo mkdir -p $DOCKER_SHARE/prosody/certs
+   sudo openssl req -x509 -nodes -days 3000 -newkey rsa:4096 \
+    -keyout $DOCKER_SHARE/prosody/certs/dummy.key \
+    -out $DOCKER_SHARE/prosody/certs/dummy.crt
 
-Add a virtual host configuration files after replacing ``example.com`` with your domain, and replace ``dummy.crt`` and
-``dummy.key`` with your certification and key if you have one:
+Add a virtual host configuration files after replacing ``example.com`` with the domain to be used as the XMPP domain,
+which is the domain that will appear in the user names in the form of ``someone@example.com``. Note that this domain is
+not necessarily the same as the domain which the server uses for the DNS query for its IP address. Also, replace
+``dummy.crt`` and ``dummy.key`` with your certification and key if you have one:
 ::
 
    MY_DOMAIN=example.com
