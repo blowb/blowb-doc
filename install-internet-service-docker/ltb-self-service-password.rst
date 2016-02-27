@@ -6,6 +6,12 @@ LTB Self Service Password, Allowing Users to Change Their Passwords
 `LTB Self Service Password`_ is a PHP application which allows users to change their passwords in the LDAP database. It
 is part of the `LTB`_ project (LDAP Tool Box Project), which aims at easing LDAP administration.
 
+Configure DNS
+-------------
+
+Please add an ``A`` record to point the domain you want to use with ``LTB Self Service Password`` to the IP address of
+the server.
+
 Start the LTB Self Service Password Container
 ---------------------------------------------
 
@@ -72,9 +78,6 @@ The Dockerfile from which the image was generated is `available
 
 Configure Nginx
 ---------------
-
-Before we start configuring Nginx, please add an ``A`` record to point the domain which you want to associate with the
-password reset page to the server.
 
 After replacing ``password.example.com`` with the domain you want to use to visit the password reset page, run the
 following command:
