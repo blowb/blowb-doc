@@ -103,16 +103,16 @@ Configure Firefox
 
 Before we start configuring, if you chose to use the dummy key, we need to add a security exception in Firefox. Visit
 the URL ``https://msync.example.com`` in your Firefox browser, where ``msync.example.com`` is your Mozilla sync server
-domain. In the "This Connection is Untrusted" page, click ``I Understand the Risks``, then the ``Add Exception...``
+domain. In the "Your connection is not secure" page, click the ``Advanced`` button and then the ``Add Exception...``
 button. Make sure the ``Permanently store this exception`` is checked, then click the ``Confirm Security Exception``
 button.
 
-To make your Firefox uses the synchronize server we have just set up, first log out your Mozilla account if you have
-logged in. Then type ``about:config`` in the navigation bar and press Enter. If a button with the text ``I'll be
-careful, I promise!`` shows up, click on it. Now you should be at a page with a list of options and a search bar on the
-top. Use the search bar to search for ``services.sync.tokenServerURI``, and change the value of this option to
+To make Firefox uses the synchronize server we have just set up, first log out the Mozilla account if logged in, and
+then type ``about:config`` in the navigation bar and press ``Enter``. If a button with the text ``I'll be careful, I
+promise!`` shows up, click on it. Now you should be at a page with a list of options and a search bar on the top. Use
+the search bar to search for ``services.sync.tokenServerURI``, and change the value of this option to
 ``https://msync.example.com/token/1.0/sync/1.5``, where ``msync.example.com`` should be replaced by your domain name
-used for Mozilla sync server, similar to what is shown in :numref:`mozilla-sync-firefox`. Now logging into your Firefox
+used for Mozilla sync server, similar to what is shown in :numref:`mozilla-sync-firefox`. Now logging in the Firefox
 account should make Firefox use the synchronize server we have just set up.
 
 .. _mozilla-sync-firefox:
@@ -139,9 +139,14 @@ Enter the password and run the following SQL query in the MariaDB shell:
 
    select * from users;
 
-If a non-empty table is displayed, then the setup was successfully done.
+If a non-empty table is displayed, then the setup was likely to be successfully done.
 
 Press ``Ctrl-D`` twice to exit to the host Bash shell.
+
+In addition, you also can check the log to see whether there are any issues:
+::
+
+   docker logs msync
 
 Disable New Users Signups
 -------------------------
