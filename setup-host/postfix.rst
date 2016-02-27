@@ -1,17 +1,16 @@
 Configure Postfix
 =================
 
-`Postfix`_ is a mail server. Postfix on the host system will serve two purposes: sends admin
-notification mails to our email inbox, and acts as the mailer for the Internet services we will
-install later (such as registering email confirmation, notification, etc). In this section, we will
-configure a minimal postfix instance, e.g. no associated domain, no incoming mails from outside
-accepted.
+`Postfix`_ is a popular mail server and is the default mail transport agent on RHEL/CentOS 7. Postfix on the host system
+will serve two purposes: sending admin notification mails to our email inbox, and acting as the mailer for the Internet
+services that we will install later (such as registering email confirmation, notification, etc). In this section, we
+will configure a minimal postfix instance, e.g. no associated domain, no incoming mails from outside accepted.
 
 Install and Enable Postfix
 --------------------------
 
-Postfix is installed and enabled by default on CentOS. Just in case, we can check whether postfix
-is installed and running by running the following two commands:
+Postfix is installed and enabled by default on RHEL/CentOS 7. Just in case, we can check whether postfix is installed
+and running by running the following two commands:
 ::
 
    rpm -qa | grep postfix
@@ -27,17 +26,17 @@ Or just simply run the following commands to install and enable postfix:
 Configure Postfix for Admin
 ---------------------------
 
-We need to set up all mails which the root user is supposed to receive to be sent to our own inbox. ``/etc/aliases`` is
-the file where postfix uses to set up mail aliases for users on the system. We may need to inspect this file to ensure
-that there are no strange aliases (e.g. root has already been aliased to a different person). Then after replacing
-``me@example.com`` with our email address, run the following command on bash to add root as the alias of your email
-address and make the changed aliases file take effects:
+We need to set up all mails sent to the root user to be sent to our own inbox. ``/etc/aliases`` is the file where
+postfix uses to set up mail aliases for users on the system. We may need to inspect this file to ensure that there are
+no strange aliases (e.g. root has already been aliased to a different person). Then after replacing ``me@example.com``
+with your email address, run the following command on bash to add root as the alias of your email address and make the
+changed aliases file take effects:
 ::
 
    sudo bash -c "echo 'root:  me@example.com' >>/etc/aliases"
    sudo newaliases
 
-Send root a mail to see if it works:
+Send root a mail to see whether it works:
 ::
 
    sendmail -t root <<'EOF'
@@ -50,26 +49,24 @@ Send root a mail to see if it works:
    EOF
 
 If configured correctly, you should have receives an email from ``test@example.com`` (Remember to
-check your spam box).
+check your spam box if you did not receive).
 
 Configure Postfix for Software Running in Docker Containers
 -----------------------------------------------------------
 
-There are two changes need to be made on postfix:
+There are two changes need to be made on postfix.
 
-1. Expose postfix to the docker network, that is, postfix must be configured to bind to localhost as
+1. Exposing postfix to the docker network, that is, postfix must be configured to bind to localhost as
    well as the docker network.
 
-2. Accept all incoming connections which come from any Docker containers.
+2. Accepting all incoming connections which come from any Docker containers.
 
-In this section we will do manual editing of configuration files of postfix. Open
-``/etc/postfix/main.cf`` with your favorite editor, e.g.
+In this section we will do manual editing of configuration files of postfix. Edit ``/etc/postfix/main.cf``:
 ::
 
    sudo $EDITOR /etc/postfix/main.cf
 
-To achieve point 1 listed above, search the file for the entry ``inet_interfaces``. Replace the line
-with:
+To achieve point 1 listed above, search this file for the entry ``inet_interfaces``. Replace the line with:
 
 .. code-block:: none
 
@@ -147,7 +144,7 @@ a different computer to see that whether postfix accepts incoming connections fr
 
    telnet your_server_address 25
 
-(We can also use `netcat`_ to perform the test; using telnet is just easier for Windows users.)
+(We can also use the ``nc`` command to perform the test; using telnet is just easier for Windows users.)
 
 If the output is similar to the following:
 

@@ -4,16 +4,16 @@ Basic Setup and Preparation
 Create an Admin User
 --------------------
 
-If you haven't get an admin user account set up on your server, you probably want to create one to
-avoid using root to maintain. You can run the following command, after replacing
-``<admin_user_name>`` with your favorite admin user name, such as ``admin``:
+If an admin user has not been set up on the server, we probably would create one to avoid using the root user to
+maintain. We can run the following command to create an admin user, after replacing ``<admin_user_name>`` with your
+favorite admin user name, such as ``admin``:
 ::
 
    useradd -g wheel <admin_user_name>  # create the admin user
    passwd <admin_user_name>   # set up the password
 
 We put the account to wheel group, so this account can use ``sudo`` to run some high privilege
-commands. Now you can switch to the admin user by running:
+commands. Now we can switch to the admin user by running:
 ::
 
    su <admin_user_name>
@@ -21,7 +21,7 @@ commands. Now you can switch to the admin user by running:
 Update the System
 -----------------
 
-Probably you want to make sure software packages are up-to-date. Run the command below to update all
+It is essential for security and stability to keep the software packages up-to-date. Run the command below to update all
 system packages:
 ::
 
@@ -37,17 +37,16 @@ We probably also need to install some utilities:
 
    sudo yum install bash-completion ed nc telnet wget
 
-We also need to set up a favorite terminal editor. If you are relatively new to GNU/Linux, I suggest you to try `Vim`_,
-which is an enhanced version of the POSIX standard vi. It has a steep but short learning curve for editing configuration
-files, but once you get used to it, you would become more efficient to edit configuration files than in the past. To
-install Vim, run:
+We also need to set up a favorite terminal editor. If you are relatively new to GNU/Linux, I would suggest you to try
+`Vim`_, which is an enhanced version of the POSIX standard vi. It has a steep but short learning curve, but once you get
+used to it, you would become more efficient to edit configuration files than most other editors. To install Vim, run:
 ::
 
    sudo yum install vim-enhanced
 
 Or simply use the ``vi`` command if you still want to use a vi style editor but not the full Vim.
 
-In the case you really don't want to learn vi key-binding, you may want to take a look at `GNU Nano`_. To install GNU
+In the case you really don't want to learn vi key bindings, you may want to take a look at `GNU Nano`_. To install GNU
 Nano, run:
 ::
 
@@ -79,14 +78,14 @@ favorite editor command.
 Store Logs Persistently
 -----------------------
 
-By default the logs are only stored in memory and cleared after a reboot. To preserve the logs even after rebooting, we
+By default the logs are only stored in memory and cleared after a reboot. To preserve the logs after each reboot, we
 have to set a journald option. Edit the file ``/etc/systemd/journald.conf``:
 ::
 
    sudo $EDITOR /etc/systemd/journald.conf
 
-Uncomment the line ``#Storage=auto``, and change auto to persistent. Save the change and exit the editor. Alternatively,
-you can run the following command to apply the change:
+Uncomment the line ``#Storage=auto``, and change ``auto`` to ``persistent``. Save the change and exit the editor.
+Alternatively, the following command can be used to apply the change:
 ::
 
    sudo sed -i 's/#Storage=auto/Storage=persistent/' /etc/systemd/journald.conf

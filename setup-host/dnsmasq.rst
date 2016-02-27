@@ -12,12 +12,12 @@ To install dnsmasq:
 
    sudo yum install dnsmasq
 
-We then need to configure dnsmasq. Open the file ``/etc/dnsmasq.conf`` with your favorite editor:
+We then need to configure dnsmasq. Edit the configuration file ``/etc/dnsmasq.conf``:
 ::
 
    sudo $EDITOR /etc/dnsmasq.conf
 
-Search for the option ``interface``, uncomment the line, and change it to the following:
+Search for the option ``interface`` in the file, uncomment the line, and change it to the following:
 
 .. code-block:: cfg
 
@@ -33,8 +33,8 @@ We can now start dnsmasq:
    sudo systemctl enable dnsmasq
    sudo systemctl start dnsmasq
 
-If you have the firewall enabled (you can check it by executing ``systemctl status firewalld``), you need to make
-``docker0`` a trusted network:
+If the firewall is enabled (you can check it by executing ``systemctl status firewalld``), we need to make ``docker0`` a
+trusted network:
 ::
 
    sudo firewall-cmd --permanent --zone=trusted --change-interface=docker0
@@ -52,17 +52,18 @@ In this shell:
    apt-get update && apt-get install -y --no-install-recommends dnsutils
    dig @<echo $HOST_ADDR> www.blowb.org
 
-Where ``<echo $HOST_ADDR>`` is the output of ``echo $HOST_ADDR`` on the bash shell on your host. If the DNS record
-of ``www.blowb.org`` is shown, ``dnsmasq`` is correctly set up. Exit the shell in the container by press ``Ctrl-D``.
+where ``<echo $HOST_ADDR>`` is the output of ``echo $HOST_ADDR`` on the bash shell on the host system. If the DNS record
+of ``www.blowb.org`` is shown, then ``dnsmasq`` is correctly set up. Exit the shell in the container by press
+``Ctrl-D``.
 
 Auto Update DNS Record of Docker Containers
 -------------------------------------------
 
 We need to automatically update Docker container DNS records when a container changes its IP address.
 
-The Blowb project has prepared a script ``update-dnsmasq.sh`` to do auto updating, and a systemd unit file to run the
-script as a daemon (can be viewed in :doc:`../appendices/update-dnsmasq`). The script checks the IP addresses of all
-running containers every period of time (10s by default). If a change of IP address(es) is detected, it will update the
+We have prepared a script ``update-dnsmasq.sh`` to do auto updating, and a systemd unit file to run the script as a
+daemon (can be viewed in :doc:`../appendices/update-dnsmasq`). The script checks the IP addresses of all running
+containers every period of time (10s by default). If the change of an IP address is detected, it will update the
 configuration files in ``/etc/dnsmasq.d`` and restart ``dnsmasq``. To download the relevant files and run this script:
 ::
 

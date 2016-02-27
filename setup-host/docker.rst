@@ -1,8 +1,8 @@
 Install Docker
 ==============
 
-`Docker`_ is an essential software in Blowb. Most of our services will be installed into a docker
-container for better isolation.
+`Docker`_ plays an essential role in this framework. Most of our services will be installed into a Docker container for
+better isolation.
 
 Run the following command to install Docker (you need to enable the ``extra`` repo if you are on Red Hat Enterprise
 Linux):
@@ -13,7 +13,7 @@ Linux):
 Set up Docker Storage Options
 -----------------------------
 
-By default, Docker storage uses devicemapper storage driver in the loopback mode. However, this default setting is
+By default, Docker storage uses its devicemapper storage driver in the loopback mode. However, this default setting is
 strongly discouraged for production use. Here, the overlay storage driver will be used, but you are free to explore
 `other storage options <https://docs.docker.com/engine/userguide/storagedriver/selectadriver/>`__. If you have your own
 idea of storage options, you can skip to the section `Enable and Start Docker`_.
@@ -29,8 +29,8 @@ Since SELinux is not supported by the ``overlay`` driver, the SELinux support fo
 
    sudo sed -i '/OPTIONS=/s/--selinux-enabled//' /etc/sysconfig/docker
 
-On some Red Hat systems, a service ``docker-storage-setup`` is available on the system (you can check this by executing
-``systemctl | grep docker-storage-setup``). In this case, you need to disable it:
+On some variants of RHEL, a service ``docker-storage-setup`` is available on the system (you can check this by executing
+``systemctl | grep docker-storage-setup``). In this case, we need to disable it:
 ::
 
    sudo systemctl disable docker-storage-setup
@@ -40,7 +40,7 @@ On some Red Hat systems, a service ``docker-storage-setup`` is available on the 
 Enable and Start Docker
 -----------------------
 
-Now you can start Docker and make Docker start at boot:
+Now we can start Docker and make Docker start at boot:
 ::
 
    sudo systemctl enable docker
@@ -49,17 +49,16 @@ Now you can start Docker and make Docker start at boot:
 Miscellaneous Setup for Convenient Administration
 -------------------------------------------------
 
-To use docker as a non-root user:
+To use Docker as a non-root user:
 ::
 
     sudo groupadd docker
     sudo usermod -a -G docker $USER
 
-It will let you run docker without root access. Remember you need to relogin to make the group
-change take effect.
+It will let us run Docker without root access. Remember relogin is required to make the group change take effect.
 
-Since you may need to use `nsenter`_ to enter the container, for convenience, run the command below to add a function to
-enter a container easily:
+Since we need to enter the container, for convenience, run the command below to add a bash function to use `nsenter`_ to
+enter a container:
 ::
 
    cat >>~/.bashrc << 'EOF'
@@ -70,7 +69,7 @@ enter a container easily:
    }
    EOF
 
-Also run the following command:
+Now we are going to record the host IP address in the ``docker0`` network. First run the following command:
 ::
 
    ifconfig docker0
@@ -96,7 +95,7 @@ will be used later. In this example it should be:
 
 Remember to replace ``172.17.42.1`` with the output on your system!
 
-Reload ``~/.bashrc``:
+Finally, reload ``~/.bashrc``:
 ::
 
    source ~/.bashrc
