@@ -96,7 +96,7 @@ ones.
 Restart the Nginx container:
 ::
 
-   systemctl restart nginx
+   docker restart nginx
 
 Configure Firefox
 -----------------
