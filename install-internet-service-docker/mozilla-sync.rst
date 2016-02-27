@@ -20,7 +20,7 @@ name):
 
 We will use ``MY_DOMAIN`` to refer to the domain name we need to use in shell commands through this section.
 
-You should also add an A record that points your domain to the IP address of the server.
+You should also add an ``A`` record that points your domain to the IP address of the server.
 
 Configure the MariaDB Database
 ------------------------------
@@ -78,16 +78,14 @@ Configure Nginx
 ---------------
 
 Run the following command to generate a configuration file which would make Nginx pass all requests to your sync server
-URL to the Mozilla sync server container under the uWSGI protocol (replace ``MSYNC_DOMAIN`` with the domain you will use
-for the mozilla sync service):
+URL to the Mozilla sync server container under the uWSGI protocol:
 ::
 
-   MSYNC_DOMAIN='msync.example.com'
    cd $DOCKER_SHARE/nginx
    sudo -s <<EOF
-   sed -e "s/@server_name@/$MSYNC_DOMAIN/g" \
+   sed -e "s/@server_name@/$MY_DOMAIN/g" \
     redirect-https.conf.tmpl > msync.conf
-   sed -e "s/@server_name@/$MSYNC_DOMAIN/g" \
+   sed -e "s/@server_name@/$MY_DOMAIN/g" \
     -e 's/@uwsgi_server@/msync:9000/g' uwsgi.tls.conf.tmpl > msync.tls.conf
    EOF
 
