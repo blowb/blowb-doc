@@ -5,6 +5,11 @@ Isso, A Commenting Server
 
 `Isso`_ is a commenting system which can embed into a static website.
 
+Configure DNS
+-------------
+
+Please add an ``A`` record to point the domain you want to use with ``isso`` to the IP address of the server.
+
 Configure Isso Options
 ----------------------
 
@@ -17,7 +22,7 @@ Download the isso example config file to ``$DOCKER_SHARE/isso``:
 ::
 
    sudo wget -O $DOCKER_SHARE/isso/isso.conf \
-    https://github.com/posativ/isso/raw/c8655731d6d183a590c04bdf1f97a0afbebee822/share/isso.conf
+    https://raw.githubusercontent.com/posativ/isso/cb21af4cc57a197cbe73a63d5bd7a085ef98d85d/share/isso.conf
 
 Now we need to edit the config file to make some changes for the isso container we will use. The
 following commands switch your working directory to ``$DOCKER_SHARE/isso`` and modify some parts of
@@ -36,7 +41,7 @@ notification):
    %s/^notify =.*/notify = smtp
    %s/^port =.*/port = 25
    %s/^security =.*/security = none
-   %s/^host = localhost/host = docker-host
+   %s/^host = localhost/host = smtp-server
    %s/^from =.*/from = ${NOTIFICATION_FROM}
    %s/^to =.*/to = ${NOTIFICATION_TO}
    wq
@@ -50,7 +55,8 @@ Explanation:
   - **line 6-11**: set the email notification to your email address using the postfix server we have configured on the
     host system.
 
-Now edit this config file manually to customize it for your website:
+Now we can edit this config file manually to customize it for our website, notably the ``host`` option under the
+``[general]`` section:
 ::
 
    sudo $EDITOR $DOCKER_SHARE/isso/isso.conf
@@ -85,10 +91,7 @@ and ``NUM_PROCESSES=1`` should be enough.
 Configure Nginx
 ---------------
 
-First add an ``A`` record to your domain (e.g. ``comments.example.com``) pointing to the IP address
-of the host system.
-
-Replace ``comments.example.com`` with the address you want to use to serve as an isso server and run
+Replace ``comments.example.com`` with the domain you want to use to serve as an isso server and run
 the following commands:
 ::
 
