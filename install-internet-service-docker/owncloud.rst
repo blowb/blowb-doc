@@ -153,23 +153,31 @@ look like :numref:`ldap-server`.
 
    Fill in the "Server" tab in LDAP settings panel.
 
-Fill in the "User Filter" tab as in :numref:`ldap-user-filter` and "Login Filter" tab as in
-:numref:`ldap-login-filter`. In the "Login Filter" tab, you may also add some other attributes as user login. Other tabs
-can be left as default.
+Fill in the "Users" tab as in :numref:`ldap-users` and "Login Filter" tab as in :numref:`ldap-login-attributes`. In the
+"Login Attributes" tab, we may also add some other attributes as user login. In the "Advanced" tab, the ``User Display
+Name Field`` and ``Group Display Name Field`` should be set to ``cn`` under "Directory Settings", as shown in
+:numref:`ldap-displayname`. Other tabs can be left as default.
 
-.. _ldap-user-filter:
+.. _ldap-users:
 
-.. figure:: owncloud/ldap-user-filter.png
-   :alt: LDAP "User Filter" Tab
+.. figure:: owncloud/ldap-users.png
+   :alt: LDAP "Users" Tab
 
-   Fill in the "User Filter" tab in LDAP settings panel.
+   Fill in the "Users" tab in LDAP settings panel.
 
-.. _ldap-login-filter:
+.. _ldap-login-attributes:
 
-.. figure:: owncloud/ldap-login-filter.png
-   :alt: LDAP "Login Filter" Tab
+.. figure:: owncloud/ldap-login-attributes.png
+   :alt: LDAP "Login Attributes" Tab
 
-   Fill in the "Login Filter" tab in LDAP settings panel.
+   Fill in the "Login Attributes" tab in LDAP settings panel.
+
+.. _ldap-displayname:
+
+.. figure:: owncloud/ldap-displayname.png
+   :alt: LDAP Set User displayname
+
+   Set the LDAP "User Display Name" and "Group Display Name".
 
 Other Settings
 --------------
