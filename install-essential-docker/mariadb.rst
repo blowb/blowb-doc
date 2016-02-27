@@ -1,17 +1,17 @@
 Install MariaDB
 ===============
 
-We will use `MariaDB`_ as the main database.
+We will use `MariaDB`_ as the main SQL database.
 
 Run the following command to create a data container:
 ::
 
    docker run -v /var/lib/mysql --name dbdata busybox /bin/true
 
-The default MariaDB configuration is sometimes too large for your server, thus we can try to download a configuration
-file which is suitable for the server. There are official templates for 5 different sizes of hardware resource:
-``small``, ``medium``, ``large``, ``huge``, ``innodb-heavy-4G``. The criteria to choose any of them are written in the
-comments of these template configuration files. For convenience, I pasted the relevant part below:
+The default MariaDB configuration may not be suitable for the server hardware, thus we may want to use a different
+configuration file. There are official templates for 5 different sizes of hardware resource: ``small``, ``medium``,
+``large``, ``huge``, ``innodb-heavy-4G``. The criteria to choose any of them are written in the comments of these
+template configuration files. For convenience, the relevant part in the comments are copied and pasted below:
 
   - **small**: This is for a system with little memory (<= 64M) where MariaDB is only used from time to time and it is
     important that the mysqld daemon does not use much resources.
@@ -26,17 +26,17 @@ comments of these template configuration files. For convenience, I pasted the re
   - **innodb-heavy-4G**: This is for systems with 4GB of memory running mostly MariaDB using InnoDB only tables and
     performing complex queries with few connections.
 
-Very likely **small** is not enough for our use case, as the Internet service software we will install probably uses
+Very likely **small** is not enough for our use case, as many of the Internet apps that we will install probably uses
 MariaDB as an important part. You can start with **medium** if you are not sure how much resource your MairaDB instance
 would use.
 
-Run the following commands to download and do some preprocessing of your MariaDB configuration files, where
-``YOUR_SIZE`` should be replaced with one of ``small``, ``medium``, ``large``, ``huge`` or ``innodb-heavy-4G``:
+Run the following commands to download and do some preprocessing of the MariaDB configuration files, where
+``CONF_SIZE`` should be replaced with one of ``small``, ``medium``, ``large``, ``huge`` or ``innodb-heavy-4G``:
 
 .. code-block:: bash
    :linenos:
 
-   export SIZE=YOUR_SIZE
+   export SIZE=CONF_SIZE
    sudo mkdir $DOCKER_SHARE/mariadb
    sudo -E wget -O $DOCKER_SHARE/mariadb/my.cnf \
     https://github.com/MariaDB/server/raw/10.1/support-files/my-$SIZE.cnf.sh
@@ -65,12 +65,13 @@ Explanation:
 
   - **line 8-13:** run MariaDB as user "mysql" and use UTF-8 encoding.
 
-Optionally you can also adjust other parameters in the config file at this point:
+Optionally we can also adjust other parameters in the config file at this point:
 ::
 
    sudo $EDITOR $DOCKER_SHARE/mariadb/my.cnf
 
-Start the MariaDB container with the following command, after replacing ``'PASSWORD'`` with your own password:
+Start the MariaDB container using the following command, after replacing ``'PASSWORD'`` with the MariaDB root user
+password that you want to use:
 ::
 
    docker run --restart always -d --volumes-from dbdata \
@@ -109,7 +110,7 @@ The SQL statement above limits root access to localhost only.
 
 Press ``Ctrl-D`` twice to exit the MariaDB shell and the container's shell.
 
-Finally, add a DNS record to alias ``db`` to ``mariadb`` and restart ``dnsmasq``:
+Finally, add a DNS record to specify ``db`` as an alias of ``mariadb`` and restart ``dnsmasq``:
 ::
 
    sudo -s <<< "echo 'cname=db,mariadb' > /etc/dnsmasq.d/db"

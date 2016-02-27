@@ -1,10 +1,9 @@
 Install Nginx
 =============
 
-Nginx will be used to serve as a reverse proxy to forward incoming traffic to appropriate
-containers.
+Nginx will be used to serve as a reverse proxy to forward incoming traffic to proper containers.
 
-Create the directory to serve the configuration files and certificates on the host:
+Create the directory to serve the configuration files and certificates on the host system:
 ::
 
    sudo mkdir -p $DOCKER_SHARE/nginx/tls
@@ -17,8 +16,10 @@ If needed create a dummy SSL/TLS key pair for nginx:
      -out $DOCKER_SHARE/nginx/tls/dummy.crt
     sudo chmod 600 $DOCKER_SHARE/nginx/tls/dummy.key
 
-Since we need to add additional links into this container later, which means we need to recreate
-this container frequently, for convenience, we create a script to do this:
+Docker volumes will be used by the nginx container to access the web resources of some Internet apps. Since we need to
+add additional Docker volumes into this container later for some Internet apps, we need to recreate this container
+frequently, as each time the volumes in a Docker container changes, it is required to recreate this container. For
+convenience, we create a helper script to do this:
 ::
 
    mkdir ~/util
@@ -34,12 +35,14 @@ this container frequently, for convenience, we create a script to do this:
    EOF
    chmod +x ~/util/rerun-nginx.sh
 
-Run the script to create the Nginx container:
+This script stops the nginx container and removes it (if existing), and create and run a new nginx container with the
+volumes indicated in ``~/util/nginx-volumes.txt``. Now run the this script to create the Nginx container:
 ::
 
    ~/util/rerun-nginx.sh
 
-Also download the :doc:`template Nginx configuration files <../appendices/list-of-nginx-config>`:
+Also download the :doc:`template Nginx configuration files <../appendices/list-of-nginx-config>`, which we will use
+later when deploying Internet apps:
 ::
 
    for f in fastcgi.conf.tmpl fastcgi.tls.conf.tmpl reverse-proxy.tls.conf.tmpl \

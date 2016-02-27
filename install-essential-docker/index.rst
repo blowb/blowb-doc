@@ -9,7 +9,7 @@ create a directory used to share files between the host and the containers:
    echo 'export DOCKER_SHARE=/var/docker' >> ~/.bashrc
    sudo mkdir $DOCKER_SHARE
 
-If you have SELinux enabled, you should also run:
+If SELinux is enabled, also run the following command:
 ::
 
    sudo chcon -t svirt_sandbox_file_t $DOCKER_SHARE
