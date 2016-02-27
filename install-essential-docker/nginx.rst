@@ -12,7 +12,7 @@ Create the directory to serve the configuration files and certificates on the ho
 If needed create a dummy SSL/TLS key pair for nginx:
 ::
 
-    sudo openssl req -x509 -nodes -days 3000 -newkey rsa:2048 \
+    sudo openssl req -x509 -nodes -days 3000 -newkey rsa:4096 \
      -keyout $DOCKER_SHARE/nginx/tls/dummy.key \
      -out $DOCKER_SHARE/nginx/tls/dummy.crt
     sudo chmod 600 $DOCKER_SHARE/nginx/tls/dummy.key
