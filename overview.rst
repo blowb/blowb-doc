@@ -24,12 +24,12 @@ security. A typical deployment structure for an app is illustrated in :numref:`o
      "openldap" [label="OpenLDAP"]
      "postfix" [label="Postfix (Sitting on the Host)"]
 
-     "client" -> "nginx" [label="Sends Request to"]
-     "nginx" -> "app" [label="Forwards Request to"]
+     "client" -> "nginx" [label="Sends Requests to"]
+     "nginx" -> "app" [label="Forwards Requests to"]
      "app" -> "data" [label="Stores Data Files in"]
      "app" -> "mariadb" [label="Stores Data in"]
      "app" -> "openldap" [label="Authenticates via"]
-     "app" -> "postfix" [label="Sends Email via"]
+     "app" -> "postfix" [label="Sends Emails via"]
    }
 
 As shown in :numref:`overview-diagram`, software in each box runs inside a Docker container, except for Postfix which
