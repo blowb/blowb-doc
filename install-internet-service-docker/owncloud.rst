@@ -85,9 +85,9 @@ should lead us to the admin interface.
 
    Enter admin interface.
 
-In the admin interface, there is an "Email Server" section. "Send mode" should be ``smtp``; "From address" can be
-anything you like (e.g. ``owncloud@example.com``); "Server address" should be ``smtp-server``. The settings should look
-similar to :numref:`email-server`.
+In the admin interface, there is an "Email Server" section. In this section, ``Send mode`` should be set to ``smtp``;
+``From address`` can be anything you like, such as ``owncloud@example.com``; ``Server address`` should be set to
+``smtp-server``. The settings should look similar to :numref:`email-server`.
 
 .. _email-server:
 
