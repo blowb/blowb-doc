@@ -116,10 +116,10 @@ ownCloud instance):
 
 .. _use-owncloud-with-openldap:
 
-.. index:: OpenLDAP
-
 Use OwnCloud with OpenLDAP
 --------------------------
+
+.. index:: OpenLDAP
 
 It is optional but recommended to use ownCloud with OpenLDAP. If you decide not to use ownCloud with OpenLDAP, you may
 skip this part.
