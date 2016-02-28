@@ -33,7 +33,7 @@ extensions = ['sphinx.ext.extlinks', 'sphinx.ext.graphviz']
 
 # git revision
 import subprocess
-git_rev = 'v1.0'
+git_rev = subprocess.check_output('git rev-parse HEAD', shell = True).decode('utf-8').strip()
 
 # extlinks
 extlinks = {
@@ -63,7 +63,7 @@ copyright = '2015, Hong Xu <hong@topbug.net>. This work is licensed under the Cr
 # The short X.Y version.
 version = 'v1.0'
 # The full version, including alpha/beta/rc tags.
-release = version
+release = version + '.' + git_rev
 
 # |git_rev| always refers to the git version of this document
 rst_epilog = ".. |git_rev| replace:: " + git_rev
