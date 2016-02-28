@@ -36,10 +36,13 @@ are listed for easier reference.
 Unless otherwise stated, to upgrade an Internet app, follow the following steps:
 
 1. pull the latest image: ``docker pull the-image``,
+
 2. remove the currently running container by executing ``docker rm -f container``,
+
 3. run the same ``docker run`` command as same as the first time the container was started,
+
 4. run ``flush hosts`` in the MariaDB shell if MariaDB is used for this app to empty the MariaDB host cache (similar to
-:doc:`../common-tasks/add-mariadb-database`, but only run ``flush hosts`` after entering the MariaDB shell).
+   :doc:`../common-tasks/add-mariadb-database`, but only run ``flush hosts`` after entering the MariaDB shell).
 
 .. toctree::
    :caption: Table of Contents
