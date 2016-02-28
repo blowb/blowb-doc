@@ -1,7 +1,7 @@
 Piwik, A Web Analytics Platform
 ===============================
 
-*Uses dnsmasq, MariaDB, Nginx and OpenLDAP*
+*This Internet app uses dnsmasq, MariaDB, Nginx and OpenLDAP.*
 
 `Piwik`_ is a free and open source web analytics platform which can be self-hosted.
 

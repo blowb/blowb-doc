@@ -1,7 +1,7 @@
 Prosody, An XMPP Communication Server
 =====================================
 
-*Uses dnsmasq, MariaDB and OpenLDAP*
+*This Internet app uses dnsmasq, MariaDB and OpenLDAP.*
 
 `Prosody`_ is a modern XMPP (the Extensible Messaging and Presence Protocol, a.k.a. Jabber) communication server, which
 serves the purpose for different types of communication, such as text messaging, audio and video calls, multi-party

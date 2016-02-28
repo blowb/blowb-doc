@@ -1,7 +1,7 @@
 LTB Self Service Password, Allowing Users to Change Their Passwords
 ===================================================================
 
-*uses dnsmasq, Nginx, OpenLDAP and Postfix*
+*This Internet app uses dnsmasq, Nginx, OpenLDAP and Postfix.*
 
 `LTB Self Service Password`_ is a PHP application which allows users to change their passwords in the LDAP database. It
 is part of the `LTB`_ project (LDAP Tool Box Project), which aims at easing LDAP administration.
