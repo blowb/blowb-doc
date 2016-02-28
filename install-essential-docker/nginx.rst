@@ -8,7 +8,7 @@ Create the directory to serve the configuration files and certificates on the ho
 
    sudo mkdir -p $DOCKER_SHARE/nginx/tls
 
-If needed create a dummy SSL/TLS key pair for nginx:
+If needed create a dummy SSL/TLS key pair for Nginx:
 ::
 
     sudo openssl req -x509 -nodes -days 3000 -newkey rsa:4096 \
@@ -16,7 +16,7 @@ If needed create a dummy SSL/TLS key pair for nginx:
      -out $DOCKER_SHARE/nginx/tls/dummy.crt
     sudo chmod 600 $DOCKER_SHARE/nginx/tls/dummy.key
 
-Docker volumes will be used by the nginx container to access the web resources of some Internet apps. Since we need to
+Docker volumes will be used by the Nginx container to access the web resources of some Internet apps. Since we need to
 add additional Docker volumes into this container later for some Internet apps, we need to recreate this container
 frequently, as each time the volumes in a Docker container changes, it is required to recreate this container. For
 convenience, we create a helper script to do this:
@@ -35,7 +35,7 @@ convenience, we create a helper script to do this:
    EOF
    chmod +x ~/util/rerun-nginx.sh
 
-This script stops the nginx container and removes it (if existing), and create and run a new nginx container with the
+This script stops the Nginx container and removes it (if existing), and create and run a new Nginx container with the
 volumes indicated in ``~/util/nginx-volumes.txt``. Now run the this script to create the Nginx container:
 ::
 
