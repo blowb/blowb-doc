@@ -1,9 +1,9 @@
-Source Code of This Document
-============================
+Source Code of This Manual
+==========================
 
-For the latest version of the source code of this manual, please visit https://gitlab.com/blowb/blowb-doc.
+For the latest version of the source code of this manual, please visit https://gitlab.com/blowb/blowb-doc .
 
-To obtain the source code of the version of the manual you are reading, you can do either of the following:
+To obtain the source code of the version of the manual you are currently reading, you can do either of the following:
 
 - Use `git`_:
 
@@ -16,7 +16,7 @@ To obtain the source code of the version of the manual you are reading, you can 
 - Download an archive in any of these formats: :source_archive:`tar.gz`, :source_archive:`tar.bz2`,
   :source_archive:`zip`. Then, extract the file you have just downloaded.
 
-To build the documents from source, please follow the ``README.md`` file coming with the source tree.
+To build the manual from source, please follow the ``README.md`` file shipped with the source tree.
 
 You can also browse the code :source_online:`online <>`.
 
