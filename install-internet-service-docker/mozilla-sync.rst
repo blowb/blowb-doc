@@ -123,7 +123,7 @@ should make Firefox use the synchronize server we have just set up.
 .. figure:: mozilla-sync-firefox.png
    :alt: Configure Firefox
 
-   Configure Firefox to use our own server.
+   Configure Firefox to use our own server for synchronization.
 
 Verify Whether the Setup Works
 ------------------------------

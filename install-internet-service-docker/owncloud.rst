@@ -86,7 +86,7 @@ should lead us to the admin interface.
    :alt: Enter Admin
    :scale: 60%
 
-   Enter admin interface.
+   Enter the admin interface.
 
 .. index:: SMTP
 
@@ -99,7 +99,7 @@ In the admin interface, there is an "Email Server" section. In this section, ``S
 .. figure:: owncloud/email-server.png
    :alt: Email Server Settings
 
-   Set email server.
+   Set the email server.
 
 Since we use reverse proxy for the ownCloud setup, we also need to configure ownCloud to recognize the reverse proxy by
 running the following command on the host system (after replacing ``owncloud.example.com`` with the domain used by the

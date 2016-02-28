@@ -89,7 +89,7 @@ the admin account of the Piwik instance, click the ``Administration`` link on th
 .. figure:: piwik/piwik-marketplace.png
    :alt: Piwik Marketplace
 
-   Navigate to Piwik Marketplace.
+   Navigate to the Piwik Marketplace.
 
 Then in the searchbox, search for ``LoginLdap``, and we should now see the LoginLdap plugin in the plugin panel as shown
 in :numref:`piwik-marketplace-ldaplogin`.
