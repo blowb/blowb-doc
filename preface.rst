@@ -12,7 +12,8 @@ integrated system running multiple server software. In addition, you can also us
 instance, if you follow some other instructions to deploy a server with Docker, or to set up some of the software
 mentioned in this manual, this manual may be helpful.
 
-This manual is the main work of the Blowb project, and is mainly authored by `Hong Xu <http://www.topbug.net>`__.
+This manual is the main work of the Blowb project, and is mainly authored by `Hong Xu <http://www.topbug.net>`__. This
+manual is available online at http://www.blowb.org and a hard copy is also available.
 
 What is the Blowb Project?
 --------------------------
