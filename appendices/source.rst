@@ -3,13 +3,14 @@ Source Code of This Manual
 
 For the latest version of the source code of this manual, please visit https://gitlab.com/blowb/blowb-doc .
 
-To obtain the source code of the version of the manual you are currently reading, you can do either of the following:
+To obtain the source code of the version of the manual you are currently reading by using either of the following ways.
 
 - Use `git`_:
 
   .. parsed-literal::
 
-     git clone --recursive https://gitlab.com/blowb/blowb-doc.git blowb-doc
+     git clone --recursive \\
+       https://gitlab.com/blowb/blowb-doc.git blowb-doc
      cd blowb-doc
      git checkout |git_rev|
 
