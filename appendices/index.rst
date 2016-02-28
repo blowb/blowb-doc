@@ -1,7 +1,7 @@
 Appendices
 ==========
 
-Appendices of this document.
+Appendices of this manual.
 
 .. toctree::
    :caption: Table of Contents

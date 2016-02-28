@@ -1,9 +1,9 @@
 Source Code of This Document
 ============================
 
-For the latest version of the source code of the Blowb documents, please visit https://gitlab.com/blowb/blowb-doc .
+For the latest version of the source code of this manual, please visit https://gitlab.com/blowb/blowb-doc.
 
-To obtain the source code of the version of the documents you are reading, you can do either of the following:
+To obtain the source code of the version of the manual you are reading, you can do either of the following:
 
 - Use `git`_:
 
