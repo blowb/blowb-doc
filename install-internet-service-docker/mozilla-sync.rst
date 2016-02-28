@@ -1,5 +1,5 @@
-Firefox Sync Server, Synchronizing Your Firefox Across Devices
-==============================================================
+Firefox Sync Server, Synchronizing Firefox Across Devices
+=========================================================
 
 .. index:: Mozilla, Firefox, Nginx, MariaDB, dnsmasq
    single: Firefox Sync; Server
