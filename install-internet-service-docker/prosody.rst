@@ -1,6 +1,10 @@
 Prosody, An XMPP Communication Server
 =====================================
 
+.. index:: dnsmasq, MariaDB, OpenLDAP, Prosody, XMPP
+   see: Jabber; XMPP
+   see: Extensible Messaging and Presence Protocol; XMPP
+
 *This Internet app uses dnsmasq, MariaDB and OpenLDAP.*
 
 `Prosody`_ is a modern XMPP (the Extensible Messaging and Presence Protocol, a.k.a. Jabber) communication server, which

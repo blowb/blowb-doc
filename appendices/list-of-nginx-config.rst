@@ -1,6 +1,9 @@
 List of Template Nginx Configuration Files
 ==========================================
 
+.. index::
+   single: Nginx; template configuration files
+
 See :doc:`../install-essential-docker/nginx` for more details.
 
 .. highlight:: nginx

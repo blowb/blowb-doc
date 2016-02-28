@@ -1,22 +1,30 @@
 Configure Postfix
 =================
 
+.. index:: Postfix
+   mail transport agent
+   see: MTA; mail transport agent
+   see: email; SMTP
+   SMTP
+   seealso: SMTP; mail transport agent
+   seealso: mail transport agent; SMTP
+
 `Postfix`_ is a popular mail server and is the default mail transport agent on RHEL/CentOS 7. Postfix on the host system
 will serve two purposes: sending admin notification mails to our email inbox, and acting as the mailer for the Internet
 services that we will install later (such as registering email confirmation, notification, etc). In this section, we
-will configure a minimal postfix instance, e.g. no associated domain, no incoming mails from outside accepted.
+will configure a minimal Postfix instance, e.g. no associated domain, no incoming mails from outside accepted.
 
 Install and Enable Postfix
 --------------------------
 
-Postfix is installed and enabled by default on RHEL/CentOS 7. Just in case, we can check whether postfix is installed
+Postfix is installed and enabled by default on RHEL/CentOS 7. Just in case, we can check whether Postfix is installed
 and running by running the following two commands:
 ::
 
    rpm -qa | grep postfix
    systemctl status postfix
 
-Or just simply run the following commands to install and enable postfix:
+Or just simply run the following commands to install and enable Postfix:
 ::
 
    sudo yum install postfix
@@ -27,7 +35,7 @@ Configure Postfix for Admin
 ---------------------------
 
 We need to set up all mails sent to the root user to be sent to our own inbox. ``/etc/aliases`` is the file where
-postfix uses to set up mail aliases for users on the system. We may need to inspect this file to ensure that there are
+Postfix uses to set up mail aliases for users on the system. We may need to inspect this file to ensure that there are
 no strange aliases (e.g. root has already been aliased to a different person). Then after replacing ``me@example.com``
 with your email address, run the following command on bash to add root as the alias of your email address and make the
 changed aliases file take effects:
@@ -51,17 +59,20 @@ Send root a mail to see whether it works:
 If configured correctly, you should have receives an email from ``test@example.com`` (Remember to
 check your spam box if you did not receive).
 
+.. index::
+   single: Docker; docker0
+
 Configure Postfix for Software Running in Docker Containers
 -----------------------------------------------------------
 
-There are two changes need to be made on postfix.
+There are two changes need to be made on Postfix.
 
-1. Exposing postfix to the docker network, that is, postfix must be configured to bind to localhost as
+1. Exposing Postfix to the docker network, that is, Postfix must be configured to bind to localhost as
    well as the docker network.
 
 2. Accepting all incoming connections which come from any Docker containers.
 
-In this section we will do manual editing of configuration files of postfix. Edit ``/etc/postfix/main.cf``:
+In this section we will do manual editing of configuration files of Postfix. Edit ``/etc/postfix/main.cf``:
 ::
 
    sudo $EDITOR /etc/postfix/main.cf
@@ -84,10 +95,13 @@ add this following line below the commented ``mynetworks`` lines:
 
 Where ``<echo $HOST_ADDR | awk -F. '{print $1 "." $2 ".0.0/16"}'>`` is the corresponding output on bash.
 
-Save the configuration file and restart postfix:
+Save the configuration file and restart Postfix:
 ::
 
    sudo systemctl restart postfix
+
+.. index:: firewall, firewalld
+   single: Docker; docker0
 
 If the firewall is enabled, we need to make ``docker0`` a trusted network (you probably have done it in
 :doc:`dnsmasq`; in this case, there is no need to execute them again and you can just skip them):
@@ -122,7 +136,7 @@ We should be running bash in the docker container now. Run the commands below af
    quit
    EOF
 
-Run the following commands to connect to the postfix server and send out the email:
+Run the following commands to connect to the Postfix server and send out the email:
 ::
 
    apt-get update && apt-get install -y netcat
@@ -138,19 +152,24 @@ deleted:
 One More Test
 -------------
 
-To be ensure that this postfix instance is not acting as an `open relay`_ on the Internet, test from
-a different computer to see that whether postfix accepts incoming connections from outside:
+To be ensure that this Postfix instance is not acting as an `open relay`_ on the Internet, test from
+a different computer to see that whether Postfix accepts incoming connections from outside:
 ::
 
    telnet your_server_address 25
 
-(We can also use the ``nc`` command to perform the test; using telnet is just easier for Windows users.)
+.. index:: netcat, telnet
+   see: nc; netcat
+
+Here we can also use the ``nc`` command to perform the test; using telnet is just easier for Windows users.
 
 If the output is similar to the following:
 
 .. code-block:: none
 
    220 host_name ESMTP Postfix
+
+.. index:: spam
 
 Then something's wrong. Please do not ignore this issue---it can make the server a spam machine.
 

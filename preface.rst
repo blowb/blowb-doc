@@ -4,6 +4,8 @@ Preface
 What is This Manual About?
 --------------------------
 
+.. index:: Internet app, Blowb, free software
+
 This manual consists of instructions to set up integrated Internet services using existing `free software`_ for you,
 your family and/or your organization under a framework using Docker. Before reading this manual, make sure you
 understand the basics of GNU/Linux commands (or a different POSIX system such as Mac OS X, FreeBSD). Server setup
@@ -36,6 +38,8 @@ a guide to follow and a reference to look up.
 
 Social Reasons
 ~~~~~~~~~~~~~~
+
+.. index:: cloud, privacy, censorship
 
 Many organizations and individuals use third party servers to serve some of their work, e.g., cloud-based file
 synchronization, cloud-based office suite, etc. Despite the convenience, this practice causes many issues---mainly

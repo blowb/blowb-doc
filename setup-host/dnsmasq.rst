@@ -1,6 +1,12 @@
 Set up Dnsmasq
 ==============
 
+.. index:: dnsmasq, DNS
+   seealso: dnsmasq; DNS
+   seealso: DNS; dnsmasq
+   see: CNAME; dnsmasq
+   see: CNAME; DNS
+
 Install And Configure Dnsmasq
 -----------------------------
 
@@ -33,6 +39,9 @@ We can now start dnsmasq:
    sudo systemctl enable dnsmasq
    sudo systemctl start dnsmasq
 
+.. index:: firewall, firewalld
+   single: Docker; docker0
+
 If the firewall is enabled (you can check it by executing ``systemctl status firewalld``), we need to make ``docker0`` a
 trusted network:
 ::
@@ -55,6 +64,10 @@ In this shell:
 where ``<echo $HOST_ADDR>`` is the output of ``echo $HOST_ADDR`` on the bash shell on the host system. If the DNS record
 of ``www.blowb.org`` is shown, then ``dnsmasq`` is correctly set up. Exit the shell in the container by press
 ``Ctrl-D``.
+
+.. index::
+   single: dnsmasq; update-dnsmasq.sh
+   single: dnsmasq; update-dnsmasq.service
 
 Auto Update DNS Record of Docker Containers
 -------------------------------------------

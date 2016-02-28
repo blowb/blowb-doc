@@ -1,6 +1,8 @@
 Common Group Related Tasks in the OpenLDAP Database
 ===================================================
 
+.. index:: OpenLDAP
+
 In this section, we will add a group named ``newgroup`` under ``ou=groups,dc=example,dc=com`` in the OpenLDAP database,
 where ``dc=example,dc=com`` corresponds to the domain specified in :doc:`../install-essential-docker/openldap`. We will
 also show how to add a user to an existing group.
@@ -17,6 +19,9 @@ In the OpenLDAP container, run the following commands to assign the domain and t
    MY_DOMAIN=example.com
    LDAP_SUFFIX=$(sed -e 's/^/dc=/' -e 's/\./,dc=/g' <<< $MY_DOMAIN)
    NEWGROUP=newgroup
+
+.. index::
+   single: OpenLDAP; group
 
 Add a New Group into the OpenLDAP Database
 ------------------------------------------

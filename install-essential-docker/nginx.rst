@@ -1,12 +1,17 @@
 Install Nginx
 =============
 
+.. index:: Nginx, reverse proxy
+
 Nginx will be used to serve as a reverse proxy to forward incoming traffic to proper containers.
 
 Create the directory to serve the configuration files and certificates on the host system:
 ::
 
    sudo mkdir -p $DOCKER_SHARE/nginx/tls
+
+.. index:: TLS
+   see: SSL; TLS
 
 If needed create a dummy SSL/TLS key pair for Nginx:
 ::
@@ -15,6 +20,9 @@ If needed create a dummy SSL/TLS key pair for Nginx:
      -keyout $DOCKER_SHARE/nginx/tls/dummy.key \
      -out $DOCKER_SHARE/nginx/tls/dummy.crt
     sudo chmod 600 $DOCKER_SHARE/nginx/tls/dummy.key
+
+.. index::
+   single: Docker; volume
 
 Docker volumes will be used by the Nginx container to access the web resources of some Internet apps. Since we need to
 add additional Docker volumes into this container later for some Internet apps, we need to recreate this container

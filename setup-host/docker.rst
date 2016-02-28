@@ -1,6 +1,8 @@
 Install Docker
 ==============
 
+.. index:: Docker
+
 `Docker`_ plays an essential role in this framework. Most of our services will be installed into a Docker container for
 better isolation.
 
@@ -9,6 +11,9 @@ Linux):
 ::
 
    sudo yum install docker
+
+.. index::
+   single: Docker; storage
 
 Set up Docker Storage Options
 -----------------------------
@@ -68,6 +73,9 @@ enter a container:
       --mount --uts --ipc --net --pid
    }
    EOF
+
+.. index::
+   single: Docker; docker0
 
 Now we are going to record the host IP address in the ``docker0`` network. First run the following command:
 ::

@@ -1,6 +1,11 @@
 Install MariaDB
 ===============
 
+.. index:: MariaDB, SQL database
+   see: SQL; SQL database
+   see: MySQL; MariaDB
+   seealso: SQL database; MariaDB
+
 We will use `MariaDB`_ as the main SQL database.
 
 Run the following command to create a data container:
@@ -70,6 +75,8 @@ Optionally we can also adjust other parameters in the config file at this point:
 
    sudo $EDITOR $DOCKER_SHARE/mariadb/my.cnf
 
+.. index:: root user
+
 Start the MariaDB container using the following command, after replacing ``'PASSWORD'`` with the MariaDB root user
 password that you want to use:
 ::
@@ -109,6 +116,8 @@ Execute the following SQL statement:
 The SQL statement above limits root access to localhost only.
 
 Press ``Ctrl-D`` twice to exit the MariaDB shell and the container's shell.
+
+.. index:: dnsmasq
 
 Finally, add a DNS record to specify ``db`` as an alias of ``mariadb`` and restart ``dnsmasq``:
 ::

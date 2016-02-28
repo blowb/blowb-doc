@@ -1,7 +1,10 @@
 Piwik, A Web Analytics Platform
 ===============================
 
-*This Internet app uses dnsmasq, MariaDB, Nginx and OpenLDAP.*
+.. index:: Piwik, dnsmasq, MariaDB, Nginx, OpenLDAP, web analytics
+   single: Docker; data container
+
+*This Internet app uses a data container, dnsmasq, MariaDB, Nginx and OpenLDAP.*
 
 `Piwik`_ is a free and open source web analytics platform which can be self-hosted.
 
@@ -66,6 +69,8 @@ Visit the Piwik instance in a browser (e.g. ``https://piwik.example.com``), and 
 In the database setup page, according to our setup, the database server is ``db``, database login is ``piwik``, database
 password is the one we generated earlier, and the database name is ``piwik``. The table prefix can be any thing, even
 empty.
+
+.. index:: OpenLDAP
 
 Use Piwik with OpenLDAP
 -----------------------

@@ -1,9 +1,12 @@
-Mozilla Sync Server, Synchronizing Your Firefox Across Devices
+Firefox Sync Server, Synchronizing Your Firefox Across Devices
 ==============================================================
 
-*This Internet app uses dnsmasq MariaDB and Nginx.*
+.. index:: Mozilla, Firefox, Nginx, MariaDB, dnsmasq
+   single: Firefox Sync; Server
 
-`Mozilla Sync Server`_ is an Internet app which synchronizes Firefox (e.g. bookmarks, history, etc) across devices. By
+*This Internet app uses dnsmasq, MariaDB and Nginx.*
+
+`Firefox Sync Server`_ is an Internet app which synchronizes Firefox (e.g. bookmarks, history, etc) across devices. By
 default, Firefox uses the sync server deployed by Mozilla, but Mozilla has also released the sync server software which
 we can use on our own servers for Firefox synchronization.
 
@@ -12,7 +15,7 @@ we can use on our own servers for Firefox synchronization.
 Configure DNS
 -------------
 
-Store the domain we will use for the Mozilla sync service (remember to replace ``msync.example.com`` with your domain
+Store the domain we will use for the Firefox Sync Server (remember to replace ``msync.example.com`` with your domain
 name):
 ::
 
@@ -28,16 +31,16 @@ Configure the MariaDB Database
 Follow the instructions in :doc:`../common-tasks/add-mariadb-database` to create a new user and a database both named as
 ``msync`` in the MariaDB database.
 
-Configure Mozilla Sync Server
+Configure Firefox Sync Server
 -----------------------------
 
-Create a directory for the Mozilla sync server:
+Create a directory for the Firefox Sync Server:
 ::
 
    sudo mkdir $DOCKER_SHARE/msync
    cd $DOCKER_SHARE/msync
 
-Pull the Mozilla sync server image and generate the default configuration file:
+Pull the Firefox Sync Server image and generate the default configuration file:
 ::
 
    docker pull blowb/mozilla-sync-server
@@ -64,7 +67,7 @@ Explanation:
   - **line 3**: set up the SQL database connection to the database we have just created earlier in `Configure the
     MariaDB Database`_ .
 
-Start the Mozilla sync server container:
+Start the Firefox Sync Server container:
 ::
 
    docker run -d --restart always --name msync --dns $HOST_ADDR \
@@ -78,8 +81,8 @@ We may adjust ``NUM_THREADS`` and ``NUM_PROCESSES`` depending on the needs, but 
 Configure Nginx
 ---------------
 
-Run the following command to generate a configuration file which would make Nginx pass all requests to the sync server
-URL to the Mozilla sync server container under the uWSGI protocol:
+Run the following command to generate a configuration file which would make Nginx pass all requests to the Sync Server
+URL to the Firefox Sync Server container under the uWSGI protocol:
 ::
 
    cd $DOCKER_SHARE/nginx
@@ -103,7 +106,7 @@ Configure Firefox
 -----------------
 
 Before we start configuring, if the dummy key is used, we need to add a security exception in Firefox. Visit the URL
-``https://msync.example.com`` in Firefox, where ``msync.example.com`` is the Mozilla sync server domain. In the "Your
+``https://msync.example.com`` in Firefox, where ``msync.example.com`` is the Firefox Sync Server domain. In the "Your
 connection is not secure" page, click the ``Advanced`` button and then the ``Add Exception...`` button. Make sure the
 ``Permanently store this exception`` is checked, then click the ``Confirm Security Exception`` button.
 
@@ -112,7 +115,7 @@ then type ``about:config`` in the navigation bar and press ``Enter``. If a butto
 promise!`` shows up, click on it. Now you should be at a page with a list of options and a search bar on the top. Use
 the search bar to search for ``services.sync.tokenServerURI``, and change the value of this option to
 ``https://msync.example.com/token/1.0/sync/1.5``, where ``msync.example.com`` should be replaced by the domain name of
-the Mozilla sync server, similar to what is shown in :numref:`mozilla-sync-firefox`. Now logging in the Firefox account
+the Firefox Sync Server, similar to what is shown in :numref:`mozilla-sync-firefox`. Now logging in the Firefox account
 should make Firefox use the synchronize server we have just set up.
 
 .. _mozilla-sync-firefox:
@@ -164,4 +167,4 @@ Restart both the ``msync`` and ``nginx`` Docker containers to apply the change:
 
    docker restart msync nginx
 
-.. _Mozilla Sync Server: https://github.com/mozilla-services/syncserver
+.. _Firefox Sync Server: https://github.com/mozilla-services/syncserver

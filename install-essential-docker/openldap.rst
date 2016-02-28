@@ -1,6 +1,9 @@
 Install OpenLDAP
 ================
 
+.. index:: OpenLDAP
+   see: slapd; OpenLDAP
+
 Start the OpenLDAP Container
 ----------------------------
 
@@ -39,6 +42,8 @@ to do.
 
 Configure OpenLDAP
 ------------------
+
+.. index:: LDAP_SUFFIX, root DN
 
 First, we need to change the database suffix and the root DN. Run ``ne openldap`` to launch the shell inside the
 OpenLDAP container. Inside the container, run the following command, after replacing ``example.com`` with the domain we
@@ -132,6 +137,9 @@ email of the new account:
    userPassword: $HASHED_PASSWD
    EOF
 
+.. index::
+   single: OpenLDAP; group
+
 We also need to add a group branch to control users' accessibility to Internet apps (replace ``MY_PASSWORD`` with the
 actual password):
 ::
@@ -180,11 +188,17 @@ We also need to set up the ``memberOf`` overlay so that we queries can use ``mem
 
 Press ``Ctrl+D`` to exit the container shell.
 
+.. index:: dnsmasq
+
 Finally, add a DNS record to specify ``ldap`` as an alias of ``openldap`` and restart ``dnsmasq``:
 ::
 
    sudo -s <<< "echo 'cname=ldap,openldap' > /etc/dnsmasq.d/ldap"
    sudo systemctl restart dnsmasq
+
+.. index::
+   single: OpenLDAP; GUI
+   JXplorer
 
 Manage the LDAP Database with a GUI frontend
 --------------------------------------------
@@ -198,6 +212,8 @@ the IP address of the OpenLDAP container:
 
 The default port number is 389.
 
+.. index:: SSH tunneling, VNC
+
 If the server is physically accessible and it has a desktop environment installed (such as GNOME, KDE), we can install a
 GUI front end and connect to the ``slapd`` process through TCP/IP. If the server is managed remotely, we can either (a)
 use a VNC server, or (b) use SSH tunneling. Here we will use the SSH tunneling method.
@@ -207,6 +223,8 @@ system (GNU/Linux, FreeBSD, Mac OS X, etc), use the following command to build a
 ::
 
    ssh -L 12345:slapd_ip:389 username@server.tld
+
+.. index:: plink
 
 where ``slapd_ip`` is the IP address of the OpenLDAP container, ``server.tld`` is the server's address, and ``username``
 is the user name of the POSIX account on the server (Windows users may replace ``ssh`` with `plink`_). By launching the

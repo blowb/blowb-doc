@@ -1,6 +1,9 @@
 OwnCloud, A File Synchronization and Cloud Service
 ==================================================
 
+.. index:: ownCloud, dnsmasq, MariaDB, Nginx, OpenLDAP, Postfix, Dropbox
+   single: Docker; data container
+
 *This Internet app uses a data container, dnsmasq, MariaDB, Nginx, OpenLDAP and Postfix.*
 
 `Owncloud`_ is a free, open source, Dropbox-like file synchronization and cloud service.
@@ -85,6 +88,8 @@ should lead us to the admin interface.
 
    Enter admin interface.
 
+.. index:: SMTP
+
 In the admin interface, there is an "Email Server" section. In this section, ``Send mode`` should be set to ``smtp``;
 ``From address`` can be anything you like, such as ``owncloud@example.com``; ``Server address`` should be set to
 ``smtp-server``. The settings should look similar to :numref:`email-server`.
@@ -110,6 +115,8 @@ ownCloud instance):
    EOF
 
 .. _use-owncloud-with-openldap:
+
+.. index:: OpenLDAP
 
 Use OwnCloud with OpenLDAP
 --------------------------

@@ -1,6 +1,15 @@
 Enable SELinux (Optional but Recommended)
 =========================================
 
+.. index:: SELinux, mandatory access control
+   see: MAC; mandatory access control
+   seealso: SELinux; mandatory access control
+   seealso: SELinux; AppArmor
+   seealso: AppArmor; SELinux
+   seealso: AppArmor; mandatory access control
+   seealso: mandatory access control; SELinux
+   seealso: mandatory access control; AppArmor
+
 `SELinux`_ is a Linux kernel security module which provides `mandatory access controls`_. It is highly recommended to
 enable SELinux on your system, especially a GNU/Linux distribution such as RHEL/CentOS which provides good out-of-box
 integration with SELinux.

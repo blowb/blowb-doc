@@ -1,6 +1,12 @@
 Technical Overview
 ==================
 
+.. index:: Internet app, Docker, GNU/Linux, overview, Postfix, Nginx, MariaDB, OpenLDAP
+   see: LDAP; OpenLDAP
+   see: Linux; GNU/Linux
+   seealso: MariaDB; SQL database
+   single: Docker; container
+
 The whole system will be built on `GNU/Linux`_, and `Docker`_ will be used for deployment of Internet apps. We will
 deploy most apps in Docker containers, which run on top of the host system. We use Docker for the reason that a Docker
 container can isolate the app in it from other parts of the system, which usually leads to easy deployment, and better
@@ -37,6 +43,10 @@ runs on the host. Containers locate each other via the dnsmasq server on the hos
 :numref:`overview-diagram`). Note that not all Internet apps have the complete structure as shown in
 :numref:`overview-diagram`, e.g., the XMPP/Jabber server software Prosody is not a web service thus Nginx is not part of
 the game---users send requests directly to the Prosody instance.
+
+.. index::
+   single: GNU; bash
+   see: bash; GNU
 
 Throughout this manual, `GNU Bash`_ is assumed to be the shell used on the host.
 

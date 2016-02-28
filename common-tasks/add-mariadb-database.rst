@@ -1,7 +1,11 @@
 Create a New Database and User in MariaDB
 =========================================
 
+.. index:: MariaDB
+
 This section describes the procedure to create a new database and a new user in MariaDB.
+
+.. index:: random password
 
 Before we operate on MariaDB, we need to generate a password for this new MariaDB user. To generate a random password,
 we can run ``cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w N | head -1``, where ``N`` is the length of the password. A

@@ -1,6 +1,10 @@
 Dnsmasq Auto Update Script
 ==========================
 
+.. index:: dnsmasq
+   single: dnsmasq; update-dnsmasq.sh
+   single: dnsmasq; update-dnsmasq.service
+
 See :doc:`../setup-host/dnsmasq` for more details.
 
 .. highlight:: bash

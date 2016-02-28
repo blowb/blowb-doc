@@ -4,6 +4,8 @@ Why Should We Use Our Own Server?
 Privacy and Censorship Concerns Rise at the Age of the Internet
 ---------------------------------------------------------------
 
+.. index:: privacy, censorship
+
 At the age of the Internet, we use Internet apps everyday: we use Google Hangout to communicate; we use Facebook to
 share stories; we use Chrome Sync to synchronize browser bookmarks and history. They are pretty cool and useful, but do
 you know
@@ -17,6 +19,8 @@ Privacy and free speech are threatened.
 Organizations and Working Groups are Subjugated to Proprietary Network Service and Software
 -------------------------------------------------------------------------------------------
 
+.. index:: free software, proprietary software
+
 Many small organizations and working groups use proprietary network service, often coupled with some client side
 proprietary software, to collaborate. This leads to the fact that they are largely limited by the software they use.
 
@@ -28,11 +32,14 @@ proprietary software, to collaborate. This leads to the fact that they are large
 Solve the Issue by Using Our Own Server
 ---------------------------------------
 
+.. index:: Firefox Sync, ownCloud, Prosody, XMPP
+   single: GNU; Social
+
 This issue **can be solved**. There are many network related `free software`_ projects which cover almost all commonly
 used network services, either on the Internet or an intranet:
 
   - GNU Social for decentralized and federated social networking,
-  - Mozilla Sync for synchronizing your web browsers,
+  - Firefox Sync for synchronizing your web browsers,
   - ownCloud for file, contact and calendar synchronization,
   - Prosody and other free XMPP software for instant messaging,
   - ... (a longer list is `available on Wikipedia

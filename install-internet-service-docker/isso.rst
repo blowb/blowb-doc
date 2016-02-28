@@ -1,6 +1,9 @@
 Isso, A Commenting Server
 =========================
 
+.. index:: isso, Nginx, Postfix
+   single: Docker; data container
+
 *This Internet app uses a data container, Nginx and Postfix.*
 
 `Isso`_ is a commenting system which can embed into a static website.

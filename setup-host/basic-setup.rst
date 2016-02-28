@@ -4,6 +4,8 @@ Basic Setup and Preparation
 Create an Admin User
 --------------------
 
+.. index:: root user
+
 If an admin user has not been set up on the server, we probably would create one to avoid using the root user to
 maintain. We can run the following command to create an admin user, after replacing ``<admin_user_name>`` with your
 favorite admin user name, such as ``admin``:
@@ -21,6 +23,8 @@ commands. Now we can switch to the admin user by running:
 Update the System
 -----------------
 
+.. index:: yum
+
 It is essential for security and stability to keep the software packages up-to-date. Run the command below to update all
 system packages:
 ::
@@ -32,10 +36,17 @@ If this command fails, you should go back and check whether the admin account is
 Install Admin Tools
 -------------------
 
+.. index:: ed, netcat, telnet
+   see: wget; GNU
+   single: GNU; bash
+   single: GNU; wget
+
 We probably also need to install some utilities:
 ::
 
    sudo yum install bash-completion ed nc telnet wget
+
+.. index:: Vim
 
 We also need to set up a favorite terminal editor. If you are relatively new to GNU/Linux, I would suggest you to try
 `Vim`_, which is an enhanced version of the POSIX standard vi. It has a steep but short learning curve, but once you get
@@ -44,7 +55,13 @@ used to it, you would become more efficient to edit configuration files than mos
 
    sudo yum install vim-enhanced
 
+.. index:: vi
+
 Or simply use the ``vi`` command if you still want to use a vi style editor but not the full Vim.
+
+.. index::
+   single: GNU; nano
+   see: nano; GNU
 
 In the case you really don't want to learn vi key bindings, you may want to take a look at `GNU Nano`_. To install GNU
 Nano, run:
@@ -77,6 +94,9 @@ favorite editor command.
 
 Store Logs Persistently
 -----------------------
+
+.. index:: systemd
+   see: journald; systemd
 
 By default the logs are only stored in memory and cleared after a reboot. To preserve the logs after each reboot, we
 have to set a journald option. Edit the file ``/etc/systemd/journald.conf``:
