@@ -9,13 +9,13 @@ is part of the `LTB`_ project (LDAP Tool Box Project), which aims at easing LDAP
 Configure DNS
 -------------
 
-Please add an ``A`` record to point the domain you want to use with ``LTB Self Service Password`` to the IP address of
-the server.
+Add an ``A`` record to point the domain you want to use with LTB Self Service Password to the IP address of the
+server.
 
 Start the LTB Self Service Password Container
 ---------------------------------------------
 
-First pull the ``LTB Self Service Password`` Docker image:
+First pull the LTB Self Service Password Docker image:
 ::
 
    docker pull blowb/ltb-self-service-password
@@ -34,7 +34,7 @@ Generate the default configuration file:
 
 Run the following commands to modify the configuration file, after replacing ``dc=example,dc=com`` with the
 ``$LDAP_SUFFIX`` in :doc:`../install-essential-docker/openldap`, ``password@example.com`` with the notification
-email you want to use, and ``MY_LDAP_ROOT_PASSWORD`` with the root password of your OpenLDAP server:
+email you want to use, and ``MY_LDAP_ROOT_PASSWORD`` with the root password of the OpenLDAP server:
 
 .. code-block:: bash
    :linenos:
@@ -54,13 +54,13 @@ email you want to use, and ``MY_LDAP_ROOT_PASSWORD`` with the root password of y
 Explanation:
 
   - **line 4**: the LDAP server URL will be named ``ldap``;
-  - **line 5**: set the root dn;
+  - **line 5**: set the root DN;
   - **line 6**: set the root password of the OpenLDAP server;
   - **line 7**: set the search base;
   - **line 8**: let the root user change password not the user itself;
-  - **line 9**: the "from" email of the notification mails.
+  - **line 9**: the "from" email address of the notification mails.
 
-Optionally you can further modify the configuration file ``config.inc.php`` to adjust settings:
+Optionally we can further modify the configuration file ``config.inc.php`` to adjust settings:
 ::
 
    sudo $EDITOR config.inc.php
@@ -74,12 +74,12 @@ Start the container:
     blowb/ltb-self-service-password
 
 The Dockerfile from which the image was generated is `available
-<https://registry.hub.docker.com/u/blowb/ltb-self-service-password/dockerfile/>`_.
+<https://hub.docker.com/r/blowb/ltb-self-service-password/~/dockerfile/>`_.
 
 Configure Nginx
 ---------------
 
-After replacing ``password.example.com`` with the domain you want to use to visit the password reset page, run the
+After replacing ``password.example.com`` with the domain to be used for accessing the password reset page, run the
 following command:
 ::
 
@@ -97,7 +97,7 @@ following command:
 
 You can edit ``ltb-self-service-password.tls.conf`` to use your own tls/ssl key if you don't want to use the dummy key.
 
-Rerun the Nginx container:
+Recreate and restart the Nginx container:
 ::
 
    ~/util/rerun-nginx.sh

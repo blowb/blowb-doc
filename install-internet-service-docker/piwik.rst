@@ -3,18 +3,18 @@ Piwik, A Web Analytics Platform
 
 *Uses dnsmasq, MariaDB, Nginx and OpenLDAP*
 
-`Piwik`_ is a free web analytics platform which you can install on your own server.
+`Piwik`_ is a free and open source web analytics platform which can be self-hosted.
 
 Configure DNS
 -------------
 
-Please add an A record to point the domain you want to use with Piwik to the IP address of the server.
+Add an ``A`` record to point the domain to be used by Piwik to the IP address of the server.
 
 Configure the MariaDB Database
 ------------------------------
 
-Please follow the instructions in :doc:`../common-tasks/add-mariadb-database` to create a new user and a database both
-named as ``piwik`` in MariaDB.
+Follow the instructions in :doc:`../common-tasks/add-mariadb-database` to create a new user and a database both named as
+``piwik`` in the MariaDB database.
 
 Set up Piwik Container
 ----------------------
@@ -30,14 +30,14 @@ To start the Piwik container, run the following command:
    docker run -d --restart always --name piwik --dns $HOST_ADDR \
     --volumes-from piwik-data blowb/piwik
 
-The Dockerfile from which the image was generated is `available
-<https://registry.hub.docker.com/u/blowb/piwik/dockerfile/>`_. For the first time the container starts will download and
-decompress the Piwik installation to ``/var/www/piwik``.
+The Dockerfile from which the image was generated is `available <https://hub.docker.com/r/blowb/piwik/~/dockerfile/>`_.
+For the first time the container starts will download and decompress Piwik to ``/var/www/piwik``.
 
 Configure Nginx
 ---------------
 
-Now run the following command to set up Nginx, after replacing ``piwik.example.com`` with your Piwik domain:
+Now run the following command to set up Nginx, after replacing ``piwik.example.com`` with the domain of the Piwik
+instance:
 ::
 
    echo --volumes-from piwik-data >> ~/util/nginx-volumes.txt
@@ -52,9 +52,9 @@ Now run the following command to set up Nginx, after replacing ``piwik.example.c
     -e 's/@fastcgi_server@/piwik:9000/g' fastcgi.tls.conf.tmpl > piwik.tls.conf
    EOF
 
-Optionally you can edit ``piwik.tls.conf`` to use your own TLS/SSL key instead of the dummy key.
+Optionally we can edit ``piwik.tls.conf`` to use a different TLS/SSL key instead of the dummy key.
 
-Restart the Nginx container:
+Recreate and restart the Nginx container:
 ::
 
    ~/util/rerun-nginx.sh
@@ -62,9 +62,9 @@ Restart the Nginx container:
 Configure Piwik
 ---------------
 
-Visit your Piwik setup in a browser (e.g. ``https://piwik.example.com``), and follow the instructions to set up
-Piwik. In the database setup page, remember in our setup, the database server is ``db``, database login is ``piwik``,
-database password is the one we generated earlier, database name is ``piwik``. The table prefix can be any thing, even
+Visit the Piwik instance in a browser (e.g. ``https://piwik.example.com``), and follow the instructions to set up Piwik.
+In the database setup page, according to our setup, the database server is ``db``, database login is ``piwik``, database
+password is the one we generated earlier, and the database name is ``piwik``. The table prefix can be any thing, even
 empty.
 
 Use Piwik with OpenLDAP
@@ -72,12 +72,12 @@ Use Piwik with OpenLDAP
 
 It is optional to use Piwik with OpenLDAP. If you decide not to use Piwik with OpenLDAP, you may skip this part.
 
-Please follow the instructions in :doc:`../common-tasks/group-tasks-openldap` to create a new group ``piwik`` and add
-all users which will be granted to use this service to this group.
+Follow the instructions in :doc:`../common-tasks/group-tasks-openldap` to create a new group ``piwik`` and add all users
+who will be granted to use Piwik to this group.
 
 First we need to install the `LoginLdap plugin <https://plugins.piwik.org/LoginLdap>`_ . To install the plugin, log into
-your Piwik instance, click the ``Administration`` link on the top right corner and click the ``Marketplace`` link. You
-should now see an interface similar to :numref:`piwik-marketplace`.
+the admin account of the Piwik instance, click the ``Administration`` link on the top right corner and then click the
+``Marketplace`` link. We should now be able to see an interface similar to :numref:`piwik-marketplace`.
 
 .. _piwik-marketplace:
 
@@ -86,8 +86,8 @@ should now see an interface similar to :numref:`piwik-marketplace`.
 
    Navigate to Piwik Marketplace.
 
-Then in the searchbox, search for ``LoginLdap``, and you should now see that the LoginLdap shows up in the plugin panel
-as shown in :numref:`piwik-marketplace-ldaplogin`.
+Then in the searchbox, search for ``LoginLdap``, and we should now see the LoginLdap plugin in the plugin panel as shown
+in :numref:`piwik-marketplace-ldaplogin`.
 
 .. _piwik-marketplace-ldaplogin:
 
@@ -96,13 +96,13 @@ as shown in :numref:`piwik-marketplace-ldaplogin`.
 
    Search for LdapLogin in Piwik Marketplace.
 
-After that, click on the ``install`` link to install the plugin. If the installation is successful, you can click on the
-``Activate`` link to activate the plugin. Alternatively, you may follow the `Piwik plugin installation guide
+After that, click on the ``install`` link to install the plugin. If the installation is successful, we can click on the
+``Activate`` link to activate the plugin. Alternatively, we may follow the `Piwik plugin installation guide
 <https://piwik.org/faq/plugins/#faq_21>`_ and `LoginLdap installation guide
 <https://github.com/piwik/plugin-LoginLdap#installation>`_ to install and activate the LoginLdap plugin.
 
-After activating the LoginLdap plugin, you should be able to see an ``LDAP`` link in the administration panel as shown
-in :numref:`piwik-ldap`.
+After activating the LoginLdap plugin, we should be able to see an ``LDAP`` link in the administration panel as shown in
+:numref:`piwik-ldap`.
 
 .. _piwik-ldap:
 
@@ -111,9 +111,10 @@ in :numref:`piwik-ldap`.
 
    Configure the LdapLogin plugin.
 
-Click the link, then you will see a list of LDAP settings on the right, as shown in :numref:`piwik-ldap`. Then make sure
-your LDAP server settings are similar to the settings in :numref:`piwik-ldap-server`, (replace ``dc=example,ec=com``
-with the ``$LDAP_SUFFIX`` in :doc:`../install-essential-docker/openldap` in the "Base DN" field) then click ``Save``.
+Click the link, then a list of LDAP settings should be available on the right, as shown in :numref:`piwik-ldap`. Make
+sure the LDAP server settings are similar to the settings in :numref:`piwik-ldap-server`, (replace ``dc=example,ec=com``
+with the ``$LDAP_SUFFIX`` in :doc:`../install-essential-docker/openldap` in the "Base DN" field) and then click
+``Save``.
 
 .. _piwik-ldap-server:
 
@@ -122,20 +123,19 @@ with the ``$LDAP_SUFFIX`` in :doc:`../install-essential-docker/openldap` in the 
 
    Set up the LDAP server connection.
 
-Make sure the rest of the settings looks similar to :numref:`piwik-ldap`. Note that your "Required User Group" should be
-``cn=piwik,ou=groups,dc=example,dc=com``, where ``dc=example,dc=com`` should be replaced by the ``$LDAP_SUFFIX`` in
-:doc:`../install-essential-docker/openldap`. Click on the ``Test`` link in the "Required User Group" box to make sure
-the configuration is correct. Then click ``Save``.
+Make sure the rest of the settings looks similar to :numref:`piwik-ldap`. Note that ``Required User Group`` should be
+set to ``cn=piwik,ou=groups,dc=example,dc=com``, where ``dc=example,dc=com`` should be replaced by the ``$LDAP_SUFFIX``
+in :doc:`../install-essential-docker/openldap`. Click on the ``Test`` link in the ``Required User Group`` box to make
+sure the configuration is correct. Then click ``Save``.
 
-The configuration above is the recommended settings, but you may follow `LoginLdap configuration guide
+The configuration above is the recommended settings, but we can also follow `LoginLdap configuration guide
 <https://github.com/piwik/plugin-LoginLdap#configurations>`_ to configure the plugin differently.
 
 Update Piwik
 ------------
 
-The Piwik container used here is a self-managed php container, which means that all Piwik related files are actually
-downloaded and stored in a data container during the Piwik container's first run. To upgrade, you can use Piwik's
-builtin auto updater.
+The Piwik container used here is a self-managed php container, which means that all Piwik files are downloaded and
+stored in a data container during the Piwik container's first run. To upgrade, simply use Piwik's builtin auto updater.
 
 To manually update, run the following command to enter the shell in the Piwik container then switch to ``/var/www``:
 ::

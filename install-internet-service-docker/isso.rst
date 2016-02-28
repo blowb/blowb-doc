@@ -8,7 +8,7 @@ Isso, A Commenting Server
 Configure DNS
 -------------
 
-Please add an ``A`` record to point the domain you want to use with ``isso`` to the IP address of the server.
+Add an ``A`` record to point the domain you want to use with isso to the IP address of the server.
 
 Configure Isso Options
 ----------------------
@@ -25,7 +25,7 @@ Download the isso example config file to ``$DOCKER_SHARE/isso``:
     https://raw.githubusercontent.com/posativ/isso/cb21af4cc57a197cbe73a63d5bd7a085ef98d85d/share/isso.conf
 
 Now we need to edit the config file to make some changes for the isso container we will use. The
-following commands switch your working directory to ``$DOCKER_SHARE/isso`` and modify some parts of
+following commands switch the working directory to ``$DOCKER_SHARE/isso`` and modify some parts of
 the configuration file (please replace ``isso@example.com`` with the email address you want
 notification to come from and ``me@example.com`` to be the address which receives email
 notification):
@@ -55,17 +55,16 @@ Explanation:
   - **line 6-11**: set the email notification to your email address using the postfix server we have configured on the
     host system.
 
-Now we can edit this config file manually to customize it for our website, notably the ``host`` option under the
-``[general]`` section:
+Now we can edit this config file manually to customize it for our website:
 ::
 
    sudo $EDITOR $DOCKER_SHARE/isso/isso.conf
 
-Modify the ``host`` option in the ``[general]`` section. Follow the instructions in the comments
-above the ``host`` option to update the option to your website URL. If you need to serve multiple
-websites, you probably also need to look into the option ``name`` in the ``[general]`` section. You
-can also update some other options for your need, such as ``enabled`` in the ``[moderation]``
-section to turn on or off moderation, etc.
+We probably need to modify the ``host`` option in the ``[general]`` section. Follow the instructions in the comments
+above the ``host`` option to update the option to the website URL that isso will be used in. If this isso instance need
+to serve multiple websites, you probably also need to look into the option ``name`` in the ``[general]`` section. We can
+also customize some other options, such as ``enabled`` in the ``[moderation]`` section to turn on or off moderation,
+etc.
 
 Start the Isso Docker Container
 -------------------------------
@@ -75,7 +74,7 @@ Create a data container for isso:
 
    docker run -v /var/uwsgi --name isso-data busybox /bin/true
 
-Start the isso docker container:
+Start the isso Docker container:
 ::
 
    docker run --restart always -d -v $DOCKER_SHARE/isso:/etc/isso:ro \
@@ -83,10 +82,9 @@ Start the isso docker container:
     --env NUM_PROCESSES=1 --env NUM_THREADS=2 \
     --add-host smtp-server:$HOST_ADDR blowb/isso
 
-The Dockerfile from which the image was generated is `available
-<https://registry.hub.docker.com/u/blowb/isso/dockerfile/>`_.
-You may adjust ``NUM_THREADS`` and ``NUM_PROCESSES`` depending on your need, but for a small website, ``NUM_THREADS=2``
-and ``NUM_PROCESSES=1`` should be enough.
+The Dockerfile from which the image was generated is `available <https://hub.docker.com/r/blowb/isso/~/dockerfile/>`_.
+We may adjust ``NUM_THREADS`` and ``NUM_PROCESSES`` depending on the needs, but for a small website, ``NUM_THREADS=2``
+and ``NUM_PROCESSES=1`` should be good enough.
 
 Configure Nginx
 ---------------
@@ -104,9 +102,9 @@ the following commands:
     -e 's/@uwsgi_server@/isso:9000/g' uwsgi.tls.conf.tmpl >isso.tls.conf
    EOF
 
-The commands above generate two configuration files which pass all requests to the isso server
+The commands above generate two configuration files which pass all requests to the isso instance
 (``comments.example.com`` in the example above) in the uWSGI protocol. Edit ``isso.tls.conf`` to
-replace the dummy key and certificate with your key and certificate if you don't want to use the
+replace the dummy key and certificate with your key and certificate if you do not want to use the
 dummy one.
 
 Recreate the Nginx container:

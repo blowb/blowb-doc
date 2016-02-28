@@ -8,13 +8,13 @@ OwnCloud, A File Synchronization and Cloud Service
 Configure DNS
 -------------
 
-Please add an A record to point the domain you want to use with ownCloud to the IP address of the server.
+Add an ``A`` record to point the domain that you want to use with ownCloud to the IP address of the server.
 
 Configure the MariaDB Database
 ------------------------------
 
-Please follow the instructions in :doc:`../common-tasks/add-mariadb-database` to create a new user and a database both
-named as ``owncloud`` in MariaDB.
+Follow the instructions in :doc:`../common-tasks/add-mariadb-database` to create a new user and a database both named as
+``owncloud`` in the MariaDB database.
 
 Set up OwnCloud Container
 -------------------------
@@ -31,13 +31,14 @@ To start the ownCloud container, run the following command:
     --add-host smtp-server:$HOST_ADDR --volumes-from owncloud-data blowb/owncloud
 
 The Dockerfile from which the image was generated is `available
-<https://registry.hub.docker.com/u/blowb/owncloud/dockerfile/>`_. For the first time the container starts will download
-and decompress the ownCloud installation to ``/var/www/html/``.
+<https://hub.docker.com/r/blowb/owncloud/~/dockerfile/>`_. For the first time the container starts, it will download and
+decompress the ownCloud installation to ``/var/www/html/``.
 
 Configure Nginx
 ---------------
 
-Now run the following command to set up Nginx, after replacing ``owncloud.example.com`` with your ownCloud domain:
+Now run the following command to set up Nginx, after replacing ``owncloud.example.com`` with the domain to be used by
+ownCloud:
 ::
 
    cd $DOCKER_SHARE/nginx
@@ -48,9 +49,9 @@ Now run the following command to set up Nginx, after replacing ``owncloud.exampl
     -e 's/@web_server@/owncloud:80/g' reverse-proxy.tls.conf.tmpl > owncloud.tls.conf
    EOF
 
-Optionally you can edit ``owncloud.tls.conf`` to use your own TLS/SSL key instead of the dummy key.
+Optionally we can edit ``owncloud.tls.conf`` to use a different TLS/SSL key instead of the dummy key.
 
-Restart the Nginx container:
+Recreate and restart the Nginx container:
 ::
 
    docker restart nginx
@@ -58,9 +59,9 @@ Restart the Nginx container:
 Basic Configuration of OwnCloud
 -------------------------------
 
-Visit your ownCloud setup in a browser (e.g. ``https://owncloud.example.com``), and follow the instructions to set up
-ownCloud. In the first-run setup page, database type is ``MySQL/MariaDB`` not ``SQLite``; the database server is ``db``;
-database login is ``owncloud``; database password is the one we generated earlier; the database name is
+Visit the ownCloud instance in a browser (e.g. ``https://owncloud.example.com``), and follow the instructions to set up
+ownCloud. In the first-run setup page, the database type should be ``MySQL/MariaDB`` not ``SQLite``; the database server
+is ``db``; database login is ``owncloud``; the database password is the one we generated earlier; the database name is
 ``owncloud``. The settings should look like :numref:`firstrun-setup`. Then click ``Finish setup`` to finish the initial
 setup.
 
@@ -72,9 +73,9 @@ setup.
 
    Set up ownCloud in the first run.
 
-You should now automatically log into your admin account. Then we need to configure the email server for sending
-notification.  Click on the triangle on the right up corner, and click "Admin", as shown in :numref:`enter-admin`. This
-should lead you to the admin interface.
+We should have now automatically logged into the admin account. Then we need to configure the email server for sending
+notification. Click on the triangle on the right up corner, and click "Admin", as shown in :numref:`enter-admin`. This
+should lead us to the admin interface.
 
 .. _enter-admin:
 
@@ -95,9 +96,9 @@ similar to :numref:`email-server`.
 
    Set email server.
 
-Since we use reverse proxy for the ownCloud setup, we also need to configure ownCloud to recognize reverse proxy by
-running the following command on the host system (after replacing ``owncloud.example.com`` with the domain you use with
-the ownCloud instance):
+Since we use reverse proxy for the ownCloud setup, we also need to configure ownCloud to recognize the reverse proxy by
+running the following command on the host system (after replacing ``owncloud.example.com`` with the domain used by the
+ownCloud instance):
 ::
 
    docker exec -i owncloud bash -c 'cat >>/var/www/html/config/config.php' <<'EOF'
@@ -116,10 +117,10 @@ Use OwnCloud with OpenLDAP
 It is optional but recommended to use ownCloud with OpenLDAP. If you decide not to use ownCloud with OpenLDAP, you may
 skip this part.
 
-First, please follow the instructions in :doc:`../common-tasks/group-tasks-openldap` to create a new group ``owncloud``
-and add all users which will be granted to use this service to this group.
+First, follow the instructions in :doc:`../common-tasks/group-tasks-openldap` to create a new group ``owncloud`` and add
+all users who will be granted to use ownCloud to this group.
 
-Now log in ownCloud with your admin account. On the left up corner, click on the small triangle next to the word
+Now log in ownCloud with the admin account. On the left up corner, click on the small triangle next to the word
 "Files", then click "Apps", as shown in :numref:`enter-apps`.
 
 .. _enter-apps:
@@ -129,7 +130,7 @@ Now log in ownCloud with your admin account. On the left up corner, click on the
 
    Enter "Apps" in ownCloud.
 
-You should be in the "Apps" interface now. Click on "Not Enabled" on the left, and find "LDAP user and group backend" on
+We should be in the "Apps" interface now. Click on "Not Enabled" on the left, and find "LDAP user and group backend" on
 the right panel. Click on the "Enable" button to enable this LDAP backend ownCloud app, as shown in :numref:`apps`.
 
 .. _apps:
@@ -153,10 +154,10 @@ look like :numref:`ldap-server`.
 
    Fill in the "Server" tab in LDAP settings panel.
 
-Fill in the "Users" tab as in :numref:`ldap-users` and "Login Filter" tab as in :numref:`ldap-login-attributes`. In the
-"Login Attributes" tab, we may also add some other attributes as user login. In the "Advanced" tab, the ``User Display
-Name Field`` and ``Group Display Name Field`` should be set to ``cn`` under "Directory Settings", as shown in
-:numref:`ldap-displayname`. Other tabs can be left as default.
+Fill in the "Users" tab as in :numref:`ldap-users` and the "Login Attributes" tab as in :numref:`ldap-login-attributes`.
+In the "Login Attributes" tab, we may also add some other attributes as the user login. In the "Advanced" tab, the
+``User Display Name Field`` and ``Group Display Name Field`` should be set to ``cn`` under "Directory Settings", as
+shown in :numref:`ldap-displayname`. Other tabs can be left as default.
 
 .. _ldap-users:
 
@@ -182,17 +183,17 @@ Name Field`` and ``Group Display Name Field`` should be set to ``cn`` under "Dir
 Other Settings
 --------------
 
-You may adjust settings and add more ownCloud apps to your installation. The way to add a new app into your ownCloud
-installation is similar to adding the LDAP backend app as shown in :ref:`use-owncloud-with-openldap`. It is recommended
-to enable the `Calendar <https://doc.owncloud.org/server/8.0/user_manual/pim/calendar.html>`_ and `Contacts
-<https://doc.owncloud.org/server/8.1/user_manual/pim/contacts.html>`_ apps to synchronize your calendar and contacts.
+We may adjust settings and enable more ownCloud apps. The way to add a new app into the ownCloud instance is similar to
+adding the LDAP backend app as shown in :ref:`use-owncloud-with-openldap`. It is recommended to enable the `Calendar
+<https://doc.owncloud.org/server/8.2/user_manual/pim/calendar.html>`_ and `Contacts
+<https://doc.owncloud.org/server/8.2/user_manual/pim/contacts.html>`_ apps calendar and contacts synchronization.
 
 Update OwnCloud
 ---------------
 
-The ownCloud container used here is a self-managed php container, which means that all ownCloud related files are
-actually downloaded and stored in a data container during the ownCloud container's first run. To upgrade, you can use
-`ownCloud's Updater app <https://doc.owncloud.org/server/8.2/admin_manual/maintenance/update.html>`_.
+The ownCloud container used here is a self-managed php container, which means that all ownCloud files are downloaded and
+stored in a data container during the ownCloud container's first run. To upgrade, we can use `ownCloud's Updater app
+<https://doc.owncloud.org/server/8.2/admin_manual/maintenance/update.html>`_.
 
 To manually update ownCloud, run the following command to enter the shell in the ownCloud container then switch to
 ``/var/www/html``:

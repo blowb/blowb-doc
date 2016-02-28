@@ -3,25 +3,26 @@ Prosody, An XMPP Communication Server
 
 *Uses dnsmasq, MariaDB and OpenLDAP*
 
-`Prosody`_ is a modern XMPP (the Extensible Messaging and Presence Protocol) communication server, which serves the
-purpose for communication, e.g. text messaging, audio and video calls, multi-party chatting, etc.
+`Prosody`_ is a modern XMPP (the Extensible Messaging and Presence Protocol, a.k.a. Jabber) communication server, which
+serves the purpose for different types of communication, such as text messaging, audio and video calls, multi-party
+chatting, etc.
 
 Configure DNS
 -------------
 
-Please add an A record to point the domain you want to use with Prosody to the IP address of the server.
+Add an ``A`` record to point the domain to be used by Prosody to the IP address of the server.
 
 Configure the MariaDB Database
 ------------------------------
 
-Please follow the instructions in :doc:`../common-tasks/add-mariadb-database` to create a new user and a database both
-named as ``prosody`` in MariaDB.
+Follow the instructions in :doc:`../common-tasks/add-mariadb-database` to create a new user and a database both named as
+``prosody`` in the MariaDB database.
 
 Configure the OpenLDAP Database
 -------------------------------
 
-Please follow the instructions in :doc:`../common-tasks/group-tasks-openldap` to create a new group ``prosody`` and add
-all users which will be granted to use this service to this group.
+Follow the instructions in :doc:`../common-tasks/group-tasks-openldap` to create a new group ``prosody`` and add
+all users who will be granted to use Prosody to this group.
 
 Set up Prosody
 --------------
@@ -33,18 +34,18 @@ Create a directory to store Prosody configuration files:
    cd $DOCKER_SHARE/prosody
    sudo mkdir -p certs conf.d
 
-Download the default prosody configuration file:
+Download the default Prosody configuration file:
 ::
 
    docker pull blowb/prosody
    sudo -s <<< "docker run --rm blowb/prosody cat /etc/prosody/prosody.cfg.lua > prosody.cfg.lua"
 
 The Dockerfile from which the image was generated is `available
-<https://registry.hub.docker.com/u/blowb/prosody/dockerfile/>`_.
+<https://hub.docker.com/r/blowb/prosody/~/dockerfile/>`_.
 
-Run the following command to modify the default config file to adjust it to run a Docker container, after replacing
-'dc=example,dc=com' with the ``LDAP_SUFFIX`` value in :doc:`../install-essential-docker/openldap`, and ``PASSWORD`` with
-the password of the prosody user in MariaDB you've just created:
+Run the following commands to modify the default configuration file to adjust it for running inside a Docker container,
+after replacing ``dc=example,dc=com`` with the ``LDAP_SUFFIX`` value in :doc:`../install-essential-docker/openldap`, and
+``PASSWORD`` with the password of the user ``prosody`` in MariaDB we have just created:
 
 .. code-block:: bash
    :linenos:
@@ -64,19 +65,19 @@ the password of the prosody user in MariaDB you've just created:
 
 Explanation:
 
-  - **line 3**: use the OpenLDAP server we set up for authentication instead of the internal one;
+  - **line 3**: use the OpenLDAP server we have set up for authentication instead of the internal one;
   - **line 4**: specify the base in the LDAP database;
   - **line 5**: specify the OpenLDAP server;
   - **line 6**: use ``uid`` attribute as the user name;
-  - **line 7**: use sql backend for data storage;
+  - **line 7**: use the SQL backend for data storage;
   - **line 9-10**: specify MariaDB connection parameters.
 
-You can edit the configuration file and enable additional modules if you want, such as ``carbons`` for message
+We can edit the configuration file and enable additional modules as we need, such as ``carbons`` for message
 synchronization, ``mam_sql`` for message archiving, etc.
 
-Put your XMPP server certificate in ``$DOCKER_SHARE/prosody/certs``. If you just want to use a dummy key, similar to the
-key generation described in :doc:`../install-essential-docker/nginx`, run the following command to generate a pair of
-dummy keys:
+Copy the XMPP server certificate into ``$DOCKER_SHARE/prosody/certs``. If a dummy key and certificate will be used
+instead of a valid certificate, run the following command to generate a pair of dummy keys, similar to the key
+generation described in :doc:`../install-essential-docker/nginx`:
 ::
 
    sudo mkdir -p $DOCKER_SHARE/prosody/certs
@@ -86,8 +87,8 @@ dummy keys:
 
 Add a virtual host configuration files after replacing ``example.com`` with the domain to be used as the XMPP domain,
 which is the domain that will appear in the user names in the form of ``someone@example.com``. Note that this domain is
-not necessarily the same as the domain which the server uses for the DNS query for its IP address. Also, replace
-``dummy.crt`` and ``dummy.key`` with your certification and key if you have one:
+not necessarily the same as the domain which the server uses for the DNS query for its IP address. Also, optionally we
+can replace ``dummy.crt`` and ``dummy.key`` with a different pair of certification and key:
 ::
 
    MY_DOMAIN=example.com
@@ -102,7 +103,7 @@ not necessarily the same as the domain which the server uses for the DNS query f
    EEOOFF
    EOF
 
-You can create additional configuration host configurations if you need to host more than one domain.
+We can create additional configuration host configurations if more than one domains will be hosted.
 
 To start the container:
 ::
