@@ -15,7 +15,7 @@ addition, you can also use this manual as a reference. For instance, if you foll
 server with Docker, or to set up some of the software mentioned in this manual, this manual may be helpful.
 
 This manual is the main work of the Blowb project, and is mainly authored by `Hong Xu <http://www.topbug.net>`__. The
-latest version of this manual is available online at http://www.blowb.org and a hard copy is also `available for
+latest version of this manual is available online at http://www.blowb.org and a hard copies are also `available for
 purchase
 <http://www.lulu.com/shop/hong-xu/deploy-integrated-internet-apps-using-docker/paperback/product-22585734.html>`__.
 
