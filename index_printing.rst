@@ -1,5 +1,5 @@
-The Blowb Project -- Deploy Integrated Service Using Docker
-===========================================================
+The Blowb Project---Deploy Integrated Apps Using Docker
+=======================================================
 
 .. toctree::
    :caption: Table of Contents
