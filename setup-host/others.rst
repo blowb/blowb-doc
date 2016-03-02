@@ -1,10 +1,11 @@
 Set up the Host System on Other GNU/Linux Distributions
 =======================================================
 
-.. index:: GNU/Linux, mail transfer agent, netcat, systemd, dnsmasq, ed, Docker, docker0, SMTP, DNS
+.. index:: GNU/Linux, mail transfer agent, netcat, systemd, dnsmasq, ed, Docker, SMTP, DNS
    single: GNU; sed
    single: GNU; wget
    single: GNU; bash
+   single: Docker; docker0
 
 This chapter has guided you to prepare the host system on RHEL/CentOS, but it is also possible to set up the host on a
 different GNU/Linux distribution, as long as the following requirements are met:
