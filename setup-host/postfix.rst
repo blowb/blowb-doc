@@ -9,10 +9,11 @@ Configure Postfix
    seealso: SMTP; mail transport agent
    seealso: mail transport agent; SMTP
 
-`Postfix`_ is a popular mail server and is the default mail transport agent on RHEL/CentOS 7. Postfix on the host system
-will serve two purposes: sending admin notification mails to our email inbox, and acting as the mailer for the Internet
-services that we will install later (such as registering email confirmation, notification, etc). In this section, we
-will configure a minimal Postfix instance, e.g. no associated domain, no incoming mails from outside accepted.
+`Postfix`_ is a popular mail server and is the default mail transport agent (MTA) on RHEL/CentOS 7. Postfix on the host
+system will serve two purposes: sending admin notification mails to our email inbox, and acting as the mailer for the
+Internet services that we will install later (such as registering email confirmation, notification, etc). In this
+section, we will configure a minimal Postfix instance, e.g. no associated domain, no incoming mails from outside
+accepted.
 
 Install and Enable Postfix
 --------------------------
