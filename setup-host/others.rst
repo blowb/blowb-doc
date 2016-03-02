@@ -1,7 +1,7 @@
 Set up the Host System on Other GNU/Linux Distributions
 =======================================================
 
-.. index:: GNU/Linux, mail transfer agent, netcat, systemd, dnsmasq, ed, Docker, SMTP, DNS
+.. index:: GNU/Linux, mail transport agent, netcat, systemd, dnsmasq, ed, Docker, SMTP, DNS
    single: GNU; sed
    single: GNU; wget
    single: GNU; bash
@@ -11,7 +11,7 @@ This chapter has guided you to prepare the host system on RHEL/CentOS, but it is
 different GNU/Linux distribution, as long as the following requirements are met:
 
 - GNU bash, Ed, dnsmasq, Docker, GNU sed, netcat, and GNU wget are available.
-- A mail transfer agent (MTA) is available.
+- A mail transport agent (MTA) is available.
 - The scripts introduced in :doc:`dnsmasq` can be installed, thus the availability of systemd is recommended. If systemd
   is not available, the systemd unit file introduced in :doc:`dnsmasq` must be replaced by an equivalent configuration
   file for the available service manager.
