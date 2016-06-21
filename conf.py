@@ -54,7 +54,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Blowb'
-copyright = '2015, Hong Xu <hong@topbug.net>. This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License'
+copyright = '2015-2016, Hong Xu <hong@topbug.net>. This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License.'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -192,7 +192,7 @@ html_title = 'Blowb'
 #html_show_sourcelink = True
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
-#html_show_sphinx = True
+html_show_sphinx = False
 
 # If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
 #html_show_copyright = True
